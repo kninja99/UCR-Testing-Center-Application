@@ -1,2 +1,2 @@
-# cs178a-Project
+# cs178-Project
 UCR Capstone Project
