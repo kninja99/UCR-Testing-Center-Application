@@ -21,7 +21,7 @@
 }
 
 .nav-comp:hover {
-    background-color: #023792;
+    background-color: var(--BlueHover);
     border-top: solid var(--UcrGold);
     border-bottom: solid var(--UcrGold);
     cursor: pointer;

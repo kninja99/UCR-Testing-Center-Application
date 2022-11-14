@@ -1,9 +1,18 @@
 <script>
     export default {
         props: {
-            navTitle: String,
-            imgName: String,
-            route: String
+            navTitle: {
+                type:String,
+                required: true
+            },
+            imgName: {
+                type:String,
+                required: true
+            },
+            route: {
+                type:String,
+                required: true
+            }
         }
     }   
 </script>
