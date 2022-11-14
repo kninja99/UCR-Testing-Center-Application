@@ -1,3 +1,17 @@
+@import url(./card.css);
+@import url(./navBar.css);
+
+:root {
+    --UcrBlue: #003DA5;
+    --UcrGold: #FFB718;
+    --White: #FFF;
+}
+
+body {
+    margin: 0;
+
+}
+
 button {
     border: none;
 }
@@ -6,30 +20,23 @@ button:hover {
     cursor: pointer;
 }
 
-.card {
+/* admin home page setup */
+
+.admin-home {
+    display: grid;
+    grid-template-columns: 270px 3fr;
+    grid-template-rows: .1fr 1fr 1fr;
+    grid-template-areas: 
+    "header header"
+    "navbar card"
+    "navbar card";
+    height: 100vh;
+    width: 100vw;
+}
+
+header {
+    grid-area: header;
     background-color: #003DA5;
-    width: 300px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-top: solid #FFB718 4px;
-    box-shadow: 6px 5px rgba(0, 0, 0, .25);
-}
-
-.card-logo {
-    height: 150px;
-    width: auto;
-}
-
-.card-btn {
-    width: 150px;
-    height: 36px;
-    background-color: #FFB718;
-    font-weight: 700;
-}
-
-.card-btn:hover {
-    background-color: #eca916;
+    border-bottom: solid #FFB718 4px;
+    color: var(--White);
 }

@@ -1,0 +1,11 @@
+/* Nav Styles */
+
+.nav-bar {
+    background-color: var(--UcrBlue);
+    grid-area: navbar;
+    max-width: 270px;
+}
+
+.nav-comp {
+    color:var(--White)
+}
