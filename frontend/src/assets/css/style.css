@@ -32,8 +32,10 @@ button:hover {
     "navbar card";
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 
+/* Temp style for header */
 header {
     grid-area: header;
     background-color: #003DA5;

@@ -4,8 +4,29 @@
     background-color: var(--UcrBlue);
     grid-area: navbar;
     max-width: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .nav-comp {
-    color:var(--White)
+    display: flex;
+    flex-direction: column;
+    color:var(--White);
+    /* border-bottom: solid #E1E1E1 5px; */
+    height: fill;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-comp:hover {
+    background-color: #023792;
+    border-top: solid var(--UcrGold);
+    border-bottom: solid var(--UcrGold);
+    cursor: pointer;
+}
+
+.nav-comp h3 {
+    margin: 0;
+    margin-top: 5px;
 }
