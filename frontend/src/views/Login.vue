@@ -1,18 +1,23 @@
 <template>
     <div class="login">
-        <h1 style="color:white;">Welcome to the UCR Testing Center</h1>
-        
+        <h1 class="loginWelcome"><b>Welcome to the UCR Testing Center</b></h1>
     </div>
 </template>
 
 <style>
-body {
-  position: relative;
+body { 
   background-image: url('../assets/imgs/loginBackground.svg') ;
   background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: contain;
+  background-color: black;
+  height: 100%;
+
   background-attachment: fixed;
-  background-size: cover;
+
 }
+
 </style>
 
 
