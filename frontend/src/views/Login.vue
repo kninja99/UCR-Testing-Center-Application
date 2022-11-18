@@ -1,6 +1,7 @@
 <template>
     <div class="login">
         <h1 class="loginWelcome"><b>Welcome to the UCR Testing Center</b></h1>
+        <p class="loginTrouble">Trouble Connecting?<br>Contact us at: sendhelp@ucr.edu</p>
     </div>
 </template>
 
