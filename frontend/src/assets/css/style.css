@@ -1,5 +1,6 @@
 @import url(./card.css);
 @import url(./navBar.css);
+@import url(./login.css);
 
 :root {
     --UcrBlue: #003DA5;
@@ -44,3 +45,5 @@ header {
     border-bottom: solid #FFB718 4px;
     color: var(--White);
 }
+
+
