@@ -1,5 +1,6 @@
 @import url(./card.css);
 @import url(./navBar.css);
+@import url(./login.css);
 
 :root {
     --UcrBlue: #003DA5;
@@ -45,37 +46,4 @@ header {
     color: var(--White);
 }
 
-.login-welcome {
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 47px;
-    margin-top: 0%;
-    position: absolute;
-    width: 100%;
-    height: 50px;
-    left: 0px;
-    top: 0px;
-    font-size: calc(2.5vw + 2.5vh);
 
-    background: #191B1E;
-    opacity: 0.78;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.25);
-  }
-
-.login-trouble{
-    position: absolute;
-    font-family: 'Oswald';
-    font-style: normal;
-    font-weight: 700;
-    font-size: calc(1.5vw + 1.5vh);
-    
-    line-height: 47px;
-    text-align: left;
-    bottom: 0;
-    color: #FFFFFF;
-    margin-bottom: 1%;
-    margin-left: 2%;
-    line-height: normal;
-
-}
