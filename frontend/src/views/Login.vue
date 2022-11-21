@@ -8,17 +8,16 @@
 
 
 <style>
-    body{
-        background-image: url('../assets/imgs/loginBackground.svg') ;
-        background-repeat: no-repeat;
-        background-position-x: center;
-        background-position-y: center;
-        background-size: contain;
-        background-color: black;
-        height: 100%;
-    
-        background-attachment: fixed;
-    }
+.login {
+    background-image: url('../assets/imgs/loginBackground.svg');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    background-color: black;
+    height: 100vh;
+    width: auto;
+}
 </style>
 
 
