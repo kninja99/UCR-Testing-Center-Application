@@ -4,7 +4,7 @@
 
 :root {
     --UcrBlue: #003DA5;
-    --BlueHover: #02348a ;
+    --BlueHover: #02348a;
     --UcrGold: #FFB718;
     --GoldHover: #eba817;
     --White: #FFF;
@@ -29,10 +29,10 @@ button:hover {
     display: grid;
     grid-template-columns: 270px 3fr;
     grid-template-rows: .1fr 1fr 1fr;
-    grid-template-areas: 
-    "header header"
-    "navbar card"
-    "navbar card";
+    grid-template-areas:
+        "header header"
+        "navbar card"
+        "navbar card";
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -46,4 +46,15 @@ header {
     color: var(--White);
 }
 
+.corner {
+    position: fixed;
+    bottom: -5px;
+    width: 50%;
+    right: -13%;
+    z-index: -2;
+}
 
+.corner img {
+    width: 75%;
+    height: auto;
+}
