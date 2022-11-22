@@ -1,6 +1,10 @@
 <script>
 import Card from "../components/Card.vue"
 import NavBar from "../components/NavBar.vue"
+import CornerStyle from "../components/CornerStyle.vue";
+export default {
+    components: {
+        Card, NavBar, CornerStyle
 import Header from "../components/Header.vue"
 export default {
     components: {
@@ -14,6 +18,7 @@ export default {
 <template>
     <div class="admin-home">
         <Header title="Admin Home Page"/>
+
         <!-- nav-elements is an array of objects that map nav elements -->
         <!-- object {title:Sting , img:String , route:String} -->
         <NavBar :nav-elements="[
@@ -27,5 +32,6 @@ export default {
             <Card img-name="room-icon.svg" button-header="View Rooms" route="admin/rooms" />
             <Card img-name="email-icon.svg" button-header="View Inbox" route="admin/inbox" />
         </div>
+        <CornerStyle />
     </div>
 </template>
