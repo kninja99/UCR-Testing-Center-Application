@@ -5,6 +5,10 @@ import CornerStyle from "../components/CornerStyle.vue";
 export default {
     components: {
         Card, NavBar, CornerStyle
+import Header from "../components/Header.vue"
+export default {
+    components: {
+        Card, NavBar, Header
     }
 }
 </script>
@@ -13,10 +17,8 @@ export default {
 
 <template>
     <div class="admin-home">
-        <!-- Temp header for styling reasons -->
-        <header>
-            <h1>Admin Home Page</h1>
-        </header>
+        <Header title="Admin Home Page"/>
+
         <!-- nav-elements is an array of objects that map nav elements -->
         <!-- object {title:Sting , img:String , route:String} -->
         <NavBar :nav-elements="[
@@ -27,8 +29,8 @@ export default {
         { title: 'My Account', img: 'profile-icon.svg', route: 'admin/account' },
         { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
         <div class="card-container">
-            <Card img-name="room-icon.svg" button-header="View Rooms" />
-            <Card img-name="email-icon.svg" button-header="View Inbox" />
+            <Card img-name="room-icon.svg" button-header="View Rooms" route="admin/rooms" />
+            <Card img-name="email-icon.svg" button-header="View Inbox" route="admin/inbox" />
         </div>
         <CornerStyle />
     </div>
