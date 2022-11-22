@@ -1,9 +1,10 @@
 <script>
 import Card from "../components/Card.vue"
 import NavBar from "../components/NavBar.vue"
+import Header from "../components/Header.vue"
 export default {
     components: {
-        Card, NavBar
+        Card, NavBar, Header
     }
 }
 </script>
@@ -12,10 +13,7 @@ export default {
 
 <template>
     <div class="admin-home">
-        <!-- Temp header for styling reasons -->
-        <header>
-            <h1>Admin Home Page</h1>
-        </header>
+        <Header title="Admin Home Page"/>
         <!-- nav-elements is an array of objects that map nav elements -->
         <!-- object {title:Sting , img:String , route:String} -->
         <NavBar :nav-elements="[

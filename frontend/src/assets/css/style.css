@@ -1,6 +1,7 @@
 @import url(./card.css);
 @import url(./navBar.css);
 @import url(./login.css);
+@import url(./header.css);
 
 :root {
     --UcrBlue: #003DA5;
@@ -38,12 +39,5 @@ button:hover {
     overflow: hidden;
 }
 
-/* Temp style for header */
-header {
-    grid-area: header;
-    background-color: #003DA5;
-    border-bottom: solid #FFB718 4px;
-    color: var(--White);
-}
 
 
