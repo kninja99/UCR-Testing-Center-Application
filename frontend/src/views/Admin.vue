@@ -5,7 +5,7 @@ import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 export default {
     components: {
-        Card, NavBar, Header, CornerStyle,
+        Card, NavBar, Header, CornerStyle
     }
 }
 </script>
