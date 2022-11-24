@@ -1,11 +1,14 @@
 <script>
 import Card from "../components/Card.vue"
 import NavBar from "../components/NavBar.vue"
-import CornerStyle from "../components/CornerStyle.vue"
-import Header from "../components/Header.vue";
+import CornerStyle from "../components/CornerStyle.vue";
 export default {
     components: {
-        Card, NavBar, Header, CornerStyle,
+        Card, NavBar, CornerStyle
+import Header from "../components/Header.vue"
+export default {
+    components: {
+        Card, NavBar, Header
     }
 }
 </script>
