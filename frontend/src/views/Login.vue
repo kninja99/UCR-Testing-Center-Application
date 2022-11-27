@@ -1,24 +1,22 @@
+<script>
+import Header from "../components/Header.vue"
+export default {
+    components: {
+        Header
+    }
+}
+</script>
+
 <template>
     <div class="login">
-        <h1 class="login-welcome"><b>Welcome to the UCR Testing Center</b></h1>
-        <p class="login-trouble">Trouble Connecting?<br>Contact us at: sendhelp@ucr.edu</p>
+        <Header title="Welcome to the UCR Testing Center"/>
+        <footer class="login-trouble">Trouble Connecting?<br>Contact us at: sendhelp@ucr.edu</footer>
     </div>
 </template>
 
 
 
-<style>
-.login {
-    background-image: url('../assets/imgs/loginBackground.svg');
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
-    background-size: contain;
-    background-color: black;
-    height: 100vh;
-    width: auto;
-}
-</style>
+
 
 
 
