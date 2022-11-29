@@ -4,10 +4,11 @@ import NavBar from "../components/NavBar.vue"
 import Header from "../components/Header.vue"
 import CornerStyle from "../components/CornerStyle.vue"
 import AdminNotif from "../components/AdminNotifText.vue"
+import AdminNotifButtons from "../components/AdminNotifButtons.vue"
 
 export default {
     components: {
-        Card, NavBar, Header, CornerStyle, AdminNotif
+        Card, NavBar, Header, CornerStyle, AdminNotif, AdminNotifButtons
     }
 }
 </script>

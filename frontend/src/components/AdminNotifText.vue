@@ -1,5 +1,9 @@
 <script>
+    import AdminNotifButtons from './AdminNotifButtons.vue';
     export default {
+        components: {
+            AdminNotifButtons
+        },
         props: {
             profName: {
                 type:String,
@@ -48,5 +52,7 @@
         <div class="sched-column">
             <p>Schedule</p>
         </div>
+        <AdminNotifButtons />
+
     </div> 
 </template>

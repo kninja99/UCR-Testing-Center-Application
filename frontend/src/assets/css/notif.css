@@ -2,25 +2,61 @@
     background-color: #E6E6E6;
     height: 100px;
     display: flex;
-    /* margin-left: 10px; */
     padding-left: 5%;
+    padding-top: 5%;
 }
 .profColumn{
-    margin-left: 10%;
     width: 25%;
     text-align: center;
 
 }
 .room-column{
+    margin-left: 10px;
     width: 25%;
     text-align: center;
+    font-family: 'Oswald';
+    color: #000000;
 }
 .sched-column{
+    margin-left: 10px;
     width: 25%;
-    text-align: center;
+    text-align: left;
 }
 .admin-notif-text:after {
     content: "";
     display: table;
     clear: both;
+}
+
+.check-button{
+    background-color: #27C100;
+    border-radius: 100%;
+    height: 35px;
+    width: 35px;
+    margin-right: 10px;
+}
+
+.mail-button{
+    background-color: #FFB718;
+    border-radius: 100%;
+    height: 35px;
+    width: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.reject-button{
+    background-color: #D10606;
+    border-radius: 100%;
+    height: 35px;
+    width: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.admin-notif-buttons{
+    margin-right: 0px;
+    padding-right: 0px;
+    display: flex;
+    float: right;
 }
