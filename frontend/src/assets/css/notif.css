@@ -1,0 +1,26 @@
+.admin-notif-text{
+    background-color: #E6E6E6;
+    height: 100px;
+    display: flex;
+    /* margin-left: 10px; */
+    padding-left: 5%;
+}
+.profColumn{
+    margin-left: 10%;
+    width: 25%;
+    text-align: center;
+
+}
+.room-column{
+    width: 25%;
+    text-align: center;
+}
+.sched-column{
+    width: 25%;
+    text-align: center;
+}
+.admin-notif-text:after {
+    content: "";
+    display: table;
+    clear: both;
+}
