@@ -24,7 +24,7 @@ export default {
             { title: 'My Account', img: 'profile-icon.svg', route: 'admin/account' },
             { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
         <!-- <AdminNotif [{profName="Prof Allan Knight"}, {className="CS 061"}, {roomNum="234"}]" /> -->
-        <AdminNotif profName='Knight' className='CS061' roomNum='234' />
+        <AdminNotif profName='Allan Knight' className='CS061' roomNum='234' />
         <CornerStyle />
     </div>
 </template>
