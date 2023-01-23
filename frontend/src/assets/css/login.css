@@ -1,6 +1,8 @@
 .login {
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .login-welcome {
@@ -21,12 +23,11 @@
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.25);
 }
 
-.login-trouble{
+/* .login-trouble {
     position: absolute;
     font-family: 'Oswald';
     font-style: normal;
     font-size: calc(1.25vw + 1.25vh);
-    
     line-height: 47px;
     text-align: left;
     bottom: 0;
@@ -38,6 +39,43 @@
     background-color: #003DA5;
     border-top: solid var(--UcrGold) 4px;
     width: 100%;
+} */
+
+.login-trouble {
+    margin-top: auto;
+    text-align: left;
+    color: #fff;
+    background-color: #003DA5;
+    border-top: solid var(--UcrGold) 4px;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60px;
+}
+
+.login-trouble p {
+    margin: 5px;
+    margin-left: 2%;
+    vertical-align: middle;
+    font-size: 1.7em;
+}
+
+@media all and (max-width:1024px) {
+    .login-trouble p {
+        font-size: 1.2em;
+    }
+}
+
+@media all and (max-height:550px) {
+    .login-trouble {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .login-trouble p {
+        margin: 0 5px;
+    }
 }
 
 .login-wrapper {
@@ -45,7 +83,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 60%;
+    height: 65%;
+    margin: 50px;
 }
 
 .login-box {
@@ -57,7 +96,8 @@
     box-shadow: #000 4px 4px 10px;
 }
 
-.login-box, .login-box form {
+.login-box,
+.login-box form {
     display: flex;
     flex-direction: column;
 }
