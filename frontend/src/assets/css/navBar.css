@@ -9,10 +9,22 @@
     justify-content: space-around;
 }
 
+@media all and (max-width:950px) {
+    .nav-bar {
+        display: none;
+    }
+}
+
+@media all and (max-height:692px) {
+    .nav-bar {
+        display: none;
+    }
+}
+
 .nav-comp {
     display: flex;
     flex-direction: column;
-    color:var(--White);
+    color: var(--White);
     /* border-bottom: solid #E1E1E1 5px; */
     height: fill;
     align-items: center;

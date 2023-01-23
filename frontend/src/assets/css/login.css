@@ -35,7 +35,7 @@
     }
 }
 
-@media all and (max-height:550px) {
+@media all and (max-height:560px) {
     .login-trouble {
         flex-direction: row;
         align-items: center;
