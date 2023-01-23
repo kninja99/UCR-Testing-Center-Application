@@ -11,7 +11,7 @@
         methods: {
             navBarEvent() {
                 let navBar = document.querySelector(".nav-bar");
-                navBar.classList.toggle("nav-active")
+                navBar.classList.toggle("nav-active");
             }
         },
     }
