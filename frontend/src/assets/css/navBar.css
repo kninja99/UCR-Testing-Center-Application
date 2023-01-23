@@ -18,12 +18,16 @@
 @media all and (max-width:642px) {
     .nav-bar {
         display: none;
+        position: fixed;
+        box-shadow: black 4px 4px 8px;
     }
 }
 
 @media all and (max-height:692px) {
-    .nav-bar .nav-comp {
+    .nav-bar {
         display: none;
+        position: fixed;
+        box-shadow: black 4px 4px 8px;
     }
 }
 
@@ -62,14 +66,19 @@
     width: 25px;
     height: 3px;
     background-color: var(--UcrGold);
-    margin: 5px 0;
+    margin: 5px 0px;
 }
 
 .nav-btn {
     display: none;
-    position: absolute;
+    position: fixed;
     left: 30px;
-    top: 48px
+    top: 25px;
+    z-index: 2;
+}
+
+.nav-btn:hover {
+    cursor: pointer;
 }
 
 @media all and (max-width:642px) {
@@ -82,4 +91,10 @@
     .nav-btn {
         display: block;
     }
+}
+
+.nav-active {
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
