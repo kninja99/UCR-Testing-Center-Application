@@ -22,7 +22,7 @@
 }
 
 @media all and (max-height:692px) {
-    .nav-bar {
+    .nav-bar .nav-comp {
         display: none;
     }
 }
@@ -56,4 +56,30 @@
 .nav-comp h3 {
     margin: 0;
     margin-top: 5px;
+}
+
+.nav-icon {
+    width: 25px;
+    height: 3px;
+    background-color: var(--UcrGold);
+    margin: 5px 0;
+}
+
+.nav-btn {
+    display: none;
+    position: absolute;
+    left: 30px;
+    top: 48px
+}
+
+@media all and (max-width:642px) {
+    .nav-btn {
+        display: block;
+    }
+}
+
+@media all and (max-height:692px) {
+    .nav-btn {
+        display: block;
+    }
 }
