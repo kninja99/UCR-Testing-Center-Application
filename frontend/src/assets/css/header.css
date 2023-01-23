@@ -4,13 +4,44 @@
     border-bottom: solid #FFB718 4px;
     color: var(--White);
 }
+
+@media all and (max-width:420px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+
 .UCR-logo {
     display: inline;
     float: left;
     padding: 15px 0 10px 15px;
 }
 
+@media all and (max-width:700px) {
+    .UCR-logo img {
+        height: 50px;
+        width: auto;
+    }
+}
+
 .header h1 {
     display: inline-flex;
     padding: 15px 15px 15px 15px;
+    vertical-align: middle;
+}
+
+@media all and (max-width:700px) {
+    .header h1 {
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width:420px) {
+    .header h1 {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 }
