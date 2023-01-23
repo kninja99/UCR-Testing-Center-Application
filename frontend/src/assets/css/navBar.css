@@ -9,7 +9,13 @@
     justify-content: space-around;
 }
 
-@media all and (max-width:950px) {
+@media all and (max-width:615px) {
+    .nav-bar {
+        width: 180px;
+    }
+}
+
+@media all and (max-width:642px) {
     .nav-bar {
         display: none;
     }
@@ -30,6 +36,14 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+}
+
+
+@media all and (max-width:642px) {
+    .nav-comp img {
+        height: 30px;
+        width: auto;
+    }
 }
 
 .nav-comp:hover {

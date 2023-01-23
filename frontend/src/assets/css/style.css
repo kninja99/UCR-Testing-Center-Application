@@ -50,10 +50,15 @@ button:hover {
     width: 100%;
 }
 
-@media all and (max-width:950px) {
+@media all and (max-width:642px) {
     .admin-home {
-        grid-template-areas:
-            "header header"
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media all and (max-width:642px) {
+    .admin-home {
+        grid-template-areas: "header header"
             "card card"
             "card card";
     }
