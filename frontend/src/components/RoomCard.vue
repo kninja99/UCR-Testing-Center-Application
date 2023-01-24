@@ -12,12 +12,14 @@ export default {
 </script>
 
 <template>
-    <div class="room-card">
+    <a class="room-card">
+
         <div class="room-card-color">
+            Float
         </div>
+
         <div class="room-card-text">
-            <a>Room: {{roomNum}}<br>{{bldg}}
-            </a>
+            Room: {{roomNum}}<br>{{bldg}}
         </div>
-    </div>
+    </a>
 </template>
