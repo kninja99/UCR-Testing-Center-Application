@@ -33,7 +33,7 @@ export default {
             <Card img-name="email-icon.svg" button-header="View Inbox" route="admin/inbox" />
         </div> -->
         <AddRoomButton buttonName="Add New Room"/>
-        <RoomCard />
+        <RoomCard : cardColor='yellow' roomNum='120' bldg='Winston Chung Hall' />
         <CornerStyle />
     </div>
 </template>
