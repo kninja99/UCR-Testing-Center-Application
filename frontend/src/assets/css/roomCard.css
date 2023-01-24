@@ -1,0 +1,11 @@
+.room-card{
+    max-width: 50px;
+}
+
+.room-card-color{
+    background-color: aqua;
+}
+
+.room-card-text{
+    background-color: white;
+}

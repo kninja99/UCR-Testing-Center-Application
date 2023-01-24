@@ -4,10 +4,10 @@ import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import AddRoomButton from "../components/AddRoomButton.vue"
-// import AddRoomButton from '../components/AddRoomButton.vue';
+import RoomCard from '../components/RoomCard.vue';
 export default {
     components: {
-        Card, NavBar, Header, CornerStyle, AddRoomButton
+        Card, NavBar, Header, CornerStyle, AddRoomButton, RoomCard
     }
 }
 </script>
@@ -33,6 +33,7 @@ export default {
             <Card img-name="email-icon.svg" button-header="View Inbox" route="admin/inbox" />
         </div> -->
         <AddRoomButton buttonName="Add New Room"/>
+        <RoomCard />
         <CornerStyle />
     </div>
 </template>
