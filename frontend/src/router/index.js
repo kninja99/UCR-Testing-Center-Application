@@ -4,6 +4,7 @@ import Login from '../views/Login.vue';
 import Admin from '../views/Admin.vue';
 import AdminRoomSelect from '../views/AdminRoomSelect.vue';
 import AdminInbox from '../views/AdminInbox.vue';
+import Proctor from '../views/Proctor.vue';
 
 Vue.use(VueRouter);
 
@@ -41,6 +42,11 @@ const routes = [
     path: '/admin/inbox',
     name: 'Admin-Inbox',
     component: AdminInbox,
+  },
+  {
+    path: '/proctor',
+    name: 'Proctor',
+    component: Proctor,
   },
 ];
 
