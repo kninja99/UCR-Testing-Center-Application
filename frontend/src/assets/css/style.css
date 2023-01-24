@@ -2,6 +2,7 @@
 @import url(./navBar.css);
 @import url(./login.css);
 @import url(./header.css);
+@import url(./addButton.css);
 
 :root {
     --UcrBlue: #003DA5;
@@ -11,9 +12,21 @@
     --White: #FFF;
 }
 
+html {
+    height: 100vh;
+    width: 100vw;
+}
+
 body {
     margin: 0;
+    height: 100%;
+    width: 100%;
+}
 
+#app {
+    height: 100%;
+    width: 100%;
+    font-family: 'Oswald';
 }
 
 button {
@@ -34,9 +47,31 @@ button:hover {
         "header header"
         "navbar card"
         "navbar card";
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+@media all and (max-width:642px) {
+    .admin-home {
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media all and (max-width:642px) {
+    .admin-home {
+        grid-template-areas: "header header"
+            "card card"
+            "card card";
+    }
+}
+
+@media all and (max-height:692px) {
+    .admin-home {
+        grid-template-areas:
+            "header header"
+            "card card"
+            "card card";
+    }
 }
 
 

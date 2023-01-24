@@ -1,8 +1,9 @@
 <script>
 import Header from "../components/Header.vue"
+import LoginBox from "../components/LoginBox.vue";
 export default {
     components: {
-        Header
+        Header, LoginBox
     }
 }
 </script>
@@ -10,7 +11,11 @@ export default {
 <template>
     <div class="login">
         <Header title="Welcome to the UCR Testing Center"/>
-        <footer class="login-trouble">Trouble Connecting?<br>Contact us at: sendhelp@ucr.edu</footer>
+        <LoginBox/>
+        <footer class="login-trouble">
+            <p>Trouble Connecting?</p>
+            <p>Contact us at: <a href="mailto: sendhelp@ucr.edu">sendhelp@ucr.edu</a></p>
+        </footer>
     </div>
 </template>
 
