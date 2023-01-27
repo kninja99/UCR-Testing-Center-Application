@@ -1,29 +1,27 @@
-.room-card{
+.room-card-element{
     max-width: 250px;
+    min-width: 200px;
     background-color: aqua;
     outline: auto;
     /* max-height:max-content; */
     max-height: 150px;
     margin-left: 20px;
     top: 0px;
+    /* margin-top: -210px; */
+    margin-left: 50px;
     margin-bottom: 20px;
     align-content: top;
     padding-bottom: 0%;
-    /* position:absolute; */
-    /* top: -200ox; */
-    /* border-top: -200px; */
-    /* align-self: flex-start; */
 
 }
 
-.room-card-color{
+.room-card-element-color{
     background-color: yellow;
     min-height: 150px;
     outline: auto;
-    /* margin-left: 20px; */
 }
 
-.room-card-text{
+.room-card-element-text{
     background-color: white;
     /* margin-left: 20px; */
     padding-top: 10px;

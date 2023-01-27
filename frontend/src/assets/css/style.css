@@ -60,3 +60,11 @@ button:hover {
     width: 75%;
     height: auto;
 }
+
+.room-cards{
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    /* background-color: green; */
+    margin-top: -200px;
+}

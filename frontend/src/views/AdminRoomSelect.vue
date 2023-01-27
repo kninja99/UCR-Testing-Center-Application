@@ -33,10 +33,9 @@ export default {
             <Card img-name="email-icon.svg" button-header="View Inbox" route="admin/inbox" />
         </div> -->
         <AddRoomButton buttonName="Add New Room"/>
-        <!-- <a> -->
-        <RoomCard cardColor='yellow' roomNum='120' bldg='Winston Chung Hall' />
-        <!-- </a> -->
-        <!-- <AdminNotif profName='Allan Knight' className='CS061' roomNum='234' /> -->
+        <div class = "room-cards">
+            <RoomCard cardColor='yellow' roomNum='120' bldg='Winston Chung Hall' />
+        </div>
         <CornerStyle />
     </div>
 </template>
