@@ -1,12 +1,12 @@
 <script>
-import Card from "../components/Card.vue"
+import TestCard from "../components/TestCard.vue"
 import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import NavBtn from "../components/NavBtn.vue";
 export default {
     components: {
-        Card, NavBar, Header, CornerStyle, NavBtn
+        TestCard, NavBar, Header, CornerStyle, NavBtn
     }
 }
 </script>
@@ -28,8 +28,8 @@ export default {
         { title: 'My Account', img: 'profile-icon.svg', route: 'proctor/account' },
         { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
         <div class="card-container">
-            <Card img-name="room-icon.svg" button-header="View Rooms" route="proctor/rooms" />
-            <Card img-name="email-icon.svg" button-header="View Inbox" route="proctor/inbox" />
+            <TestCard img-name="room-icon.svg" button-header="View Rooms" route="proctor/rooms" />
+            <TestCard img-name="email-icon.svg" button-header="View Inbox" route="proctor/inbox" />
         </div>
         <CornerStyle />
     </div>
