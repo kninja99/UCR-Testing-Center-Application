@@ -44,6 +44,11 @@ const routes = [
     component: AdminInbox,
   },
   {
+    path: '/admin/rooms/scheduling',
+    name: 'Admin-room-scheduling',
+    component: AdminScheduling,
+  },
+  {
     path: '/proctor',
     name: 'Proctor',
     component: Proctor,
