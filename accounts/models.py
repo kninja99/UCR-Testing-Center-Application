@@ -5,28 +5,28 @@ from django.contrib.auth.models import User
 
 class Student(models.Model):
     student=models.OneToOneField(User,on_delete=models.CASCADE)
-    user_type = models.CharField(max_length=50, blank = 'Student')
+    user_type = models.CharField(max_length=50, default = 'Student')
     
     def __str__(self):
         return self.student.username
     
 class SiteAdmin(models.Model):
     site_admin=models.OneToOneField(User,on_delete=models.CASCADE)
-    user_type = models.CharField(max_length=50, blank = 'Admin')
+    user_type = models.CharField(max_length=50, default = 'Admin')
     
     def __str__(self):
         return self.site_admin.username
     
 class Professor(models.Model):
     professor=models.OneToOneField(User,on_delete=models.CASCADE)
-    user_type = models.CharField(max_length=50, blank = 'Professor')
+    user_type = models.CharField(max_length=50, default = 'Professor')
     
     def __str__(self):
         return self.professor.username
     
 class Proctor(models.Model):
     proctor=models.OneToOneField(User,on_delete=models.CASCADE)
-    user_type = models.CharField(max_length=50, blank = 'Proctor')
+    user_type = models.CharField(max_length=50, default = 'Proctor')
     
     def __str__(self):
         return self.proctor.username
