@@ -18,6 +18,7 @@
         methods: {
             loginEvent(e) {
                 // collecting our user data
+                let loginForm = document.querySelector(".login-box form");
                 let userName = document.querySelector("#username").value;
                 let pass = document.querySelector("#password").value;
                 let loginData = {
@@ -30,6 +31,8 @@
                     console.log(res);
                     window.sessionStorage.setItem("auth",res.data.token);
                     window.sessionStorage.setItem("validUser",true);
+                    loginForm.reset();
+                    alert("Login in successful")
                 })
                 .catch((err) => {
                     console.log(err.response.data);
