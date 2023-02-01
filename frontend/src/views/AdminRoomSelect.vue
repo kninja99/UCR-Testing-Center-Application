@@ -32,9 +32,11 @@ export default {
             <Card img-name="room-icon.svg" button-header="View Rooms" route="admin/rooms" />
             <Card img-name="email-icon.svg" button-header="View Inbox" route="admin/inbox" />
         </div> -->
-        <AddRoomButton buttonName="Add New Room"/>
-        <div class = "room-cards">
-            <RoomCard cardColor='yellow' roomNum='120' bldg='Winston Chung Hall' />
+        <div class="room-page-contents">
+            <AddRoomButton buttonName="Add New Room"/>
+            <div class = "room-cards">
+                <RoomCard cardColor='18ACFF' roomNum='120' bldg='Winston Chung Hall' seatNum='45' />
+            </div>
         </div>
         <CornerStyle />
     </div>

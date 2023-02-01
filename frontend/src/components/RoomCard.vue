@@ -13,13 +13,17 @@ export default {
 
 <template>
     <div class="room-card-element">
-
         <div class="room-card-element-color">
-            Float
+            
         </div>
 
         <div class="room-card-element-text">
-            Room: {{roomNum}}<br>{{bldg}}
+            <div class="room-card-element-location">
+                Room: {{roomNum}}<br>{{bldg}}
+            </div>
+            <div class="room-card-element-seats">
+                Seats: {{seatNum}}
+            </div>
         </div>
     </div>
 </template>

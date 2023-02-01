@@ -90,11 +90,19 @@ button:hover {
 }
 
 .room-cards{
+    grid-area: card;
     display: flex;
     align-content: flex-start;
     flex-wrap: wrap;
-    /* background-color: green; */
-    margin-top: 200px;
-    margin-left: 300px;
+    margin-top: 50px;
+    /* margin-left: 300px; */
     position:absolute;
+}
+
+.room-page-contents{
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    align-content: left;
+    
+    
 }
