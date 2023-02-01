@@ -28,6 +28,8 @@
                 axios.post('/api/login/', loginData)
                 .then((res) => {
                     console.log(res);
+                    window.sessionStorage.setItem("Auth",res.data.token);
+                    window.sessionStorage.setItem("validUser",true);
                 })
                 .catch((err) => {
                     console.log(err.response.data);
