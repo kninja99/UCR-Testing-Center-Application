@@ -16,4 +16,8 @@ class Account(models.Model):
     )
     
     def __str__(self):
-        return self.user.username
+        return (self.user.username)
+    
+    def getUserType(self):
+        return self.userType
+    
