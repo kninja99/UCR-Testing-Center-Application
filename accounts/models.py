@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Custom User models
-class User(models.Model):
+class Account(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     userTypeChoices = (("student", "student"),
     ("admin", "admin"),
