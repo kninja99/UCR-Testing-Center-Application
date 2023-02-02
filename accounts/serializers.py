@@ -19,10 +19,15 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(validated_data['username'], validated_data['email'], validated_data['password'])
 
         return user
+
+class UserNameSerializer(serializers.ModelSerializer):
     
+    class Meta:
+        model = User
+        fields = ('username',)
 class AccountSerializer(serializers.HyperlinkedModelSerializer):
     
-    user = UserSerializer()
+    user = serializers.CharField(source="user.username", read_only=True)
     class Meta:
         model = Account
         fields = ('user_type', 'user',)
