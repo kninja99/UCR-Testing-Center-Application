@@ -23,4 +23,4 @@ class RegisterSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Account
-        fields = ('userType',)
+        fields = ('user_type',)

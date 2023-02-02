@@ -9,7 +9,7 @@ class Account(models.Model):
     ("proctor", "proctor"),
     ("professor", "professor"))
     
-    userType = models.CharField(
+    user_type = models.CharField(
         max_length = 50,
         choices = userTypeChoices,
         default = 'student'
