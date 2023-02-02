@@ -64,6 +64,8 @@ button:hover {
             "card card"
             "card card";
     }
+
+
 }
 
 @media all and (max-height:692px) {
@@ -95,8 +97,8 @@ button:hover {
     align-content: flex-start;
     flex-wrap: wrap;
     margin-top: 50px;
-    /* margin-left: 300px; */
     position:absolute;
+    justify-content: center;
 }
 
 .room-page-contents{

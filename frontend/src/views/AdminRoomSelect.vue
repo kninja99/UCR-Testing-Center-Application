@@ -36,6 +36,7 @@ export default {
             <AddRoomButton buttonName="Add New Room"/>
             <div class = "room-cards">
                 <RoomCard cardColor='18ACFF' roomNum='120' bldg='Winston Chung Hall' seatNum='45' />
+                <RoomCard cardColor='18ACFF' roomNum='220' bldg='Winston Chung Hall' seatNum='45' />
             </div>
         </div>
         <CornerStyle />
