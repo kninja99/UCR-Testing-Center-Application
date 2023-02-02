@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions,viewsets
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer, UserSerializer
+from .serializers import UserSerializer, RegisterSerializer, UserSerializer,AccountSerializer
 from django.contrib.auth import login
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.views import LoginView as KnoxLoginView
@@ -33,4 +33,4 @@ class LoginAPI(KnoxLoginView):
     
 class AccountViewSet(viewsets.ModelViewSet):
     queryset = Account.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = AccountSerializer

@@ -20,7 +20,14 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         return user
     
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class AccountSerializer(serializers.HyperlinkedModelSerializer):
+    
+    user = UserSerializer()
     class Meta:
         model = Account
-        fields = ('user_type',)
+        fields = ('user_type', 'user',)
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ('url', 'username')
