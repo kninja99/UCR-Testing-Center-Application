@@ -15,7 +15,7 @@ export default {
 
 <template>
     <div class="admin-home">
-        <Header title="Testing Rooms"/>
+        <Header title="Room 236"/>
         <NavBtn/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
@@ -29,6 +29,7 @@ export default {
         { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
         <div class="test-card-container">
             <TestCard button-header="7:00am - 9:00am" route="proctor/rooms" />
+            <TestCard button-header="1:00pm - 3:00pm" route="proctor/rooms" />
 
         </div>
         <CornerStyle />
