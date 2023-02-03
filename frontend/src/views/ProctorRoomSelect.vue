@@ -27,9 +27,10 @@ export default {
         { title: 'Settings', img: 'settings-icon.svg', route: 'proctor/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: 'proctor/account' },
         { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
-        <div class="card-container">
-            <TestCard img-name="room-icon.svg" button-header="View Rooms" route="proctor/rooms" />
-            <TestCard img-name="email-icon.svg" button-header="View Inbox" route="proctor/inbox" />
+        <div class="test-card-container">
+            <TestCard button-header="7:00am - 9:00am" route="proctor/rooms" />
+            <TestCard button-header="1:00pm - 3:00pm" route="proctor/rooms" />
+
         </div>
         <CornerStyle />
     </div>

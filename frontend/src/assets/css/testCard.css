@@ -1,7 +1,7 @@
 /* Test Card Styles */
 
 .test-card-container {
-    display: flex;
+    display:inline-flexbox;
     justify-content: space-evenly;
     align-items: center;
     grid-area: card;
@@ -11,18 +11,18 @@
 }
 
 .test-card {
-    background-color: var(--UcrBlue);
+    background-color: var(--White);
     width: 35%;
     max-width: 300px;
     min-width: 250px;
     height: 40%;
-    max-height: 300px;
-    min-height: 250px;
-    display: flex;
-    flex-direction: column;
+    max-height: 100px;
+    min-height: 100px;
+    display:block;
+    flex-direction:row;
     justify-content: space-around;
     align-items: center;
-    border-top: solid var(--UcrGold) 4px;
+    border-top: solid var(--UcrBlue) 35px;
     box-shadow: 6px 5px rgba(0, 0, 0, .25);
     margin: 15px;
 }
@@ -33,9 +33,10 @@
 }
 
 .test-card-btn {
-    width: 150px;
-    height: 36px;
-    background-color: var(--UcrGold);
+    /*width: 300px;
+    height: 50px;*/
+    display:inline;
+    background-color: var(--White);
     font-weight: 700;
 }
 
