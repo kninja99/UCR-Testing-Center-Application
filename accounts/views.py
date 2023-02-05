@@ -10,6 +10,8 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
+from knox.auth import TokenAuthentication
+
 
 # Register API
 class RegisterAPI(generics.GenericAPIView):
@@ -38,7 +40,7 @@ class LoginAPI(KnoxLoginView):
 class AccountViewSet(viewsets.ModelViewSet):
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication,]
     permission_classes = [IsAuthenticated]
     
     @action(methods=['get'], detail=False)
