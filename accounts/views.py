@@ -6,6 +6,10 @@ from django.contrib.auth import login
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.views import LoginView as KnoxLoginView
 from .models import Account
+from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+
 
 # Register API
 class RegisterAPI(generics.GenericAPIView):
@@ -34,3 +38,12 @@ class LoginAPI(KnoxLoginView):
 class AccountViewSet(viewsets.ModelViewSet):
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+    
+    @action(methods=['get'], detail=False)
+    def getUserType(self,request):
+        user = request.user.id
+        getUserType = Account.objects.filter(user_id = user)
+        serializer = AccountSerializer(getUserType, many=True)
+        return Response(serializer.data)
