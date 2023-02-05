@@ -29,7 +29,6 @@ export default {
         { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
         <div class="test-card-container">
             <TestCard button-header="7:00am - 9:00am" route="proctor/rooms" />
-
         </div>
         <CornerStyle />
     </div>
