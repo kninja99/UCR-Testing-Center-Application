@@ -5,9 +5,10 @@ import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import AddRoomButton from "../components/AddRoomButton.vue"
 import RoomCard from '../components/RoomCard.vue';
+import NavBtn from "../components/NavBtn.vue";
 export default {
     components: {
-        Card, NavBar, Header, CornerStyle, AddRoomButton, RoomCard
+        Card, NavBar, Header, CornerStyle, AddRoomButton, RoomCard, NavBtn
     }
 }
 </script>
@@ -17,6 +18,7 @@ export default {
 <template>
     <div class="admin-home">
         <Header title="Testing Page"/>
+        <NavBtn/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
         <!-- object {title:Sting , img:String , route:String} -->
