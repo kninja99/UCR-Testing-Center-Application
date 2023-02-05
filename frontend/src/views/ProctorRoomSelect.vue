@@ -1,12 +1,13 @@
 <script>
-import TestCard from "../components/TestCard.vue"
+import Card from "../components/Card.vue"
 import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import NavBtn from "../components/NavBtn.vue";
+import RoomCard from '../components/RoomCard.vue';
 export default {
     components: {
-        TestCard, NavBar, Header, CornerStyle, NavBtn
+        Card, NavBar, Header, CornerStyle, NavBtn, RoomCard
     }
 }
 </script>
@@ -27,8 +28,11 @@ export default {
         { title: 'Settings', img: 'settings-icon.svg', route: 'proctor/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: 'proctor/account' },
         { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
-        <div class="test-card-container">
-            <TestCard button-header="7:00am - 9:00am" route="proctor/rooms" />
+        <div class="room-page-contents">
+            <div class = "room-cards">
+                <RoomCard cardColor='18ACFF' roomNum='236' bldg='Winston Chung Hall' seatNum='45' />
+                <RoomCard cardColor='18ACFF' roomNum='220' bldg='Winston Chung Hall' seatNum='45' />
+            </div>
         </div>
         <CornerStyle />
     </div>
