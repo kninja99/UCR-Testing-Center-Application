@@ -3,6 +3,7 @@
 @import url(./login.css);
 @import url(./header.css);
 @import url(./addButton.css);
+@import url(./roomCard.css);
 
 :root {
     --UcrBlue: #003DA5;
@@ -63,6 +64,8 @@ button:hover {
             "card card"
             "card card";
     }
+
+
 }
 
 @media all and (max-height:692px) {
@@ -86,4 +89,22 @@ button:hover {
 .corner img {
     width: 75%;
     height: auto;
+}
+
+.room-cards{
+    grid-area: card;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    position:absolute;
+    justify-content: center;
+}
+
+.room-page-contents{
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    align-content: left;
+    
+    
 }
