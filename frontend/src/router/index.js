@@ -5,6 +5,8 @@ import Admin from '../views/Admin.vue';
 import AdminRoomSelect from '../views/AdminRoomSelect.vue';
 import AdminInbox from '../views/AdminInbox.vue';
 import Proctor from '../views/Proctor.vue';
+import ProctorRoomSelect from '../views/ProctorRoomSelect.vue';
+import ProctorRoomView from '../views/ProctorRoomView.vue';
 
 Vue.use(VueRouter);
 
@@ -47,6 +49,16 @@ const routes = [
     path: '/proctor',
     name: 'Proctor',
     component: Proctor,
+  },
+  {
+    path: '/proctor/rooms',
+    name: 'Proctor-Rooms',
+    component: ProctorRoomSelect,
+  },
+  {
+    path: '/proctor/rooms/testTimes',
+    name: 'Proctor-Rooms',
+    component: ProctorRoomView,
   },
 ];
 
