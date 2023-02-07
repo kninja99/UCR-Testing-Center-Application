@@ -7,7 +7,8 @@ export default {
 </script>
 
 <template>
-    <a href="#" class="edit-room-availability-button">
+    <a href="#" class="edit-room-button">
+        <span class="edit-icon">~</span>
         <span class="edit-text">{{buttonName}}</span>
     </a>
 </template>

@@ -5,6 +5,7 @@ import Admin from '../views/Admin.vue';
 import AdminRoomSelect from '../views/AdminRoomSelect.vue';
 import AdminInbox from '../views/AdminInbox.vue';
 import Proctor from '../views/Proctor.vue';
+import AdminScheduling from '../views/AdminScheduling.vue';
 
 Vue.use(VueRouter);
 
@@ -44,8 +45,8 @@ const routes = [
     component: AdminInbox,
   },
   {
-    path: '/admin/rooms/scheduling',
-    name: 'Admin-room-scheduling',
+    path: '/admin/scheduling',
+    name: 'Admin-Scheduling',
     component: AdminScheduling,
   },
   {

@@ -3,6 +3,7 @@
 @import url(./login.css);
 @import url(./header.css);
 @import url(./addButton.css);
+@import url(./editButton.css);
 
 :root {
     --UcrBlue: #003DA5;
