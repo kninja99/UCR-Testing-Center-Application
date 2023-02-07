@@ -97,7 +97,22 @@ button:hover {
     align-items:flex-start;
     justify-content: flex-start;
     align-content: flex-start;
+    overflow-y: auto;
+    height: auto;
 }
+
+@media all and (max-width:642px) {
+    .test-card-container {
+        justify-content: center;
+    }
+}
+
+@media all and (max-height:692px) {
+    .test-card-container {
+        justify-content: center;
+    }
+}
+
 .room-cards{
     grid-area: card;
     display: flex;
