@@ -7,6 +7,8 @@ import AdminInbox from '../views/AdminInbox.vue';
 import Proctor from '../views/Proctor.vue';
 import ProctorRoomSelect from '../views/ProctorRoomSelect.vue';
 import ProctorRoomView from '../views/ProctorRoomView.vue';
+import Student from '../views/Student.vue';
+import Professor from '../views/Professor.vue';
 
 Vue.use(VueRouter);
 
@@ -30,6 +32,7 @@ const routes = [
     name: 'Login2',
     component: Login,
   },
+  // Admin routes
   {
     path: '/admin',
     name: 'Admin',
@@ -45,6 +48,7 @@ const routes = [
     name: 'Admin-Inbox',
     component: AdminInbox,
   },
+  // Proctor routes
   {
     path: '/proctor',
     name: 'Proctor',
@@ -59,6 +63,18 @@ const routes = [
     path: '/proctor/rooms/testTimes',
     name: 'Proctor-Rooms',
     component: ProctorRoomView,
+  },
+  // Professor Routes
+  {
+    path: '/professor',
+    name: 'professor',
+    component: Professor,
+  },
+  // Student Routes
+  {
+    path: '/student',
+    name: 'student',
+    component: Student,
   },
 ];
 
