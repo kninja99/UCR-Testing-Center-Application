@@ -22,6 +22,22 @@ export default new Vuex.Store({
       window.sessionStorage.setItem("auth",state.auth);
       window.sessionStorage.setItem("userType",state.userType);
       window.sessionStorage.setItem("validUser",state.validUser);
+    },
+    /**
+     * Vuex function to ensure that our session data is the same as our store
+     * @param {state} state 
+     */
+    updateSession(state) {
+      window.sessionStorage.setItem("auth",state.auth);
+      window.sessionStorage.setItem("userType",state.userType);
+      window.sessionStorage.setItem("validUser",state.validUser);
+    }
+  },
+  getters: {
+    validateUserInfo(state) {
+      return state.auth == window.sessionStorage.getItem("auth") && 
+      state.userType == window.sessionStorage.getItem("userType") &&
+      state.validUser && window.sessionStorage.getItem('validUser');
     }
   },
   actions: {},

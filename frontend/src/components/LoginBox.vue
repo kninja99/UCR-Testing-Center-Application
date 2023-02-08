@@ -30,18 +30,19 @@
                 .then((res) => {
                     let auth = res.data.token
                     // getting our user type, note we need to pass a header argument with
-                    // out auth token
+                    // our auth token
                     axios.get('/api/account/getUserType',
                     {headers: {'Authorization':`token ${auth}`}})
                     .then((res) => {
-                        // temp login logic, this is where routing will go
+                        let userType = res.data[0].user_type
+                        // payLoad being passed to vuex store
                         let payLoad = {
                             authToken: auth,
-                            userType: res.data[0].user_type
+                            userType: userType
                         }
                         this.$store.commit('login', payLoad);
-                        console.log(this.$store.state);
                         alert("Login in successful");
+                        this.$router.push(`/${userType}`);
                         loginForm.reset();
                     })
                     .catch((err) => {

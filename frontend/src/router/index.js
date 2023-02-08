@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import store from "../store";
 import VueRouter from 'vue-router';
 import Login from '../views/Login.vue';
 import Admin from '../views/Admin.vue';
@@ -88,8 +89,15 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  // checking for login authentication
   if(to.meta.needAuth) {
-    next('/login')
+    // authenticating data with store
+    if(store.getters.validateUserInfo) {
+      next();
+    }
+    else {
+      next('/login')
+    }
   }
   else {
     next();
