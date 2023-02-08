@@ -7,6 +7,7 @@ import AdminInbox from '../views/AdminInbox.vue';
 import Proctor from '../views/Proctor.vue';
 import ProctorRoomSelect from '../views/ProctorRoomSelect.vue';
 import ProctorRoomView from '../views/ProctorRoomView.vue';
+import ProctorTestView from '../views/ProctorTestView.vue';
 
 Vue.use(VueRouter);
 
@@ -59,6 +60,11 @@ const routes = [
     path: '/proctor/rooms/testTimes',
     name: 'Proctor-Rooms',
     component: ProctorRoomView,
+  },
+  {
+    path: '/proctor/rooms/testTimes/testView',
+    name: 'Proctor-Rooms',
+    component: ProctorTestView,
   },
 ];
 
