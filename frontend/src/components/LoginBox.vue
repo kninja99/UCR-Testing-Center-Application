@@ -22,7 +22,6 @@
         methods: {
             loginEvent(e) {
                 // collecting our user data
-                console.log(this.username) 
                 let loginForm = document.querySelector(".login-box form");
                 let userName = this.username;
                 let pass = this.password;
