@@ -3,8 +3,8 @@
         <div class="login-box">
             <h2>Sign In</h2>
             <form @submit.prevent="loginEvent">
-                <input id = "username" type="text" placeholder="Username">
-                <input id = "password" type="password" placeholder="Password">
+                <input id = "username" type="text" placeholder="Username" v-model="username">
+                <input id = "password" type="password" placeholder="Password" v-model = "password">
                 <button class = "login-btn">Login</button>
             </form>
         </div>
@@ -15,12 +15,17 @@
 <script>
     import axios from 'axios'
     export default {
+        data: () => ({
+            username: "",
+            password: "",
+        }),
         methods: {
             loginEvent(e) {
                 // collecting our user data
+                console.log(this.username) 
                 let loginForm = document.querySelector(".login-box form");
-                let userName = document.querySelector("#username").value;
-                let pass = document.querySelector("#password").value;
+                let userName = this.username;
+                let pass = this.password;
                 let loginData = {
                 username: userName ,
                 password: pass
