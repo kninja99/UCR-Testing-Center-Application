@@ -28,15 +28,19 @@
                 //authentication
                 axios.post('/api/login/', loginData)
                 .then((res) => {
-                    window.sessionStorage.setItem("auth",res.data.token);
-                    window.sessionStorage.setItem("validUser",true);
+                    let auth = res.data.token
                     // getting our user type, note we need to pass a header argument with
                     // out auth token
                     axios.get('/api/account/getUserType',
-                    {headers: {'Authorization':`token ${window.sessionStorage.getItem('auth')}`}})
+                    {headers: {'Authorization':`token ${auth}`}})
                     .then((res) => {
-                        window.sessionStorage.setItem("userType",res.data[0].user_type);
                         // temp login logic, this is where routing will go
+                        let payLoad = {
+                            authToken: auth,
+                            userType: res.data[0].user_type
+                        }
+                        this.$store.commit('login', payLoad);
+                        console.log(this.$store.state);
                         alert("Login in successful");
                         loginForm.reset();
                     })
