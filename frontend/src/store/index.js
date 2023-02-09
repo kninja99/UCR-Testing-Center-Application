@@ -7,8 +7,39 @@ Vue.use(Vuex);
 Vue.use(VueAxios, axios)
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    validUser: false,
+    userType: '',
+    auth: ''
+  },
+  mutations: {
+    login(state, userInfo) {
+      // setting states
+      state.validUser = true;
+      state.userType = userInfo.userType;
+      state.auth = userInfo.authToken;
+      // setting seassion store
+      window.sessionStorage.setItem("auth",state.auth);
+      window.sessionStorage.setItem("userType",state.userType);
+      window.sessionStorage.setItem("validUser",state.validUser);
+    },
+    /**
+     * Vuex function to ensure that our session data is the same as our store
+     * @param {state} state 
+     */
+    updateSession(state) {
+      window.sessionStorage.setItem("auth",state.auth);
+      window.sessionStorage.setItem("userType",state.userType);
+      window.sessionStorage.setItem("validUser",state.validUser);
+    }
+  },
+  getters: {
+    validateUserInfo(state) {
+      return state.auth == window.sessionStorage.getItem("auth") && 
+      state.userType == window.sessionStorage.getItem("userType") &&
+      state.validUser && window.sessionStorage.getItem('validUser');
+    }
+  },
   actions: {},
   modules: {},
 });
