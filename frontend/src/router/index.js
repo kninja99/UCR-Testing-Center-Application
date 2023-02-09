@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import store from "../store";
+import store from '../store';
 import VueRouter from 'vue-router';
 import Login from '../views/Login.vue';
 import Admin from '../views/Admin.vue';
@@ -40,18 +40,26 @@ const routes = [
     component: Admin,
     meta: {
       needAuth: true,
-      userType: 'admin'
-    }
+      userType: 'admin',
+    },
   },
   {
     path: '/admin/rooms',
     name: 'Admin-Rooms',
     component: AdminRoomSelect,
+    meta: {
+      needAuth: true,
+      userType: 'admin',
+    },
   },
   {
     path: '/admin/inbox',
     name: 'Admin-Inbox',
     component: AdminInbox,
+    meta: {
+      needAuth: true,
+      userType: 'admin',
+    },
   },
   // Proctor routes
   {
@@ -90,18 +98,19 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   // checking for login authentication
-  if(to.meta.needAuth) {
+  if (to.meta.needAuth) {
     // authenticating data with store
-    if(store.getters.validateUserInfo) {
+    if (
+      store.getters.validateUserInfo &&
+      to.meta.userType == store.state.userType
+    ) {
       next();
+    } else {
+      next('/login');
     }
-    else {
-      next('/login')
-    }
-  }
-  else {
+  } else {
     next();
   }
-})
+});
 
 export default router;

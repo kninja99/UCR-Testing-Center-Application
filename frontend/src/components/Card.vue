@@ -11,8 +11,8 @@ export default {
 <template>
     <div class="card">
         <img class="card-logo" :src="require(`../assets/imgs/${imgName}`)" alt="logo">
-        <a :href="route">
+        <router-link :to="route">
             <button class="card-btn">{{ buttonHeader }}</button>
-        </a>
+        </router-link>
     </div>
 </template>
