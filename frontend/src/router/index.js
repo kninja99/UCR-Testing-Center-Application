@@ -66,28 +66,48 @@ const routes = [
     path: '/proctor',
     name: 'Proctor',
     component: Proctor,
+    meta: {
+      needAuth: true,
+      userType: 'proctor',
+    },
   },
   {
     path: '/proctor/rooms',
     name: 'Proctor-Rooms',
     component: ProctorRoomSelect,
+    meta: {
+      needAuth: true,
+      userType: 'proctor',
+    },
   },
   {
     path: '/proctor/rooms/testTimes',
     name: 'Proctor-Rooms',
     component: ProctorRoomView,
+    meta: {
+      needAuth: true,
+      userType: 'proctor',
+    },
   },
   // Professor Routes
   {
     path: '/professor',
     name: 'professor',
     component: Professor,
+    meta: {
+      needAuth: true,
+      userType: 'professor',
+    },
   },
   // Student Routes
   {
     path: '/student',
     name: 'student',
     component: Student,
+    meta: {
+      needAuth: true,
+      userType: 'student',
+    },
   },
 ];
 
