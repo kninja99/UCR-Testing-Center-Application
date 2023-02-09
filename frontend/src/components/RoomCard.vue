@@ -7,12 +7,18 @@ export default {
         roomNum : String,
         bldg : String,
         seatNum : String
+    },
+    methods: {
+        roomClickEvent() {
+            console.log("room was clicked");
+            this.$router.push('/proctor/rooms/testTimes');
+        }
     }
 }   
 </script>
 
 <template>
-    <div class="room-card-element">
+    <div @click="roomClickEvent" class="room-card-element">
         <div class="room-card-element-color">
             
         </div>
