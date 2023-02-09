@@ -15,7 +15,7 @@ export default {
 
 <template>
     <div class="admin-home">
-        <Header title="Proctor Home Page"/>
+        <Header title="Proctor Portal"/>
         <NavBtn/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
