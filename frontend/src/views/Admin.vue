@@ -25,8 +25,7 @@ export default {
         { title: 'Rooms', img: 'roomNav-icon.svg', route: 'admin/rooms' },
         { title: 'Inbox', img: 'mailNav-icon.svg', route: 'admin/inbox' },
         { title: 'Settings', img: 'settings-icon.svg', route: 'admin/settings' },
-        { title: 'My Account', img: 'profile-icon.svg', route: 'admin/account' },
-        { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
+        { title: 'My Account', img: 'profile-icon.svg', route: 'admin/account' },]" />
         <div class="card-container">
             <Card img-name="room-icon.svg" button-header="View Rooms" route="admin/rooms" />
             <Card img-name="email-icon.svg" button-header="View Inbox" route="admin/inbox" />

@@ -6,9 +6,6 @@ export default {
         Header, LoginBox
     }
 }
-window.sessionStorage.setItem("auth","");
-window.sessionStorage.setItem("validUser",false);
-window.sessionStorage.setItem("userType","");
 </script>
 
 <template>
