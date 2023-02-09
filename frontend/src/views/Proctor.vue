@@ -25,8 +25,7 @@ export default {
         { title: 'Rooms', img: 'roomNav-icon.svg', route: 'proctor/rooms' },
         { title: 'Inbox', img: 'mailNav-icon.svg', route: 'proctor/inbox' },
         { title: 'Settings', img: 'settings-icon.svg', route: 'proctor/settings' },
-        { title: 'My Account', img: 'profile-icon.svg', route: 'proctor/account' },
-        { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
+        { title: 'My Account', img: 'profile-icon.svg', route: 'proctor/account' }]" />
         <div class="card-container">
             <Card img-name="room-icon.svg" button-header="View Rooms" route="proctor/rooms" />
             <Card img-name="email-icon.svg" button-header="View Inbox" route="proctor/inbox" />
