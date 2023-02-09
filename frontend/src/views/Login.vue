@@ -6,15 +6,15 @@ export default {
         Header, LoginBox
     }
 }
-//window.sessionStorage.setItem("auth","");
-//window.sessionStorage.setItem("validUser",false);
-//window.sessionStorage.setItem("userType","");
+window.sessionStorage.setItem("auth","");
+window.sessionStorage.setItem("validUser",false);
+window.sessionStorage.setItem("userType","");
 </script>
 
 <template>
     <div class="login">
-        <Header title="Welcome to the UCR Testing Center" />
-        <LoginBox />
+        <Header title="Welcome to the UCR Testing Center"/>
+        <LoginBox/>
         <footer class="login-trouble">
             <p>Trouble Connecting?</p>
             <p>Contact us at: <a href="mailto: sendhelp@ucr.edu">sendhelp@ucr.edu</a></p>
