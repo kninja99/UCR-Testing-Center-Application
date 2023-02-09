@@ -10,6 +10,8 @@ import ProctorRoomSelect from '../views/ProctorRoomSelect.vue';
 import ProctorRoomView from '../views/ProctorRoomView.vue';
 import Student from '../views/Student.vue';
 import Professor from '../views/Professor.vue';
+import ProctorTestView from '../views/ProctorTestView.vue';
+
 
 Vue.use(VueRouter);
 
@@ -108,6 +110,11 @@ const routes = [
       needAuth: true,
       userType: 'student',
     },
+  },
+  {
+    path: '/proctor/rooms/testTimes/testView',
+    name: 'Proctor-Rooms',
+    component: ProctorTestView,
   },
 ];
 

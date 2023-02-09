@@ -15,7 +15,7 @@ export default {
 
 <template>
     <div class="admin-home">
-        <Header title="Room 236"/>
+        <Header title="Room 236 2pm - 3pm"/>
         <NavBtn/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
@@ -27,11 +27,6 @@ export default {
         { title: 'Settings', img: 'settings-icon.svg', route: 'proctor/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: 'proctor/account' },
         { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
-        <div class="test-card-container">
-            <TestCard button-header="7:00am - 9:00am" route="testTimes/testView" />
-            <TestCard button-header="1:00pm - 3:00pm" route="testTimes/testView" />
-            
-        </div>
         <CornerStyle />
     </div>
 </template>
