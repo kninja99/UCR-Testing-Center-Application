@@ -53,11 +53,6 @@ export default {
         { title: 'Inbox', img: 'mailNav-icon.svg', route: 'admin/inbox' },
         { title: 'Settings', img: 'settings-icon.svg', route: 'admin/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: 'admin/account' }]" />
-        <!-- <add-room-button:> -->
-        <!-- <div class="card-container">
-            <Card img-name="room-icon.svg" button-header="View Rooms" route="admin/rooms" />
-            <Card img-name="email-icon.svg" button-header="View Inbox" route="admin/inbox" />
-        </div> -->
         <div class="room-page-contents">
             <AddRoomButton buttonName="Add New Room"/>
             <!-- renders all testing rooms in db -->
