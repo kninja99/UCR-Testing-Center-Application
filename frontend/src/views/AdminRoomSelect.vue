@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios'
 import Card from "../components/Card.vue"
 import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
@@ -9,8 +10,32 @@ import NavBtn from "../components/NavBtn.vue";
 export default {
     components: {
         Card, NavBar, Header, CornerStyle, AddRoomButton, RoomCard, NavBtn
+    },
+    data: () => ({
+        rooms: []
+    }),
+    mounted: async function() {
+        let authToken = window.sessionStorage.getItem('auth');
+        // constructing url that works with our api
+        let baseUrl = window.location.href;
+        let index = baseUrl.indexOf('/',10);
+        baseUrl = baseUrl.slice(0,index);
+        // get request to get our testing rooms data
+        await axios.get(`${baseUrl}/api/testingRooms`,
+        {headers: {'Authorization':`token ${authToken}`}})
+        .then((res) => {
+            let data = res.data;
+            data.forEach(element => {
+                this.rooms.push(element);
+            });
+        })
+        // for bad api request
+        .catch((err) => {
+            console.log(err);
+        });
     }
 }
+
 </script>
 
 
