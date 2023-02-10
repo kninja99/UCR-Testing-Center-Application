@@ -14,7 +14,7 @@ export default {
     data: () => ({
         rooms: []
     }),
-    mounted: async function() {
+    created: async function() {
         let authToken = window.sessionStorage.getItem('auth');
         // constructing url that works with our api
         let baseUrl = window.location.href;
@@ -60,9 +60,9 @@ export default {
         </div> -->
         <div class="room-page-contents">
             <AddRoomButton buttonName="Add New Room"/>
+            <!-- renders all testing rooms in db -->
             <div class = "room-cards">
-                <RoomCard cardColor='18ACFF' roomNum='120' bldg='Winston Chung Hall' seatNum='45' />
-                <RoomCard cardColor='18ACFF' roomNum='220' bldg='Winston Chung Hall' seatNum='45' />
+                <RoomCard v-for="(room) in this.rooms" cardColor='18ACFF' :roomNum="room.room_number" :bldg="room.bldg" :seatNum="room.capacity"/>
             </div>
         </div>
         <CornerStyle />
