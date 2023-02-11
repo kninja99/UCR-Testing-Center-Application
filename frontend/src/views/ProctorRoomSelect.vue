@@ -23,10 +23,10 @@ export default {
         <!-- object {title:Sting , img:String , route:String} -->
         <NavBar :nav-elements="[
         { title: 'Dashboard', img: 'dashBoard-icon.svg', route: '/proctor' },
-        { title: 'Rooms', img: 'roomNav-icon.svg', route: 'proctor/rooms' },
-        { title: 'Inbox', img: 'mailNav-icon.svg', route: 'proctor/inbox' },
-        { title: 'Settings', img: 'settings-icon.svg', route: 'proctor/settings' },
-        { title: 'My Account', img: 'profile-icon.svg', route: 'proctor/account' }]" />
+        { title: 'Rooms', img: 'roomNav-icon.svg', route: '/proctor/rooms' },
+        { title: 'Inbox', img: 'mailNav-icon.svg', route: '/proctor/inbox' },
+        { title: 'Settings', img: 'settings-icon.svg', route: '/proctor/settings' },
+        { title: 'My Account', img: 'profile-icon.svg', route: '/proctor/account' }]" />
         <div class="room-page-contents">
             <div class = "room-cards">
                 <RoomCard cardColor='18ACFF' :roomNum=236 bldg='Winston Chung Hall' :seatNum=45 />
