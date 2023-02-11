@@ -57,9 +57,3 @@
     margin: 30px;
     font-size: 120%;
 }
-
-
-
-.test-card-btn:hover {
-    background-color: var(--GoldHover);
-}
