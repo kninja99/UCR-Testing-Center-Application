@@ -1,0 +1,65 @@
+/* Test Card Styles */
+
+.student-checkin-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    grid-area: card;
+    flex-wrap: wrap;
+    height: fit-content;
+    min-height: 100%;
+}
+
+.status-header {
+    background-color: var(--White);
+    width: 100%;
+    height: 40%;
+    max-height: 100px;
+    min-height: 100px;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+}
+
+.status {
+    display:inline;
+    background-color: var(--White);
+    font-weight: 700;
+    margin: 30px;
+    font-size: 120%;
+}
+.name {
+    display:inline;
+    background-color: var(--White);
+    font-weight: 700;
+    margin: 30px;
+    font-size: 120%;
+}
+.class {
+    display:inline;
+    background-color: var(--White);
+    font-weight: 700;
+    margin: 30px;
+    font-size: 120%;
+}
+.professor {
+    display:inline;
+    background-color: var(--White);
+    font-weight: 700;
+    margin: 30px;
+    font-size: 120%;
+}
+.actions {
+    display:inline;
+    background-color: var(--White);
+    font-weight: 700;
+    margin: 30px;
+    font-size: 120%;
+}
+
+
+
+.test-card-btn:hover {
+    background-color: var(--GoldHover);
+}
