@@ -1,12 +1,12 @@
 <script>
-import TestCard from "../components/TestCard.vue"
 import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import NavBtn from "../components/NavBtn.vue";
+import StudentCheckInHeader from "../components/StudentCheckInHeader.vue";
 export default {
     components: {
-        TestCard, NavBar, Header, CornerStyle, NavBtn
+        NavBar, Header, CornerStyle, NavBtn, StudentCheckInHeader
     }
 }
 </script>
@@ -26,6 +26,11 @@ export default {
         { title: 'Inbox', img: 'mailNav-icon.svg', route: 'proctor/inbox' },
         { title: 'Settings', img: 'settings-icon.svg', route: 'proctor/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: 'proctor/account' }]" />
+        <div class="student-checkin-container">
+            <StudentCheckInHeader/>
+            
+
+        </div>
         <CornerStyle />
     </div>
 </template>
