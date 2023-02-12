@@ -10,7 +10,6 @@ export default {
     },
     methods: {
         roomClickEvent() {
-            console.log("room was clicked");
             this.$router.push('/proctor/rooms/testTimes');
         }
     }
