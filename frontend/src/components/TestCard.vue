@@ -10,8 +10,8 @@ export default {
 
 <template>
     <div class="test-card">
-        <a :href="route">
+        <router-link :to="route">
             <button class="test-card-btn">{{ buttonHeader }}</button>
-        </a>
+        </router-link>
     </div>
 </template>

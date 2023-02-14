@@ -5,6 +5,7 @@
 @import url(./addButton.css);
 @import url(./testCard.css);
 @import url(./roomCard.css);
+@import url(./studentCheckInHeader.css);
 
 :root {
     --UcrBlue: #003DA5;
