@@ -22,10 +22,10 @@ export default {
         <!-- object {title:Sting , img:String , route:String} -->
         <NavBar :nav-elements="[
         { title: 'Dashboard', img: 'dashBoard-icon.svg', route: '/professor' },
-        { title: 'Rooms', img: 'roomNav-icon.svg', route: 'professor/rooms' },
-        { title: 'Inbox', img: 'mailNav-icon.svg', route: 'professor/inbox' },
-        { title: 'Settings', img: 'settings-icon.svg', route: 'professor/settings' },
-        { title: 'My Account', img: 'profile-icon.svg', route: 'professor/account' }]" />
+        { title: 'Rooms', img: 'roomNav-icon.svg', route: '/professor/rooms' },
+        { title: 'Inbox', img: 'mailNav-icon.svg', route: '/professor/inbox' },
+        { title: 'Settings', img: 'settings-icon.svg', route: '/professor/settings' },
+        { title: 'My Account', img: 'profile-icon.svg', route: '/professor/account' }]" />
         <div class="card-container">
             <Card img-name="room-icon.svg" button-header="View Rooms" route="professor/rooms" />
             <Card img-name="email-icon.svg" button-header="View Inbox" route="professor/inbox" />
