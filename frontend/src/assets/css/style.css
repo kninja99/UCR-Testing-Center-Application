@@ -40,6 +40,14 @@ button:hover {
     cursor: pointer;
 }
 
+/* style used for red error msgs */
+.err-msg {
+    color: var(--UcrGold);
+    font-weight: 500;
+    margin: 0;
+    width: 185px;
+}
+
 /* admin home page setup */
 
 .admin-home {
@@ -94,8 +102,8 @@ button:hover {
 }
 
 .test-card-container {
-    display:flex;
-    align-items:flex-start;
+    display: flex;
+    align-items: flex-start;
     justify-content: flex-start;
     align-content: flex-start;
     overflow-y: auto;
@@ -114,20 +122,20 @@ button:hover {
     }
 }
 
-.room-cards{
+.room-cards {
     grid-area: card;
     display: flex;
     align-content: flex-start;
     flex-wrap: wrap;
     margin-top: 50px;
-    position:absolute;
+    position: absolute;
     justify-content: center;
 }
 
-.room-page-contents{
+.room-page-contents {
     /* display: flex; */
     /* flex-wrap: wrap; */
     align-content: left;
-    
-    
+
+
 }
