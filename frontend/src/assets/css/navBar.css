@@ -3,6 +3,7 @@
 .nav-bar {
     background-color: var(--UcrBlue);
     grid-area: navbar;
+    z-index: 10; /* To make navbar appear over all other objects*/
     max-width: 270px;
     display: flex;
     flex-direction: column;

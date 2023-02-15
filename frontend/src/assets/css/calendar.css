@@ -1,0 +1,22 @@
+/* calendar styling */
+
+.dp-container{
+  display: flex;
+    justify-content: space-evenly;
+    align-items: top;
+    grid-area: card; /* using card grid area as it is the same space but aligning to top */
+    z-index: 0; /* to make calendar to behind the dashboard when screen is small*/
+    flex-wrap: wrap;
+    height: fit-content;
+    width: fit-content;
+    min-height: 100%;
+}
+
+.dp {
+    max-width: min-content;
+    
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }

@@ -3,7 +3,7 @@
 @import url(./login.css);
 @import url(./header.css);
 @import url(./addButton.css);
-@import url(./editButton.css);
+@import url(./calendar.css);
 
 :root {
     --UcrBlue: #003DA5;
@@ -47,7 +47,8 @@ button:hover {
     grid-template-areas:
         "header header"
         "navbar card"
-        "navbar card";
+        "navbar card"
+        "calendar calendar";
     height: 100%;
     width: 100%;
 }
@@ -72,6 +73,13 @@ button:hover {
             "header header"
             "card card"
             "card card";
+    }
+}
+
+@media all and (max-height:692px) {
+    .admin-home {
+        grid-template-areas:
+            "calendar calendar";
     }
 }
 

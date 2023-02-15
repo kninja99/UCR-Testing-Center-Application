@@ -3,8 +3,8 @@ import Card from "../components/Card.vue"
 import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
-// import AddRoomButton from "../components/AddRoomButton.vue"
-import EditRoomButton from "../components/EditRoomButton.vue";
+import Calendar from '../components/Calendar.vue'
+import NavBtn from "../components/NavBtn.vue";
 // import AddRoomButton from '../components/AddRoomButton.vue';
 export default {
     components: {
@@ -12,8 +12,8 @@ export default {
     NavBar,
     Header,
     CornerStyle,
-   // AddRoomButton,
-    EditRoomButton
+    Calendar,
+    NavBtn
 }
 }
 </script>
@@ -21,7 +21,7 @@ export default {
 
 
 <template>
-    <div class="admin-home">
+     <div class="admin-home">
         <Header title="Testing Page"/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
@@ -33,13 +33,13 @@ export default {
         { title: 'Settings', img: 'settings-icon.svg', route: 'admin/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: 'admin/account' },
         { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
-        <!-- <add-room-button:> -->
-        <!-- <div class="card-container">
-            <Card img-name="room-icon.svg" button-header="View Rooms" route="admin/rooms" />
-            <Card img-name="email-icon.svg" button-header="View Inbox" route="admin/inbox" />
-        </div> -->
-        <EditRoomButton buttonName="Edit Room Availability"/>
-        <CalendarDate></CalendarDate>
+
+        <NavBtn />       
+
+        <div class="dp-container">
+        <Calendar />
+        </div>
+
         <CornerStyle />
-    </div>
+    </div> 
 </template>
