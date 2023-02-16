@@ -4,9 +4,10 @@ import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import NavBtn from "../components/NavBtn.vue";
 import StudentCheckInHeader from "../components/StudentCheckInHeader.vue";
+import StudentStatusElement from "../components/StudentStatusElement.vue";
 export default {
     components: {
-        NavBar, Header, CornerStyle, NavBtn, StudentCheckInHeader
+        NavBar, Header, CornerStyle, NavBtn, StudentCheckInHeader, StudentStatusElement
     }
 }
 </script>
@@ -28,7 +29,18 @@ export default {
         { title: 'My Account', img: 'profile-icon.svg', route: '/proctor/account' }]" />
         <div class="student-checkin-container">
             <StudentCheckInHeader/>
-            
+            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+
 
         </div>
         <CornerStyle />
