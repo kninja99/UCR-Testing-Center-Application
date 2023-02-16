@@ -62,8 +62,7 @@ button:hover {
     grid-template-areas:
         "header header"
         "navbar card"
-        "navbar card"
-        "calendar calendar";
+        "navbar card";
     height: 100%;
     width: 100%;
 }
@@ -93,14 +92,6 @@ button:hover {
     }
 }
 
-@media all and (max-height:692px) {
-    .admin-home {
-        grid-template-areas:
-            "calendar calendar";
-    }
-}
-
-
 .corner {
     position: fixed;
     bottom: -5px;
@@ -124,9 +115,9 @@ button:hover {
 }
 
 .student-checkin-container {
-    display:flex;
+    display: flex;
     flex-direction: row;
-    align-items:flex-start;
+    align-items: flex-start;
     justify-content: flex-start;
     align-content: flex-start;
     overflow-y: auto;
@@ -159,6 +150,4 @@ button:hover {
     /* display: flex; */
     /* flex-wrap: wrap; */
     align-content: left;
-
-
 }

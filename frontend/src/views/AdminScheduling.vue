@@ -5,7 +5,6 @@ import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import Calendar from '../components/Calendar.vue'
 import NavBtn from "../components/NavBtn.vue";
-// import AddRoomButton from '../components/AddRoomButton.vue';
 export default {
     components: {
     Card,
@@ -31,8 +30,7 @@ export default {
         { title: 'Rooms', img: 'roomNav-icon.svg', route: 'admin/rooms' },
         { title: 'Inbox', img: 'mailNav-icon.svg', route: 'admin/inbox' },
         { title: 'Settings', img: 'settings-icon.svg', route: 'admin/settings' },
-        { title: 'My Account', img: 'profile-icon.svg', route: 'admin/account' },
-        { title: 'Logout', img: 'logout-icon.svg', route: '/login' }]" />
+        { title: 'My Account', img: 'profile-icon.svg', route: 'admin/account' }]" />
 
         <NavBtn />       
 
