@@ -6,12 +6,12 @@ import Admin from '../views/Admin.vue';
 import AdminRoomSelect from '../views/AdminRoomSelect.vue';
 import AdminInbox from '../views/AdminInbox.vue';
 import Proctor from '../views/Proctor.vue';
+import AdminScheduling from '../views/AdminScheduling.vue';
 import ProctorRoomSelect from '../views/ProctorRoomSelect.vue';
 import ProctorRoomView from '../views/ProctorRoomView.vue';
 import Student from '../views/Student.vue';
 import Professor from '../views/Professor.vue';
 import ProctorTestView from '../views/ProctorTestView.vue';
-
 
 Vue.use(VueRouter);
 
@@ -64,6 +64,11 @@ const routes = [
     },
   },
   // Proctor routes
+  {
+    path: '/admin/scheduling',
+    name: 'Admin-Scheduling',
+    component: AdminScheduling,
+  },
   {
     path: '/proctor',
     name: 'Proctor',

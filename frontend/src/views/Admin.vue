@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import NavBtn from "../components/NavBtn.vue";
-export default {
+export default {    
     components: {
         Card, NavBar, Header, CornerStyle, NavBtn
     }

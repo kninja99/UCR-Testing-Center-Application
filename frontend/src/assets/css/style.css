@@ -3,10 +3,12 @@
 @import url(./login.css);
 @import url(./header.css);
 @import url(./addButton.css);
+@import url(./calendar.css);
 @import url(./testCard.css);
 @import url(./roomCard.css);
 @import url(./studentCheckInHeader.css);
 @import url(./studentStatusElement.css);
+
 
 :root {
     --UcrBlue: #003DA5;
@@ -90,7 +92,6 @@ button:hover {
     }
 }
 
-
 .corner {
     position: fixed;
     bottom: -5px;
@@ -114,9 +115,9 @@ button:hover {
 }
 
 .student-checkin-container {
-    display:flex;
+    display: flex;
     flex-direction: row;
-    align-items:flex-start;
+    align-items: flex-start;
     justify-content: flex-start;
     align-content: flex-start;
     overflow-y: auto;
@@ -149,6 +150,4 @@ button:hover {
     /* display: flex; */
     /* flex-wrap: wrap; */
     align-content: left;
-
-
 }
