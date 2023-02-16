@@ -1,12 +1,12 @@
 <script>
-import Card from "../components/Card.vue"
+import TestCard from "../components/TestCard.vue"
 import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import NavBtn from "../components/NavBtn.vue";
 export default {
     components: {
-        Card, NavBar, Header, CornerStyle, NavBtn
+        TestCard, NavBar, Header, CornerStyle, NavBtn
     }
 }
 </script>
@@ -15,7 +15,7 @@ export default {
 
 <template>
     <div class="admin-home">
-        <Header title="Proctor Portal"/>
+        <Header title="Room 236"/>
         <NavBtn/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
@@ -26,9 +26,10 @@ export default {
         { title: 'Inbox', img: 'mailNav-icon.svg', route: '/proctor/inbox' },
         { title: 'Settings', img: 'settings-icon.svg', route: '/proctor/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: '/proctor/account' }]" />
-        <div class="card-container">
-            <Card img-name="room-icon.svg" button-header="View Rooms" route="proctor/rooms" />
-            <Card img-name="email-icon.svg" button-header="View Inbox" route="proctor/inbox" />
+        <div class="test-card-container">
+            <TestCard button-header="7:00am - 9:00am" route="testTimes/testView" />
+            <TestCard button-header="1:00pm - 3:00pm" route="testTimes/testView" />
+            
         </div>
         <CornerStyle />
     </div>

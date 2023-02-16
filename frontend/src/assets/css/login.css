@@ -19,10 +19,11 @@
 }
 
 .login-trouble p {
-    margin: 5px;
+    margin: 0 5px;
     margin-left: 2%;
     vertical-align: middle;
-    font-size: 1.7em;
+    font-size: 1.5em;
+    width: fit-content;
 }
 
 .login-trouble a {

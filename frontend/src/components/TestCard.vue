@@ -9,10 +9,9 @@ export default {
 </script>
 
 <template>
-    <div class="card">
-        <img class="card-logo" :src="require(`../assets/imgs/${imgName}`)" alt="logo">
+    <div class="test-card">
         <router-link :to="route">
-            <button class="card-btn">{{ buttonHeader }}</button>
+            <button class="test-card-btn">{{ buttonHeader }}</button>
         </router-link>
     </div>
 </template>

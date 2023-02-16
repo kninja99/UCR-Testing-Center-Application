@@ -4,9 +4,10 @@ import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import NavBtn from "../components/NavBtn.vue";
+import RoomCard from '../components/RoomCard.vue';
 export default {
     components: {
-        Card, NavBar, Header, CornerStyle, NavBtn
+        Card, NavBar, Header, CornerStyle, NavBtn, RoomCard
     }
 }
 </script>
@@ -15,7 +16,7 @@ export default {
 
 <template>
     <div class="admin-home">
-        <Header title="Proctor Portal"/>
+        <Header title="Testing Rooms"/>
         <NavBtn/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
@@ -26,9 +27,11 @@ export default {
         { title: 'Inbox', img: 'mailNav-icon.svg', route: '/proctor/inbox' },
         { title: 'Settings', img: 'settings-icon.svg', route: '/proctor/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: '/proctor/account' }]" />
-        <div class="card-container">
-            <Card img-name="room-icon.svg" button-header="View Rooms" route="proctor/rooms" />
-            <Card img-name="email-icon.svg" button-header="View Inbox" route="proctor/inbox" />
+        <div class="room-page-contents">
+            <div class = "room-cards">
+                <RoomCard cardColor='18ACFF' :roomNum=236 bldg='Winston Chung Hall' :seatNum=45 />
+                <RoomCard cardColor='18ACFF' :roomNum=220 bldg='Winston Chung Hall' :seatNum=45 />
+            </div>
         </div>
         <CornerStyle />
     </div>
