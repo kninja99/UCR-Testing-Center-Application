@@ -2,7 +2,11 @@
 @import url(./navBar.css);
 @import url(./login.css);
 @import url(./header.css);
-@import url(./notif.css);
+@import url(./adminNotif.css);
+@import url(./addButton.css);
+@import url(./testCard.css);
+@import url(./roomCard.css);
+@import url(./studentCheckInHeader.css);
 
 :root {
     --UcrBlue: #003DA5;
@@ -12,9 +16,21 @@
     --White: #FFF;
 }
 
+html {
+    height: 100vh;
+    width: 100vw;
+}
+
 body {
     margin: 0;
+    height: 100%;
+    width: 100%;
+}
 
+#app {
+    height: 100%;
+    width: 100%;
+    font-family: 'Oswald';
 }
 
 button {
@@ -23,6 +39,14 @@ button {
 
 button:hover {
     cursor: pointer;
+}
+
+/* style used for red error msgs */
+.err-msg {
+    color: var(--UcrGold);
+    font-weight: 500;
+    margin: 0;
+    width: 185px;
 }
 
 /* admin home page setup */
@@ -35,9 +59,33 @@ button:hover {
         "header header"
         "navbar card"
         "navbar card";
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+@media all and (max-width:642px) {
+    .admin-home {
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media all and (max-width:642px) {
+    .admin-home {
+        grid-template-areas: "header header"
+            "card card"
+            "card card";
+    }
+
+
+}
+
+@media all and (max-height:692px) {
+    .admin-home {
+        grid-template-areas:
+            "header header"
+            "card card"
+            "card card";
+    }
 }
 
 .admin-inbox {
@@ -66,4 +114,41 @@ button:hover {
     height: auto;
 }
 
+.test-card-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: flex-start;
+    overflow-y: auto;
+    height: auto;
+}
 
+@media all and (max-width:642px) {
+    .test-card-container {
+        justify-content: center;
+    }
+}
+
+@media all and (max-height:692px) {
+    .test-card-container {
+        justify-content: center;
+    }
+}
+
+.room-cards {
+    grid-area: card;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    position: absolute;
+    justify-content: center;
+}
+
+.room-page-contents {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    align-content: left;
+
+
+}

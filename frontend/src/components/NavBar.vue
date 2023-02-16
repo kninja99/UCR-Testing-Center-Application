@@ -1,8 +1,9 @@
 <script>
     import NavElement from './NavElement.vue';
+    import LogOut from './LogOut.vue';
     export default {
         components: {
-         NavElement
+         NavElement, LogOut
         },
         props: {
             // structure of array
@@ -19,5 +20,6 @@
     <div class="nav-bar">
         <!-- loops over our navElements and creates those nav elements -->
         <NavElement v-for="(item) in navElements" :nav-title = "item.title" :img-name = "item.img" :route = "item.route"/>
+        <LogOut/>
     </div>
 </template>
