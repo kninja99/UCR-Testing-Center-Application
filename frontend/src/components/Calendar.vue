@@ -1,5 +1,5 @@
 <template>
-  <DayPilotCalendar id="dp" :config="config" />
+  <DayPilotCalendar id="dp" :config="config"  ref="calendar"/>
 </template>
 
 <script>
@@ -11,11 +11,42 @@ export default {
     return {
       config: {
         viewType: "Week",
+        eventResizeHandling: "Disabled",
+        eventMoveHandling: "Disabled",
+        timeRangeSelectedHandling: "Disabled"
       },
     }
   },
   components: {
     DayPilotCalendar
   },
+  computed: {
+    calendar() {
+      return this.$refs.calendar.control;
+    }
+  },
+  methods: {
+    loadEvents() {
+      // placeholder for an AJAX call
+      const events = [
+        {
+          id: 1,
+          start: "2023-02-17T10:00:00",
+          end: "2023-02-17T11:00:00",
+          text: "Event 1",
+        },
+        {
+          id: 2,
+          start: "2023-02-17T13:00:00",
+          end: "2023-02-17T16:00:00",
+          text: "Event 2",
+        },
+      ];
+      this.calendar.update({events});
+    }
+  },
+  mounted() {
+    this.loadEvents();
+  }
 }
 </script>
