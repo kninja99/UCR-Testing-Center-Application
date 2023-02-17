@@ -20,7 +20,11 @@ class TestingRoomViewSet(viewsets.ModelViewSet):
     
     @action(methods=['get'], detail=False)
     def getTestingRoom(self,request):
-        getUserType = TestingRoom.objects.filter(bldg = "Winston Chung Hall").filter(room_number = 234)
+        # getting our get parameters
+        room =  request.GET['roomNum']
+        building = request.GET['bldg']
+        # filtering for our room
+        getUserType = TestingRoom.objects.filter(bldg = building).filter(room_number = room)
         serializer = TestingRoomSerializer(getUserType, many=True)
         return Response(serializer.data)
     
