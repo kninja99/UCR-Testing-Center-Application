@@ -15,22 +15,23 @@ export default {
     NavBtn
 }
 }
+
 </script>
 
 
 
 <template>
      <div class="admin-home">
-        <Header title="Testing Page"/>
+        <Header :title="this.$route.params.bldg + ' ' +this.$route.params.room"/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
         <!-- object {title:Sting , img:String , route:String} -->
         <NavBar :nav-elements="[
         { title: 'Dashboard', img: 'dashBoard-icon.svg', route: '/admin' },
-        { title: 'Rooms', img: 'roomNav-icon.svg', route: 'admin/rooms' },
-        { title: 'Inbox', img: 'mailNav-icon.svg', route: 'admin/inbox' },
-        { title: 'Settings', img: 'settings-icon.svg', route: 'admin/settings' },
-        { title: 'My Account', img: 'profile-icon.svg', route: 'admin/account' }]" />
+        { title: 'Rooms', img: 'roomNav-icon.svg', route: '/admin/rooms' },
+        { title: 'Inbox', img: 'mailNav-icon.svg', route: '/admin/inbox' },
+        { title: 'Settings', img: 'settings-icon.svg', route: '/admin/settings' },
+        { title: 'My Account', img: 'profile-icon.svg', route: '/admin/account' }]" />
 
         <NavBtn />       
 

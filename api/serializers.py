@@ -12,4 +12,4 @@ class FooSerializer(serializers.HyperlinkedModelSerializer):
 class TestingRoomSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TestingRoom
-        fields = ('room_number', 'bldg', 'capacity')
+        fields = ('id','room_number', 'bldg', 'capacity')

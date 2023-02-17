@@ -63,12 +63,16 @@ const routes = [
       userType: 'admin',
     },
   },
-  // Proctor routes
   {
-    path: '/admin/scheduling',
+    path: '/admin/rooms/:bldg/:room',
     name: 'Admin-Scheduling',
     component: AdminScheduling,
+    meta: {
+      needAuth: true,
+      userType: 'admin',
+    },
   },
+  // Proctor routes
   {
     path: '/proctor',
     name: 'Proctor',

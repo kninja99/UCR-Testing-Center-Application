@@ -10,7 +10,12 @@ export default {
     },
     methods: {
         roomClickEvent() {
-            this.$router.push('/proctor/rooms/testTimes');
+            try {
+                this.$router.push({ name: 'Admin-Scheduling', params: { bldg: this.$props.bldg, room: this.$props.roomNum} });
+            }
+            catch {
+                alert("room is not reachable");
+            }
         }
     }
 }   
