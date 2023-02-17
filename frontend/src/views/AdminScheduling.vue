@@ -15,6 +15,9 @@ export default {
         Calendar,
         NavBtn
     },
+    data: () => ({
+        testingRoomId: 0
+    }),
     created: async function() {
             // getting variables needed for get request
             let authToken = window.sessionStorage.getItem('auth');
@@ -31,12 +34,14 @@ export default {
             })
             .then(res => {
                 console.log(res);
+                if(res.data.length > 0) {
+                    this.testingRoomId=res.data[0].id;
+                }
             })
             .catch((err) => {
                 console.log(err);
             })
         }
-    
 }
 
 </script>
@@ -59,9 +64,9 @@ export default {
         <NavBtn />       
 
         <div class="dp-container">
-        <Calendar />
+            <Calendar v-if = this.testingRoomId  :testingRoomId = this.testingRoomId />
         </div>
 
-        <CornerStyle />
+        <CornerStyle/>
     </div> 
 </template>

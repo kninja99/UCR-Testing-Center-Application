@@ -7,6 +7,9 @@ import {DayPilotCalendar} from '@daypilot/daypilot-lite-vue'
 import axios from 'axios'
 export default {
   name: 'Calendar',
+  props: {
+    testingRoomId: Number
+  },
   data: function() {
     return {
       config: {
@@ -14,7 +17,7 @@ export default {
         eventResizeHandling: "Disabled",
         eventMoveHandling: "Disabled",
         timeRangeSelectedHandling: "Disabled"
-      },
+      }
     }
   },
   components: {
@@ -27,6 +30,7 @@ export default {
   },
   methods: {
     async loadEvents() {
+      console.log(this.$props.testingRoomId);
       // placeholder for an AJAX call
       const events = [
         {
