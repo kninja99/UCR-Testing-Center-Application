@@ -30,6 +30,7 @@ export default {
   },
   methods: {
     async loadEvents() {
+      let events = []
       // getting variables needed for get request
       let authToken = window.sessionStorage.getItem('auth');
       let baseUrl = window.location.href;
@@ -43,27 +44,38 @@ export default {
         }
       })
       .then((res) => {
+        let avlability = res.data
+        // populating events
+        for(let i = 0; i < avlability.length ; i+=1 ) {
+          let eventText;
+          let eventBarColor;
+          let startTime = `${avlability[i].date}T${avlability[i].start_time}`
+          let endTime = `${avlability[i].date}T${avlability[i].end_time}`
+          // determining the inner text and bar color
+          if(avlability[i].is_booked){
+            eventText = "Booked";
+            eventBarColor = "red";
+          }
+          else {
+            eventText = "Avalable";
+            eventBarColor = "green";
+          }
+          // event to be added to events
+          let event = {
+            id: avlability[i].id,
+            start: startTime,
+            end: endTime,
+            text: eventText,
+            barColor: eventBarColor
+          }
+          events.push(event);
+        }
         console.log(res);
       })
       .catch((err) => {
         console.log(err);
       })
-      const events = [
-        {
-          id: 1,
-          start: "2023-02-17T10:00:00",
-          end: "2023-02-17T11:00:00",
-          text: "Avlable",
-          barColor: "green"
-        },
-        {
-          id: 2,
-          start: "2023-02-17T13:00:00",
-          end: "2023-02-17T16:00:00",
-          text: "Booked",
-          barColor: "red"
-        },
-      ];
+
       this.calendar.update({events});
     }
   },

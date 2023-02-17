@@ -21,4 +21,4 @@ class TestingRoomAvailabilitySerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = TestingRoomAvailability
-        fields = ("testing_room_id","start_time", "end_time" ,"date", "is_booked")
+        fields = ("id","testing_room_id","start_time", "end_time" ,"date", "is_booked")
