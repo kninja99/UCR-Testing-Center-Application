@@ -33,13 +33,15 @@ export default {
           id: 1,
           start: "2023-02-17T10:00:00",
           end: "2023-02-17T11:00:00",
-          text: "Event 1",
+          text: "Avlable",
+          barColor: "green"
         },
         {
           id: 2,
           start: "2023-02-17T13:00:00",
           end: "2023-02-17T16:00:00",
-          text: "Event 2",
+          text: "Booked",
+          barColor: "red"
         },
       ];
       this.calendar.update({events});
