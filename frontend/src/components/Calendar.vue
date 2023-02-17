@@ -4,7 +4,7 @@
 
 <script>
 import {DayPilotCalendar} from '@daypilot/daypilot-lite-vue'
-
+import axios from 'axios'
 export default {
   name: 'Calendar',
   data: function() {
@@ -26,7 +26,7 @@ export default {
     }
   },
   methods: {
-    loadEvents() {
+    async loadEvents() {
       // placeholder for an AJAX call
       const events = [
         {

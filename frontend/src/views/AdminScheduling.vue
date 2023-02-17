@@ -5,15 +5,38 @@ import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import Calendar from '../components/Calendar.vue'
 import NavBtn from "../components/NavBtn.vue";
+import axios from "axios";
 export default {
     components: {
-    Card,
-    NavBar,
-    Header,
-    CornerStyle,
-    Calendar,
-    NavBtn
-}
+        Card,
+        NavBar,
+        Header,
+        CornerStyle,
+        Calendar,
+        NavBtn
+    },
+    created: async function() {
+            // getting variables needed for get request
+            let authToken = window.sessionStorage.getItem('auth');
+            let baseUrl = window.location.href;
+            let index = baseUrl.indexOf('/',10);
+            baseUrl = baseUrl.slice(0,index);
+            // request to get testing room data
+            await axios.get(`${baseUrl}/api/testingRooms/getTestingRoom/`, {
+                headers: {'Authorization':`token ${authToken}`},
+                params: {
+                roomNum: this.$route.params.room,
+                bldg: this.$route.params.bldg
+                }
+            })
+            .then(res => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        }
+    
 }
 
 </script>
