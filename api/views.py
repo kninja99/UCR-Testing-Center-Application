@@ -24,11 +24,21 @@ class TestingRoomViewSet(viewsets.ModelViewSet):
         room =  request.GET['roomNum']
         building = request.GET['bldg']
         # filtering for our room
-        getUserType = TestingRoom.objects.filter(bldg = building).filter(room_number = room)
-        serializer = TestingRoomSerializer(getUserType, many=True)
+        getRoom = TestingRoom.objects.filter(bldg = building).filter(room_number = room)
+        serializer = TestingRoomSerializer(getRoom, many=True)
         return Response(serializer.data)
     
 class TestingRoomViewAvailabilitySet(viewsets.ModelViewSet):
     #queryset = TestingRoomAvailability.objects.filter(testing_room_id = 7)
     queryset = TestingRoomAvailability.objects.all()
     serializer_class = TestingRoomAvailabilitySerializer
+    
+    @action(methods=['get'], detail=False)
+    def roomAvailability(self,request):
+        # getting our get parameters
+        id =  request.GET['id']
+        # filtering for our room
+        getAvailability = TestingRoomAvailability.objects.filter(testing_room_id = id)
+        serializer = TestingRoomAvailabilitySerializer(getAvailability, many=True)
+        return Response(serializer.data)
+    

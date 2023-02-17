@@ -30,8 +30,24 @@ export default {
   },
   methods: {
     async loadEvents() {
-      console.log(this.$props.testingRoomId);
-      // placeholder for an AJAX call
+      // getting variables needed for get request
+      let authToken = window.sessionStorage.getItem('auth');
+      let baseUrl = window.location.href;
+      let index = baseUrl.indexOf('/',10);
+      baseUrl = baseUrl.slice(0,index);
+      // get request for room avlability
+      await axios.get(`${baseUrl}/api/testingRoomsAvailability/roomAvailability/`, {
+        headers: {'Authorization':`token ${authToken}`},
+        params: {
+          id: this.$props.testingRoomId,
+        }
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
       const events = [
         {
           id: 1,
