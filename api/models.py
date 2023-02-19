@@ -12,6 +12,9 @@ class TestingRoom(models.Model):
   bldg = models.CharField(max_length=100)
   capacity = models.IntegerField()
   
+  class Meta:
+    unique_together = ('room_number','bldg')
+  
   def __str__(self):
     return str(self.room_number)
   
