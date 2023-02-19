@@ -5,15 +5,16 @@ import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import Calendar from '../components/Calendar.vue'
 import NavBtn from "../components/NavBtn.vue";
+import axios from "axios";
 export default {
     components: {
-    Card,
-    NavBar,
-    Header,
-    CornerStyle,
-    Calendar,
-    NavBtn
-}
+        Card,
+        NavBar,
+        Header,
+        CornerStyle,
+        Calendar,
+        NavBtn
+    }
 }
 
 </script>
@@ -36,9 +37,9 @@ export default {
         <NavBtn />       
 
         <div class="dp-container">
-        <Calendar />
+            <Calendar/>
         </div>
 
-        <CornerStyle />
+        <CornerStyle/>
     </div> 
 </template>
