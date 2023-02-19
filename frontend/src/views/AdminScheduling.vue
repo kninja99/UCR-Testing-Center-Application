@@ -14,10 +14,7 @@ export default {
         CornerStyle,
         Calendar,
         NavBtn
-    },
-    data: () => ({
-        testingRoomId: 0
-    })
+    }
 }
 
 </script>
