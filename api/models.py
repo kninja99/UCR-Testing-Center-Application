@@ -25,3 +25,5 @@ class TestingRoomAvailability(models.Model):
   is_booked = models.BooleanField(default=False)
   # possibly add a foreign key that will allow us to reference
   # the professors id so we can notify classes 
+  class Meta:
+    unique_together = ('testing_room','start_time','end_time','date')
