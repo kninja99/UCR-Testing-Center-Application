@@ -17,30 +17,7 @@ export default {
     },
     data: () => ({
         testingRoomId: 0
-    }),
-    created: async function() {
-            // getting variables needed for get request
-            let authToken = window.sessionStorage.getItem('auth');
-            let baseUrl = window.location.href;
-            let index = baseUrl.indexOf('/',10);
-            baseUrl = baseUrl.slice(0,index);
-            // request to get testing room data
-            await axios.get(`${baseUrl}/api/testingRooms/getTestingRoom/`, {
-                headers: {'Authorization':`token ${authToken}`},
-                params: {
-                roomNum: this.$route.params.room,
-                bldg: this.$route.params.bldg
-                }
-            })
-            .then(res => {
-                if(res.data.length > 0) {
-                    this.testingRoomId=res.data[0].id;
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-        }
+    })
 }
 
 </script>
@@ -63,7 +40,7 @@ export default {
         <NavBtn />       
 
         <div class="dp-container">
-            <Calendar v-if = this.testingRoomId  :testingRoomId = this.testingRoomId />
+            <Calendar/>
         </div>
 
         <CornerStyle/>
