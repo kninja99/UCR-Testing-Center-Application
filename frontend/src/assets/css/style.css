@@ -14,6 +14,7 @@
     --UcrGold: #FFB718;
     --GoldHover: #eba817;
     --White: #FFF;
+    --Grey: #E6E6E6;
 }
 
 html {
@@ -67,6 +68,9 @@ button:hover {
     .admin-home {
         grid-template-columns: 1fr 3fr;
     }
+    /* .admin-inbox {
+        grid-template-columns: 1fr 3fr;
+    } */
 }
 
 @media all and (max-width:642px) {
@@ -75,8 +79,12 @@ button:hover {
             "card card"
             "card card";
     }
-
-
+    /* .admin-inbox {
+        grid-template-areas: "header header"
+            "card card"
+            "card card";
+    } */
+    
 }
 
 @media all and (max-height:692px) {
@@ -86,20 +94,26 @@ button:hover {
             "card card"
             "card card";
     }
+    /* .admin-inbox {
+        grid-template-areas:
+            "header header"
+            "card card"
+            "card card";
+    } */
 }
 
-.admin-inbox {
+
+/* .admin-inbox {
     display: grid;
     grid-template-columns: 270px 3fr;
     grid-template-rows: .1fr 1fr 1fr;
     grid-template-areas:
-        "header header"
-        "navbar card"
-        "navbar card";
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-}
+        "header header header"
+        "navbar card card"
+        "navbar card card";
+    height: auto; 
+    width: 100%;
+} */
 
 .corner {
     position: fixed;
@@ -127,11 +141,19 @@ button:hover {
     .test-card-container {
         justify-content: center;
     }
+    .admin-notif-container{
+        justify-content: center;
+        justify-self: stretch;
+    }
 }
 
 @media all and (max-height:692px) {
     .test-card-container {
         justify-content: center;
+    }
+    .admin-notif-container{
+        justify-content: center;
+        justify-self: stretch;
     }
 }
 

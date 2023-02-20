@@ -16,6 +16,18 @@
             roomNum: {
                 type:String,
                 required: true
+            },
+            schedTimeFrom: {
+                type: TimeRanges,
+                required: true
+            },
+            schedTimeTo: {
+                type: TimeRanges,
+                required: true
+            },
+            schedDate: {
+                type: Date,
+                required: true
             }
         }
     }   
@@ -40,7 +52,7 @@
         <img :src="require(`../assets/imgs/${imgName}`)" :alt="imgName">
         <h3>{{navTitle}}</h3>
     </a> -->
-    <div class="admin-notif-text">
+    <div class="admin-notif-element">
         <div class="prof-column">
             <p>Prof: {{profName}} <br>{{className}}</p>
         </div>
@@ -50,7 +62,7 @@
         </div>
         
         <div class="sched-column">
-            <p>Schedule</p>
+            <p>Schedule: {{schedDate}}<br>{{schedTimeFrom}} - {{schedTimeTo}}</p>
         </div>
         <div class="admin-notif-buttons">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
