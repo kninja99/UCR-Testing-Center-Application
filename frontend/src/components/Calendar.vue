@@ -2,6 +2,7 @@
   <div class = "calendar-container">
     <div class="calendar-nav-btns">
       <button @click="previousWeek">Previous</button>
+      <button>Add Avalability</button>
       <button @click="advanceWeek">Next</button>
     </div>
     <DayPilotCalendar id="dp" :config="config"  ref="calendar"/>
