@@ -145,6 +145,9 @@ button:hover {
         justify-content: flex-start;
         justify-self: stretch;
     }
+    .admin-notif-element{
+        flex-wrap: wrap;
+    }
 }
 
 @media all and (max-height:692px) {
@@ -154,6 +157,9 @@ button:hover {
     .admin-notif-container{
         justify-content: flex-start;
         justify-self: stretch;
+    }
+    .admin-notif-element{
+        flex-wrap: wrap;
     }
 }
 
