@@ -1,8 +1,8 @@
 <template>
   <div class = "calendar-container">
     <div class="calendar-nav-btns">
-      <button>Previous</button>
-      <button>Next</button>
+      <button @click="previousWeek">Previous</button>
+      <button @click="advanceWeek">Next</button>
     </div>
     <DayPilotCalendar id="dp" :config="config"  ref="calendar"/>
   </div>
@@ -103,6 +103,14 @@ export default {
       .catch((err) => {
           console.log(err);
       })
+    },
+    advanceWeek() {
+      this.calendar.startDate = this.calendar.startDate.addDays(7);
+      this.calendar.update();
+    },
+    previousWeek() {
+      this.calendar.startDate = this.calendar.startDate.addDays(-7);
+      this.calendar.update();
     }
   },
   mounted() {
