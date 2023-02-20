@@ -1,13 +1,4 @@
 .admin-notif-container{
-    /* display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-    grid-area: card;
-    flex-wrap: wrap;
-    height: fit-content;
-    min-height: 100%;
-    width: 100%; */
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -20,20 +11,6 @@
 
 
 .admin-notif-element{
-    /* padding: 5%;
-    padding-right: 5%;
-    display: flex;
-
-    justify-content: space-around;
-    flex-direction: row;
-    align-content:center;
-    align-items: center;
-    flex-wrap: wrap;
-    min-height: 70px;
-    width: 100%;
-    margin: 0%; */
-
-
     width: 100%;
     min-height: 70px;
     border-bottom: solid var(--UcrBlue) 0px;
@@ -41,8 +18,6 @@
     flex-direction:row;
     justify-content:space-evenly;
     justify-self: start;
-    /* overflow-wrap:normal; */
-    /* height:fit-content; */
 }
 .admin-notif-element:nth-child(odd){
     background-color: var(--Grey);

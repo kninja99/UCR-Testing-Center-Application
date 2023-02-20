@@ -18,15 +18,15 @@
                 required: true
             },
             schedTimeFrom: {
-                type: TimeRanges,
+                type: String,
                 required: true
             },
             schedTimeTo: {
-                type: TimeRanges,
+                type: String,
                 required: true
             },
             schedDate: {
-                type: Date,
+                type: String,
                 required: true
             }
         }
@@ -34,24 +34,6 @@
 </script>
 
 <template>
-    <!-- 
-            schedDateFrom: {
-                type:Date,
-                required: true
-            },
-            schedDateTo: {
-                type:Date,
-                required: true
-            },
-            schedTimeRange: {
-                type:TimeRanges,
-                required: true
-            }
-
-        <a :href="route" class= nav-comp>
-        <img :src="require(`../assets/imgs/${imgName}`)" :alt="imgName">
-        <h3>{{navTitle}}</h3>
-    </a> -->
     <div class="admin-notif-element">
         <div class="prof-column">
             <p>Prof: {{profName}} <br>{{className}}</p>

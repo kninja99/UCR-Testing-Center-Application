@@ -68,9 +68,6 @@ button:hover {
     .admin-home {
         grid-template-columns: 1fr 3fr;
     }
-    /* .admin-inbox {
-        grid-template-columns: 1fr 3fr;
-    } */
 }
 
 @media all and (max-width:642px) {
@@ -79,12 +76,6 @@ button:hover {
             "card card"
             "card card";
     }
-    /* .admin-inbox {
-        grid-template-areas: "header header"
-            "card card"
-            "card card";
-    } */
-    
 }
 
 @media all and (max-height:692px) {
@@ -94,26 +85,7 @@ button:hover {
             "card card"
             "card card";
     }
-    /* .admin-inbox {
-        grid-template-areas:
-            "header header"
-            "card card"
-            "card card";
-    } */
 }
-
-
-/* .admin-inbox {
-    display: grid;
-    grid-template-columns: 270px 3fr;
-    grid-template-rows: .1fr 1fr 1fr;
-    grid-template-areas:
-        "header header header"
-        "navbar card card"
-        "navbar card card";
-    height: auto; 
-    width: 100%;
-} */
 
 .corner {
     position: fixed;
