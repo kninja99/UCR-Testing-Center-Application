@@ -1,5 +1,12 @@
 <template>
-  <DayPilotCalendar id="dp" :config="config"  ref="calendar"/>
+  <div class = "calendar-container">
+    <div class="calendar-nav-btns">
+      <button>Previous</button>
+      <button>Next</button>
+    </div>
+    <DayPilotCalendar id="dp" :config="config"  ref="calendar"/>
+  </div>
+  
 </template>
 
 <script>
