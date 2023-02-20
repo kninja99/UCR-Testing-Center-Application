@@ -137,17 +137,18 @@ button:hover {
 }
 
 .room-cards {
-    grid-area: card;
     display: flex;
     align-content: flex-start;
     flex-wrap: wrap;
     margin-top: 50px;
-    position: absolute;
-    justify-content: center;
+}
+
+@media all and (max-width:1000px) {
+    .room-cards {
+        justify-content: center;
+    }
 }
 
 .room-page-contents {
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    align-content: left;
+    grid-area: card;
 }
