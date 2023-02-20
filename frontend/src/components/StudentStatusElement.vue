@@ -15,7 +15,7 @@ export default {
 
 <template>
     <div class="status-element">
-        <h1 class="status-text"><StudentStatusButton buttonName="Add 1 New Room"/>  </h1>
+        <h1 class="status-text"><StudentStatusButton/>  </h1>
         <h2 class="status-text">{{ studentName }}</h2>
         <h3 class="status-text">{{ className }}</h3>
         <h4 class="status-text">{{ instructorName }}</h4>
