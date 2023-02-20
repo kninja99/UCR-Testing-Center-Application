@@ -1,6 +1,6 @@
 /* calendar styling */
 
-.calendar-container {
+.dp-container {
   display: flex;
   justify-content: space-evenly;
   align-items: top;
@@ -12,6 +12,13 @@
   height: fit-content;
   width: fit-content;
   min-height: 100%;
+}
+
+.calendar-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
 }
 
 .calendar-nav-btns {
