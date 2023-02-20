@@ -12,6 +12,9 @@ class TestingRoom(models.Model):
   bldg = models.CharField(max_length=100)
   capacity = models.IntegerField()
   
+  class Meta:
+    unique_together = ('room_number','bldg')
+  
   def __str__(self):
     return str(self.room_number)
   
@@ -25,3 +28,5 @@ class TestingRoomAvailability(models.Model):
   is_booked = models.BooleanField(default=False)
   # possibly add a foreign key that will allow us to reference
   # the professors id so we can notify classes 
+  class Meta:
+    unique_together = ('testing_room','start_time','end_time','date')

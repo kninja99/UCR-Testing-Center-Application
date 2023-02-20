@@ -4,9 +4,12 @@
 @import url(./header.css);
 @import url(./adminNotif.css);
 @import url(./addButton.css);
+@import url(./calendar.css);
 @import url(./testCard.css);
 @import url(./roomCard.css);
 @import url(./studentCheckInHeader.css);
+@import url(./studentStatusElement.css);
+
 
 :root {
     --UcrBlue: #003DA5;
@@ -14,7 +17,7 @@
     --UcrGold: #FFB718;
     --GoldHover: #eba817;
     --White: #FFF;
-    --Grey: #E6E6E6;
+    --Grey: #e2e2e2;
 }
 
 html {
@@ -109,6 +112,16 @@ button:hover {
     height: auto;
 }
 
+.student-checkin-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: flex-start;
+    overflow-y: auto;
+    height: auto;
+}
+
 @media all and (max-width:642px) {
     .test-card-container {
         justify-content: center;
@@ -138,19 +151,19 @@ button:hover {
 }
 
 .room-cards {
-    grid-area: card;
     display: flex;
     align-content: flex-start;
     flex-wrap: wrap;
     margin-top: 50px;
-    position: absolute;
-    justify-content: center;
 }
 
+@media all and (max-width:1000px) {
+    .room-cards {
+        justify-content: center;
+    }
+}
+
+
 .room-page-contents {
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    align-content: left;
-
-
+    grid-area: card;
 }
