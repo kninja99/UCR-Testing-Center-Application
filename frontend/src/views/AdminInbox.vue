@@ -28,6 +28,12 @@ export default {
         <div class="admin-notif-container">
             <AdminNotif profName='Allan Knight' className='CS061' roomNum='234' schedDate="2/16/2024" schedTimeFrom="10:00AM" schedTimeTo="4:00PM"/>
             <AdminNotif profName='Allan Knight' className='CS061' roomNum='334' schedDate="3/16/2024" schedTimeFrom="1:00PM" schedTimeTo="4:00PM"/>
+            <AdminNotif profName='Allan Knight' className='CS061' roomNum='234' schedDate="2/16/2024" schedTimeFrom="10:00AM" schedTimeTo="4:00PM"/>
+            <AdminNotif profName='Allan Knight' className='CS061' roomNum='334' schedDate="3/16/2024" schedTimeFrom="1:00PM" schedTimeTo="4:00PM"/>
+            <AdminNotif profName='Allan Knight' className='CS061' roomNum='234' schedDate="2/16/2024" schedTimeFrom="10:00AM" schedTimeTo="4:00PM"/>
+            <AdminNotif profName='Allan Knight' className='CS061' roomNum='334' schedDate="3/16/2024" schedTimeFrom="1:00PM" schedTimeTo="4:00PM"/>
+            <AdminNotif profName='Allan Knight' className='CS061' roomNum='234' schedDate="2/16/2024" schedTimeFrom="10:00AM" schedTimeTo="4:00PM"/>
+            <AdminNotif profName='Allan Knight' className='CS061' roomNum='334' schedDate="3/16/2024" schedTimeFrom="1:00PM" schedTimeTo="4:00PM"/>
         </div>
         <CornerStyle />
     </div>

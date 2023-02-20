@@ -116,6 +116,7 @@ button:hover {
     .admin-notif-container{
         justify-content: flex-start;
         justify-self: stretch;
+        overflow-y: auto;
     }
     .admin-notif-element{
         flex-wrap: wrap;
@@ -129,6 +130,7 @@ button:hover {
     .admin-notif-container{
         justify-content: flex-start;
         justify-self: stretch;
+        overflow-y: auto;
     }
     .admin-notif-element{
         flex-wrap: wrap;
