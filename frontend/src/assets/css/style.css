@@ -142,7 +142,7 @@ button:hover {
         justify-content: center;
     }
     .admin-notif-container{
-        justify-content: center;
+        justify-content: flex-start;
         justify-self: stretch;
     }
 }
@@ -152,7 +152,7 @@ button:hover {
         justify-content: center;
     }
     .admin-notif-container{
-        justify-content: center;
+        justify-content: flex-start;
         justify-self: stretch;
     }
 }
