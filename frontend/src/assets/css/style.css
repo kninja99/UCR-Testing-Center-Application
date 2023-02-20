@@ -9,6 +9,7 @@
 @import url(./roomCard.css);
 @import url(./studentCheckInHeader.css);
 @import url(./studentStatusElement.css);
+@import url(./studentStatusButton.css);
 
 
 :root {
@@ -18,6 +19,8 @@
     --GoldHover: #eba817;
     --White: #FFF;
     --Grey: #e2e2e2;
+    --Green: #1adf00;
+    --Red: #ff0000;
 }
 
 html {

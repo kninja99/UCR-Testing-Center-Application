@@ -5,9 +5,10 @@ import Header from "../components/Header.vue";
 import NavBtn from "../components/NavBtn.vue";
 import StudentCheckInHeader from "../components/StudentCheckInHeader.vue";
 import StudentStatusElement from "../components/StudentStatusElement.vue";
+import AddRoomButton from "../components/AddRoomButton.vue"
 export default {
     components: {
-        NavBar, Header, CornerStyle, NavBtn, StudentCheckInHeader, StudentStatusElement
+        NavBar, Header, CornerStyle, NavBtn, StudentCheckInHeader, StudentStatusElement, AddRoomButton
     }
 }
 </script>
@@ -32,15 +33,6 @@ export default {
             <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
             <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
             <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
-            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
-            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
-            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
-            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
-            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
-            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
-            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
-            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
-
 
         </div>
         <CornerStyle />
