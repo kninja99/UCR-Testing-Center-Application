@@ -5,6 +5,7 @@
             <form @submit.prevent="loginEvent">
                 <input id = "username" type="text" placeholder="Username" v-model="username">
                 <input id = "password" type="password" placeholder="Password" v-model = "password">
+                <p v-if="error.length" class="err-msg">{{ error }}</p>
                 <button class = "login-btn">Login</button>
             </form>
         </div>
@@ -18,6 +19,7 @@
         data: () => ({
             username: "",
             password: "",
+            error:""
         }),
         methods: {
             loginEvent(e) {
@@ -51,9 +53,20 @@
                     })
                     .catch((err) => {
                         console.log(err);
+                        this.error = "Server Error, try again later or contact support"
                     })
                 })
                 .catch((err) => {
+                    let errorMsg = err.response.data;
+                    if(errorMsg.username || errorMsg.passowrd){
+                        this.error = "Please input both username and password"
+                    }
+                    else if(errorMsg.non_field_errors){
+                        this.error = "Can't log in with the provided credentials";
+                    }
+                    else {
+                        this.error = "Server Error, try again later or contact support"
+                    }
                     console.log(err.response.data);
                 });
                 e.preventDefault(e);

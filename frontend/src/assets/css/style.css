@@ -2,12 +2,15 @@
 @import url(./navBar.css);
 @import url(./login.css);
 @import url(./header.css);
+@import url(./adminNotif.css);
 @import url(./addButton.css);
+@import url(./calendar.css);
 @import url(./testCard.css);
 @import url(./roomCard.css);
 @import url(./studentCheckInHeader.css);
 @import url(./studentStatusElement.css);
 @import url(./studentStatusButton.css);
+
 
 :root {
     --UcrBlue: #003DA5;
@@ -18,7 +21,6 @@
     --Grey: #e2e2e2;
     --Green: #1adf00;
     --Red: #ff0000;
-
 }
 
 html {
@@ -44,6 +46,14 @@ button {
 
 button:hover {
     cursor: pointer;
+}
+
+/* style used for red error msgs */
+.err-msg {
+    color: var(--UcrGold);
+    font-weight: 500;
+    margin: 0;
+    width: 185px;
 }
 
 /* admin home page setup */
@@ -72,8 +82,6 @@ button:hover {
             "card card"
             "card card";
     }
-
-
 }
 
 @media all and (max-height:692px) {
@@ -84,7 +92,6 @@ button:hover {
             "card card";
     }
 }
-
 
 .corner {
     position: fixed;
@@ -100,8 +107,8 @@ button:hover {
 }
 
 .test-card-container {
-    display:flex;
-    align-items:flex-start;
+    display: flex;
+    align-items: flex-start;
     justify-content: flex-start;
     align-content: flex-start;
     overflow-y: auto;
@@ -109,9 +116,9 @@ button:hover {
 }
 
 .student-checkin-container {
-    display:flex;
+    display: flex;
     flex-direction: row;
-    align-items:flex-start;
+    align-items: flex-start;
     justify-content: flex-start;
     align-content: flex-start;
     overflow-y: auto;
@@ -122,28 +129,44 @@ button:hover {
     .test-card-container {
         justify-content: center;
     }
+    .admin-notif-container{
+        justify-content: flex-start;
+        justify-self: stretch;
+        overflow-y: auto;
+    }
+    .admin-notif-element{
+        flex-wrap: wrap;
+    }
 }
 
 @media all and (max-height:692px) {
     .test-card-container {
         justify-content: center;
     }
+    .admin-notif-container{
+        justify-content: flex-start;
+        justify-self: stretch;
+        overflow-y: auto;
+    }
+    .admin-notif-element{
+        flex-wrap: wrap;
+    }
 }
 
-.room-cards{
-    grid-area: card;
+.room-cards {
     display: flex;
     align-content: flex-start;
     flex-wrap: wrap;
     margin-top: 50px;
-    position:absolute;
-    justify-content: center;
 }
 
-.room-page-contents{
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    align-content: left;
-    
-    
+@media all and (max-width:1000px) {
+    .room-cards {
+        justify-content: center;
+    }
+}
+
+
+.room-page-contents {
+    grid-area: card;
 }
