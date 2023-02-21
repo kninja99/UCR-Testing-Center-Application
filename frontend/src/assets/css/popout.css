@@ -17,6 +17,13 @@
     height: 80%;
 }
 
+@media all and (max-width: 768px) {
+    .popout-content {
+        width: 95%;
+        height: 85%;
+    }
+}
+
 .popout-header {
     display: block;
     justify-content: center;
@@ -87,4 +94,10 @@
     padding: 5px 10px;
     border-radius: 15px;
     margin-top: auto;
+    font-weight: 600;
+}
+
+.form-btn:hover {
+    background-color: var(--GoldHover);
+
 }

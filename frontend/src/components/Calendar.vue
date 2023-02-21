@@ -35,7 +35,7 @@
             <input type="date" name="end-date" id="end-date">
           </span>
         </div>
-        <button class = "form-btn">Submit Avlability</button>
+        <button @click="addAvlabilityEvent" class = "form-btn">Submit Avlability</button>
       </form>
     </PopOut >
   </div>
@@ -171,6 +171,10 @@ export default {
       else {
         this.popOutToggle = true;
       }
+    },
+    addAvlabilityEvent(e){
+      console.log("add avlability");
+      e.preventDefault(e);
     }
   },
   mounted() {
