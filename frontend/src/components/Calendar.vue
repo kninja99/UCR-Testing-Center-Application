@@ -6,6 +6,11 @@
       <button @click="advanceWeek">Next</button>
     </div>
     <DayPilotCalendar id="dp" :config="config"  ref="calendar"/>
+    <PopOut v-if="popOutToggle" popout-name="Add Avalability">
+      <div>
+        <h1>test popout</h1>
+      </div>
+    </PopOut >
   </div>
   
 </template>
@@ -13,6 +18,7 @@
 <script>
 import {DayPilotCalendar} from '@daypilot/daypilot-lite-vue'
 import axios from 'axios'
+import PopOut from './PopOut.vue'
 export default {
   name: 'Calendar',
   data: function() {
@@ -23,11 +29,13 @@ export default {
         eventMoveHandling: "Disabled",
         timeRangeSelectedHandling: "Disabled"
       },
-      roomID: -1
+      roomID: -1,
+      popOutToggle:true
     }
   },
   components: {
-    DayPilotCalendar
+    DayPilotCalendar,
+    PopOut
   },
   computed: {
     calendar() {
