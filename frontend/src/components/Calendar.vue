@@ -2,19 +2,19 @@
   <div class = "calendar-container">
     <div class="calendar-nav-btns">
       <button @click="previousWeek">Previous</button>
-      <button @click="togglePopout">Add Avalability</button>
+      <button @click="togglePopout">Add Availability</button>
       <button @click="advanceWeek">Next</button>
     </div>
     <DayPilotCalendar id="dp" :config="config"  ref="calendar"/>
     <!-- custome popout for avlability form -->
     <PopOut v-if="popOutToggle">
       <div class="popout-header">
-        <p class="popout-name">Make Room Avlability</p>
+        <p class="popout-name">Make Room Availability</p>
         <button @click="togglePopout" class="close-popout">X</button>
       </div>
-      <form class="avlability-form">
+      <form class="availability-form">
         <h2 class="form-header">Time Range</h2>
-        <div class="avlability-inputs">
+        <div class="availability-inputs">
           <span>
             <h3>Start Time</h3>
             <input type="time" name="start-time" id="start-time">
@@ -25,7 +25,7 @@
           </span>
         </div>
         <h2 class="form-header">Date Range</h2>
-        <div class="avlability-inputs">
+        <div class="availability-inputs">
           <span>
             <h3>Start Date</h3>
             <input type="date" name="start-date" id="start-date">
@@ -35,7 +35,7 @@
             <input type="date" name="end-date" id="end-date">
           </span>
         </div>
-        <button @click="addAvlabilityEvent" class = "form-btn">Submit Avlability</button>
+        <button @click="addAvailabilityEvent" class = "form-btn">Submit Availability</button>
       </form>
     </PopOut >
   </div>
@@ -90,15 +90,15 @@ export default {
         }
       })
       .then((res) => {
-        let avlability = res.data
+        let availability = res.data
         // populating events
-        for(let i = 0; i < avlability.length ; i+=1 ) {
+        for(let i = 0; i < availability.length ; i+=1 ) {
           let eventText;
           let eventBarColor;
-          let startTime = `${avlability[i].date}T${avlability[i].start_time}`
-          let endTime = `${avlability[i].date}T${avlability[i].end_time}`
+          let startTime = `${availability[i].date}T${availability[i].start_time}`
+          let endTime = `${availability[i].date}T${availability[i].end_time}`
           // determining the inner text and bar color
-          if(avlability[i].is_booked){
+          if(availability[i].is_booked){
             eventText = "Booked";
             eventBarColor = "red";
           }
@@ -108,7 +108,7 @@ export default {
           }
           // event to be added to events
           let event = {
-            id: avlability[i].id,
+            id: availability[i].id,
             start: startTime,
             end: endTime,
             text: eventText,
@@ -162,7 +162,7 @@ export default {
       this.calendar.update();
     },
     /**
-     * toggleing our add avlability popout
+     * toggleing our add availability popout
      */
     togglePopout() {
       if(this.popOutToggle) {
@@ -172,7 +172,7 @@ export default {
         this.popOutToggle = true;
       }
     },
-    addAvlabilityEvent(e){
+    addAvailabilityEvent(e){
       console.log("add avlability");
       e.preventDefault(e);
     }
