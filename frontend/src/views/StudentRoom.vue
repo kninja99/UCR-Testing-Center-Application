@@ -13,7 +13,7 @@
 
 <template>
     <div class="admin-home">
-        <Header title="Student Portal"/>
+        <Header title="Student Course Testing Rooms"/>
         <NavBtn/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
