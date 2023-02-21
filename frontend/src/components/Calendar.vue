@@ -2,11 +2,16 @@
   <div class = "calendar-container">
     <div class="calendar-nav-btns">
       <button @click="previousWeek">Previous</button>
-      <button>Add Avalability</button>
+      <button @click="togglePopout">Add Avalability</button>
       <button @click="advanceWeek">Next</button>
     </div>
     <DayPilotCalendar id="dp" :config="config"  ref="calendar"/>
-    <PopOut v-if="popOutToggle" popout-name="Add Avalability">
+    <!-- custome popout for avlability form -->
+    <PopOut v-if="popOutToggle">
+      <div class="popout-header">
+        <p class="popout-name">Make Room Avlability</p>
+        <button @click="togglePopout" class="close-popout">X</button>
+      </div>
       <div>
         <h1>test popout</h1>
       </div>
@@ -30,7 +35,7 @@ export default {
         timeRangeSelectedHandling: "Disabled"
       },
       roomID: -1,
-      popOutToggle:true
+      popOutToggle:false
     }
   },
   components: {
@@ -43,6 +48,10 @@ export default {
     }
   },
   methods: {
+    /**
+     * loads avlability for the room, this is done by making a request
+     * to the backend
+     */
     async loadEvents() {
       await this.getRoomId();
       let events = []
@@ -92,6 +101,9 @@ export default {
 
       this.calendar.update({events});
     },
+    /**
+     * getting room id from backend
+     */
     async getRoomId() {
       // getting variables needed for get request
       let authToken = window.sessionStorage.getItem('auth');
@@ -113,13 +125,30 @@ export default {
           console.log(err);
       })
     },
+    /**
+     * Advance the week in dayplot calendar
+     */
     advanceWeek() {
       this.calendar.startDate = this.calendar.startDate.addDays(7);
       this.calendar.update();
     },
+    /**
+     * will go back to previous week in dayplot calendar
+     */
     previousWeek() {
       this.calendar.startDate = this.calendar.startDate.addDays(-7);
       this.calendar.update();
+    },
+    /**
+     * toggleing our add avlability popout
+     */
+    togglePopout() {
+      if(this.popOutToggle) {
+        this.popOutToggle = false;
+      }
+      else {
+        this.popOutToggle = true;
+      }
     }
   },
   mounted() {
