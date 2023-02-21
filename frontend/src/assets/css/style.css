@@ -2,6 +2,7 @@
 @import url(./navBar.css);
 @import url(./login.css);
 @import url(./header.css);
+@import url(./adminNotif.css);
 @import url(./addButton.css);
 @import url(./calendar.css);
 @import url(./testCard.css);
@@ -9,6 +10,8 @@
 @import url(./studentCheckInHeader.css);
 @import url(./studentStatusElement.css);
 @import url(./popout.css);
+@import url(./studentStatusButton.css);
+
 
 
 :root {
@@ -18,7 +21,8 @@
     --GoldHover: #eba817;
     --White: #FFF;
     --Grey: #e2e2e2;
-
+    --Green: #1adf00;
+    --Red: #ff0000;
 }
 
 html {
@@ -84,8 +88,6 @@ button:hover {
             "card card"
             "card card";
     }
-
-
 }
 
 @media all and (max-height:692px) {
@@ -133,11 +135,27 @@ button:hover {
     .test-card-container {
         justify-content: center;
     }
+    .admin-notif-container{
+        justify-content: flex-start;
+        justify-self: stretch;
+        overflow-y: auto;
+    }
+    .admin-notif-element{
+        flex-wrap: wrap;
+    }
 }
 
 @media all and (max-height:692px) {
     .test-card-container {
         justify-content: center;
+    }
+    .admin-notif-container{
+        justify-content: flex-start;
+        justify-self: stretch;
+        overflow-y: auto;
+    }
+    .admin-notif-element{
+        flex-wrap: wrap;
     }
 }
 
@@ -153,6 +171,7 @@ button:hover {
         justify-content: center;
     }
 }
+
 
 .room-page-contents {
     grid-area: card;
