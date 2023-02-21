@@ -119,7 +119,6 @@ button:hover {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    /* align-content: space-around; */
     align-content: flex-start;
     overflow-y: auto;
     height: auto;
@@ -134,9 +133,8 @@ button:hover {
     align-items: flex-start;
     justify-content: flex-start;
     align-content: flex-start;
+    overflow-y: auto;
     height: auto;
-    overflow-y:auto;
-    
 }
 
 

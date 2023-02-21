@@ -1,7 +1,6 @@
 <script>
 export default {
     props: {
-        // buttonHeader: String,
         className: String,
         profName: String
     }

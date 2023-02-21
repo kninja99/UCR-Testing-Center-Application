@@ -30,7 +30,6 @@
             <Card className="CS178B" profName="Neftali" />
             <Card className="CS178B" profName="Neftali" />
             <Card className="CS178B" profName="Neftali" />
-            <!-- <Card img-name="email-icon.svg" button-header="View Inbox" route="student/inbox" /> -->
         </div>
         <CornerStyle />
     </div>
