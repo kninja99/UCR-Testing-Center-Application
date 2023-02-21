@@ -1,0 +1,9 @@
+.student-room-card-element{
+    outline: auto;
+    height: 100px;
+}
+
+.student-room-card-element-color{
+    background-color: aquamarine;
+    height: 50px;
+}
