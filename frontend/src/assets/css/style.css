@@ -26,6 +26,10 @@ html {
     width: 100vw;
 }
 
+input:focus {
+    outline: none;
+}
+
 body {
     margin: 0;
     height: 100%;

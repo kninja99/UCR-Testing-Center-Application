@@ -12,9 +12,31 @@
         <p class="popout-name">Make Room Avlability</p>
         <button @click="togglePopout" class="close-popout">X</button>
       </div>
-      <div>
-        <h1>test popout</h1>
-      </div>
+      <form class="avlability-form">
+        <h2 class="form-header">Time Range</h2>
+        <div class="avlability-inputs">
+          <span>
+            <h3>Start Time</h3>
+            <input type="time" name="start-time" id="start-time">
+          </span>
+          <span>
+            <h3>End Time</h3>
+            <input type="time" name="start-time" id="start-time">
+          </span>
+        </div>
+        <h2 class="form-header">Date Range</h2>
+        <div class="avlability-inputs">
+          <span>
+            <h3>Start Date</h3>
+            <input type="date" name="start-date" id="start-date">
+          </span>
+          <span>
+            <h3>End Date</h3>
+            <input type="date" name="end-date" id="end-date">
+          </span>
+        </div>
+        <button class = "form-btn">Submit Avlability</button>
+      </form>
     </PopOut >
   </div>
   
