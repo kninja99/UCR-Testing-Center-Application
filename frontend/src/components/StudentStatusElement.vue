@@ -1,6 +1,5 @@
 <script>
 import StudentStatusButton from "../components/studentStatusButton.vue"
-import StudentStatusActions from "./studentStatusActions.vue";
 import studentStatusActions from "./studentStatusActions.vue";
 export default {
     components: {
