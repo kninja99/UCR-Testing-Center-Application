@@ -1,9 +1,11 @@
 /* Nav Styles */
 
 .nav-bar {
+    position: relative;
     background-color: var(--UcrBlue);
     grid-area: navbar;
-    z-index: 10; /* To make navbar appear over all other objects*/
+    /* z-index: 10;  from my testing we dont need, and is messing with popout*/
+    /* To make navbar appear over all other objects*/
     max-width: 270px;
     display: flex;
     flex-direction: column;

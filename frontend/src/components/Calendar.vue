@@ -2,9 +2,42 @@
   <div class = "calendar-container">
     <div class="calendar-nav-btns">
       <button @click="previousWeek">Previous</button>
+      <button @click="togglePopout">Add Availability</button>
       <button @click="advanceWeek">Next</button>
     </div>
     <DayPilotCalendar id="dp" :config="config"  ref="calendar"/>
+    <!-- custome popout for avlability form -->
+    <PopOut v-if="popOutToggle">
+      <div class="popout-header">
+        <p class="popout-name">Make Room Availability</p>
+        <button @click="togglePopout" class="close-popout">X</button>
+      </div>
+      <form class="availability-form">
+        <h2 class="form-header">Time Range</h2>
+        <div class="availability-inputs">
+          <span>
+            <h3>Start Time</h3>
+            <input type="time" name="start-time" id="start-time">
+          </span>
+          <span>
+            <h3>End Time</h3>
+            <input type="time" name="start-time" id="start-time">
+          </span>
+        </div>
+        <h2 class="form-header">Date Range</h2>
+        <div class="availability-inputs">
+          <span>
+            <h3>Start Date</h3>
+            <input type="date" name="start-date" id="start-date">
+          </span>
+          <span>
+            <h3>End Date</h3>
+            <input type="date" name="end-date" id="end-date">
+          </span>
+        </div>
+        <button @click="addAvailabilityEvent" class = "form-btn">Submit Availability</button>
+      </form>
+    </PopOut >
   </div>
   
 </template>
@@ -12,6 +45,7 @@
 <script>
 import {DayPilotCalendar} from '@daypilot/daypilot-lite-vue'
 import axios from 'axios'
+import PopOut from './PopOut.vue'
 export default {
   name: 'Calendar',
   data: function() {
@@ -22,11 +56,13 @@ export default {
         eventMoveHandling: "Disabled",
         timeRangeSelectedHandling: "Disabled"
       },
-      roomID: -1
+      roomID: -1,
+      popOutToggle:false
     }
   },
   components: {
-    DayPilotCalendar
+    DayPilotCalendar,
+    PopOut
   },
   computed: {
     calendar() {
@@ -34,6 +70,10 @@ export default {
     }
   },
   methods: {
+    /**
+     * loads avlability for the room, this is done by making a request
+     * to the backend
+     */
     async loadEvents() {
       await this.getRoomId();
       let events = []
@@ -50,15 +90,15 @@ export default {
         }
       })
       .then((res) => {
-        let avlability = res.data
+        let availability = res.data
         // populating events
-        for(let i = 0; i < avlability.length ; i+=1 ) {
+        for(let i = 0; i < availability.length ; i+=1 ) {
           let eventText;
           let eventBarColor;
-          let startTime = `${avlability[i].date}T${avlability[i].start_time}`
-          let endTime = `${avlability[i].date}T${avlability[i].end_time}`
+          let startTime = `${availability[i].date}T${availability[i].start_time}`
+          let endTime = `${availability[i].date}T${availability[i].end_time}`
           // determining the inner text and bar color
-          if(avlability[i].is_booked){
+          if(availability[i].is_booked){
             eventText = "Booked";
             eventBarColor = "red";
           }
@@ -68,7 +108,7 @@ export default {
           }
           // event to be added to events
           let event = {
-            id: avlability[i].id,
+            id: availability[i].id,
             start: startTime,
             end: endTime,
             text: eventText,
@@ -83,6 +123,9 @@ export default {
 
       this.calendar.update({events});
     },
+    /**
+     * getting room id from backend
+     */
     async getRoomId() {
       // getting variables needed for get request
       let authToken = window.sessionStorage.getItem('auth');
@@ -104,13 +147,34 @@ export default {
           console.log(err);
       })
     },
+    /**
+     * Advance the week in dayplot calendar
+     */
     advanceWeek() {
       this.calendar.startDate = this.calendar.startDate.addDays(7);
       this.calendar.update();
     },
+    /**
+     * will go back to previous week in dayplot calendar
+     */
     previousWeek() {
       this.calendar.startDate = this.calendar.startDate.addDays(-7);
       this.calendar.update();
+    },
+    /**
+     * toggleing our add availability popout
+     */
+    togglePopout() {
+      if(this.popOutToggle) {
+        this.popOutToggle = false;
+      }
+      else {
+        this.popOutToggle = true;
+      }
+    },
+    addAvailabilityEvent(e){
+      console.log("add avlability");
+      e.preventDefault(e);
     }
   },
   mounted() {
