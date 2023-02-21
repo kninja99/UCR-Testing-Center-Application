@@ -2,7 +2,8 @@
   <div class="popout">
     <div class="popout-content">
         <div class="popout-header">
-            <h3>{{ popoutName }}</h3>
+            <p class="popout-name">{{ popoutName }}</p>
+            <button class="close-popout">X</button>
         </div>
         <slot></slot>
     </div>
