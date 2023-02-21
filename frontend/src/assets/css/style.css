@@ -115,6 +115,18 @@ button:hover {
     overflow-y: auto;
     height: auto;
 }
+.student-room-card-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    /* align-content: space-around; */
+    align-content: flex-start;
+    overflow-y: auto;
+    height: auto;
+    grid-area: card;
+    padding: 20px;
+    flex-wrap: wrap;
+}
 
 .student-checkin-container {
     display: flex;
@@ -122,13 +134,21 @@ button:hover {
     align-items: flex-start;
     justify-content: flex-start;
     align-content: flex-start;
-    overflow-y: auto;
     height: auto;
+    overflow-y:auto;
+    
 }
+
+
 
 @media all and (max-width:642px) {
     .test-card-container {
         justify-content: center;
+    }
+    .student-room-card-container{
+        justify-content: center;
+        overflow-y: auto;
+        flex-wrap: wrap;
     }
     .admin-notif-container{
         justify-content: flex-start;
@@ -143,6 +163,11 @@ button:hover {
 @media all and (max-height:692px) {
     .test-card-container {
         justify-content: center;
+    }
+    .student-room-card-container{
+        justify-content: center;
+        overflow-y: auto;
+        flex-wrap: wrap;
     }
     .admin-notif-container{
         justify-content: flex-start;

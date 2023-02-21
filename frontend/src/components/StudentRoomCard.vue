@@ -14,12 +14,7 @@ export default {
         </div>
 
         <div class="room-card-element-text">
-            <div class="room-card-element-class">
-                Course: {{className}}
-            </div>
-            <div class="room-card-element-seats">
-                Prof: {{profName}}
-            </div>
+            {{className}}<br>Prof {{profName}}
         </div>
     </div>
 </template>

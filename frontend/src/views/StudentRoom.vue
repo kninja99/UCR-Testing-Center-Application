@@ -24,8 +24,12 @@
         { title: 'Inbox', img: 'mailNav-icon.svg', route: '/student/inbox' },
         { title: 'Settings', img: 'settings-icon.svg', route: '/student/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: '/student/account' }]" />
-        <div class="card-container">
-            <Card :className="CS178B" profName="Neftali" />
+        <div class="student-room-card-container">
+            <Card className="CS178B" profName="Neftali" />
+            <Card className="CS178B" profName="Neftali" />
+            <Card className="CS178B" profName="Neftali" />
+            <Card className="CS178B" profName="Neftali" />
+            <Card className="CS178B" profName="Neftali" />
             <!-- <Card img-name="email-icon.svg" button-header="View Inbox" route="student/inbox" /> -->
         </div>
         <CornerStyle />
