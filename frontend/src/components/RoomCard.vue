@@ -11,7 +11,7 @@ export default {
     methods: {
         roomClickEvent() {
             try {
-                this.$router.push({ name: 'Admin-Scheduling', params: { bldg: this.$props.bldg, room: this.$props.roomNum} });
+                this.$router.push({ path: `rooms/${this.$props.bldg}/${this.$props.roomNum}`});
             }
             catch {
                 alert("room is not reachable");
