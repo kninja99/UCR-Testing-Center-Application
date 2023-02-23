@@ -195,15 +195,15 @@ export default {
       let baseUrl = window.location.href;
       let index = baseUrl.indexOf('/', 10);
       baseUrl = baseUrl.slice(0, index);
-      // axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvlability)
-      // .then(res => {
-      //   console.log("should be in db");
-      //   console.log(res);
-      // })
-      // .catch(err => {
-      //   console.log("this is an error");
-      //   console.log(err);
-      // })
+      axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvlability)
+      .then(res => {
+        console.log("should be in db");
+        console.log(res);
+      })
+      .catch(err => {
+        console.log("this is an error");
+        console.log(err);
+      })
       e.preventDefault(e);
     }
   },
