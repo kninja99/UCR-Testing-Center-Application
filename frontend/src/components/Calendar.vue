@@ -183,8 +183,30 @@ export default {
       console.log(`startDate;${this.startDate}`);
       console.log(`endDate:${this.endDate}`);
       console.log(`room id: ${this.roomID}`);
-      e.preventDefault(e);
-    }
+      let roomAvlability = {
+        start_time: this.startTime,
+        end_time: this.endTime,
+        date: this.startDate,
+        is_booked: false,
+        testing_room_id: this.roomID
+      }
+      // getting variables needed for get request
+      let authToken = window.sessionStorage.getItem('auth');
+      let baseUrl = window.location.href;
+      let index = baseUrl.indexOf('/', 10);
+      baseUrl = baseUrl.slice(0, index);
+      // not working at the moment due to backend
+    //   axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvlability)
+    //   .then(res => {
+    //     console.log("should be in db");
+    //     console.log(res);
+    //   })
+    //   .catch(err => {
+    //     console.log("this is an error");
+    //     console.log(err);
+    //   })
+    //   e.preventDefault(e);
+    // }
   },
   mounted() {
     this.loadEvents();
