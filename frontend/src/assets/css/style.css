@@ -199,4 +199,5 @@ button:hover {
 
 .room-page-contents {
     grid-area: card;
+    overflow: auto;
 }
