@@ -17,11 +17,11 @@
         <div class="availability-inputs">
           <span>
             <h3>Start Time</h3>
-            <input v-model="startTime" type="time" name="start-time" id="start-time">
+            <input v-model="startTime" type="time" name="start-time" id="start-time" step="3600000">
           </span>
           <span>
             <h3>End Time</h3>
-            <input v-model="endTime" type="time" name="start-time" id="start-time">
+            <input v-model="endTime" type="time" name="start-time" id="start-time" step="3600000">
           </span>
         </div>
         <h2 class="form-header">Date Range</h2>
