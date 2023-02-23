@@ -1,11 +1,11 @@
 <template>
-  <div class = "calendar-container">
+  <div class="calendar-container">
     <div class="calendar-nav-btns">
       <button @click="previousWeek">Previous</button>
       <button @click="togglePopout">Add Availability</button>
       <button @click="advanceWeek">Next</button>
     </div>
-    <DayPilotCalendar id="dp" :config="config"  ref="calendar"/>
+    <DayPilotCalendar id="dp" :config="config" ref="calendar" />
     <!-- custome popout for avlability form -->
     <PopOut v-if="popOutToggle">
       <div class="popout-header">
@@ -17,38 +17,37 @@
         <div class="availability-inputs">
           <span>
             <h3>Start Time</h3>
-            <input type="time" name="start-time" id="start-time">
+            <input v-model="startTime" type="time" name="start-time" id="start-time">
           </span>
           <span>
             <h3>End Time</h3>
-            <input type="time" name="start-time" id="start-time">
+            <input v-model="endTime" type="time" name="start-time" id="start-time">
           </span>
         </div>
         <h2 class="form-header">Date Range</h2>
         <div class="availability-inputs">
           <span>
             <h3>Start Date</h3>
-            <input type="date" name="start-date" id="start-date">
+            <input v-model="startDate" type="date" name="start-date" id="start-date">
           </span>
           <span>
             <h3>End Date</h3>
-            <input type="date" name="end-date" id="end-date">
+            <input v-model="endDate" type="date" name="end-date" id="end-date">
           </span>
         </div>
-        <button @click="addAvailabilityEvent" class = "form-btn">Submit Availability</button>
+        <button @click="addAvailabilityEvent" class="form-btn">Submit Availability</button>
       </form>
-    </PopOut >
+    </PopOut>
   </div>
-  
 </template>
 
 <script>
-import {DayPilotCalendar} from '@daypilot/daypilot-lite-vue'
+import { DayPilotCalendar } from '@daypilot/daypilot-lite-vue'
 import axios from 'axios'
 import PopOut from './PopOut.vue'
 export default {
   name: 'Calendar',
-  data: function() {
+  data: function () {
     return {
       config: {
         viewType: "Week",
@@ -57,7 +56,11 @@ export default {
         timeRangeSelectedHandling: "Disabled"
       },
       roomID: -1,
-      popOutToggle:false
+      popOutToggle: false,
+      startTime: "",
+      endTime: "",
+      startDate: "",
+      endDate: ""
     }
   },
   components: {
@@ -80,48 +83,48 @@ export default {
       // getting variables needed for get request
       let authToken = window.sessionStorage.getItem('auth');
       let baseUrl = window.location.href;
-      let index = baseUrl.indexOf('/',10);
-      baseUrl = baseUrl.slice(0,index);
+      let index = baseUrl.indexOf('/', 10);
+      baseUrl = baseUrl.slice(0, index);
       // get request for room avlability
       await axios.get(`${baseUrl}/api/testingRoomsAvailability/roomAvailability/`, {
-        headers: {'Authorization':`token ${authToken}`},
+        headers: { 'Authorization': `token ${authToken}` },
         params: {
           id: this.roomID,
         }
       })
-      .then((res) => {
-        let availability = res.data
-        // populating events
-        for(let i = 0; i < availability.length ; i+=1 ) {
-          let eventText;
-          let eventBarColor;
-          let startTime = `${availability[i].date}T${availability[i].start_time}`
-          let endTime = `${availability[i].date}T${availability[i].end_time}`
-          // determining the inner text and bar color
-          if(availability[i].is_booked){
-            eventText = "Booked";
-            eventBarColor = "red";
+        .then((res) => {
+          let availability = res.data
+          // populating events
+          for (let i = 0; i < availability.length; i += 1) {
+            let eventText;
+            let eventBarColor;
+            let startTime = `${availability[i].date}T${availability[i].start_time}`
+            let endTime = `${availability[i].date}T${availability[i].end_time}`
+            // determining the inner text and bar color
+            if (availability[i].is_booked) {
+              eventText = "Booked";
+              eventBarColor = "red";
+            }
+            else {
+              eventText = "Avalable";
+              eventBarColor = "green";
+            }
+            // event to be added to events
+            let event = {
+              id: availability[i].id,
+              start: startTime,
+              end: endTime,
+              text: eventText,
+              barColor: eventBarColor
+            }
+            events.push(event);
           }
-          else {
-            eventText = "Avalable";
-            eventBarColor = "green";
-          }
-          // event to be added to events
-          let event = {
-            id: availability[i].id,
-            start: startTime,
-            end: endTime,
-            text: eventText,
-            barColor: eventBarColor
-          }
-          events.push(event);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+        })
+        .catch((err) => {
+          console.log(err);
+        })
 
-      this.calendar.update({events});
+      this.calendar.update({ events });
     },
     /**
      * getting room id from backend
@@ -130,22 +133,22 @@ export default {
       // getting variables needed for get request
       let authToken = window.sessionStorage.getItem('auth');
       let baseUrl = window.location.href;
-      let index = baseUrl.indexOf('/',10);
-      baseUrl = baseUrl.slice(0,index);
+      let index = baseUrl.indexOf('/', 10);
+      baseUrl = baseUrl.slice(0, index);
       // request to get testing room data
       await axios.get(`${baseUrl}/api/testingRooms/getTestingRoom/`, {
-          headers: {'Authorization':`token ${authToken}`},
-          params: {
+        headers: { 'Authorization': `token ${authToken}` },
+        params: {
           roomNum: this.$route.params.room,
           bldg: this.$route.params.bldg
-          }
+        }
       })
-      .then(res => {
+        .then(res => {
           this.roomID = res.data[0].id;
-      })
-      .catch((err) => {
+        })
+        .catch((err) => {
           console.log(err);
-      })
+        })
     },
     /**
      * Advance the week in dayplot calendar
@@ -165,15 +168,21 @@ export default {
      * toggleing our add availability popout
      */
     togglePopout() {
-      if(this.popOutToggle) {
+      if (this.popOutToggle) {
         this.popOutToggle = false;
       }
       else {
         this.popOutToggle = true;
       }
     },
-    addAvailabilityEvent(e){
+    addAvailabilityEvent(e) {
       console.log("add avlability");
+      // how to get data bindings
+      console.log(`startTime:${this.startTime}`);
+      console.log(`endTime:${this.endTime}`);
+      console.log(`startDate;${this.startDate}`);
+      console.log(`endDate:${this.endDate}`);
+      console.log(`room id: ${this.roomID}`);
       e.preventDefault(e);
     }
   },
