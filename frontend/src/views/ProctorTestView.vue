@@ -16,7 +16,7 @@ export default {
 
 
 <template>
-    <div class="admin-home">
+    <div class="page-content">
         <Header title="Room 236 2pm - 3pm"/>
         <NavBtn/>
 
@@ -31,8 +31,8 @@ export default {
         <div class="student-checkin-container">
             <StudentCheckInHeader/>
             <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
-            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
-            <StudentStatusElement studentName="Gregory Griffith" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Eric Chu" className="CS131" instructorName="Neftali Watkinson"/>
+            <StudentStatusElement studentName="Kyle Damschen" className="CS131" instructorName="Neftali Watkinson"/>
 
         </div>
         <CornerStyle />
