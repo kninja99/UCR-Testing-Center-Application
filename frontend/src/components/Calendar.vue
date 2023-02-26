@@ -54,7 +54,7 @@ export default {
               this.calendar.events.add({
                 start: initStart,
                 end: initStart.addHours(1),
-                id: DayPilot.guid(),
+                id: res.data.id,
                 text: "Available",
                 barColor: "green"
               });
@@ -80,7 +80,14 @@ export default {
             cssClass: "scheduler_default_event_delete",
             action: "None",
             visibility: "Visible",
-            onClick: args => {console.log("delete event"); }
+            onClick: args => {
+              console.log("event deleteing");
+              // have to make api call to delete, can use args.source.data.id
+              // (which is our id that matches in db)
+              console.log(args.source)
+              // will remove event from calendar
+              //this.calendar.events.remove(args.source);
+            }
           }];
         }
       },
