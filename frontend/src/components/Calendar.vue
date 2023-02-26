@@ -21,28 +21,36 @@ export default {
         viewType: "Week",
         eventResizeHandling: "Disabled",
         eventMoveHandling: "Disabled",
+        /**
+         * Add a new avlability to a testing room bassed off a time
+         * range selection done on the dayplot calendar
+         * @param {*} args args that are supplied from time range select event in dayplot
+         */
         onTimeRangeSelected: async (args) => {
-          //getting variables needed for get request (commented out so I can figure out mass booking)
+          //getting variables needed for request (commented out so I can figure out mass booking)
           let authToken = window.sessionStorage.getItem('auth');
           let baseUrl = window.location.href;
           let index = baseUrl.indexOf('/', 10);
           baseUrl = baseUrl.slice(0, index);
-          // start and end dates
+          // start and end dates from time select
           let initStart = args.start;
-          let initEnd = args.end
+          let initEnd = args.end;
+          // while loop that will break our time selection up into
+          // hour blocks
           while(initStart < initEnd) {
             let advancedHour = initStart.addHours(1);
+            // roomAvailability structure for api call
             let roomAvailability = {
               start_time: `${initStart.getHours()}:${initStart.getMinutes()}`,
               end_time: `${advancedHour.getHours()}:${advancedHour.getMinutes()}`,
               date: `${initStart.getYear()}-${initStart.getMonth()+1}-${initStart.getDay()}`,
               is_booked: false,
               testing_room_id: this.roomID
-            }
-            console.log(roomAvailability)
+            };
+            // api call that will be used to send this room avalability to db
             await axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvailability, {headers: {'Authorization':`token ${authToken}`}})
             .then(res => {
-              console.log(res);
+              // updating our calendar event with new event if api call works
               this.calendar.events.add({
                 start: initStart,
                 end: initStart.addHours(1),
@@ -51,6 +59,7 @@ export default {
                 barColor: "green"
               });
             })
+            // error handling
             .catch(err => {
               // checks for unique feild error
               if(err.response.data.non_field_errors) {
@@ -61,20 +70,12 @@ export default {
                 console.log(err);
               }
             })
-            // adding event
-            
-            initStart = advancedHour
+            // increment are start time for next event
+            initStart = advancedHour;
           }
-          
-          
         }
       },
-      roomID: -1,
-      popOutToggle: false,
-      startTime: "",
-      endTime: "",
-      startDate: "",
-      endDate: ""
+      roomID: -1
     }
   },
   components: {
