@@ -54,9 +54,33 @@ export default {
         eventResizeHandling: "Disabled",
         eventMoveHandling: "Disabled",
         onTimeRangeSelected: async (args) => {
+          //getting variables needed for get request (commented out so I can figure out mass booking)
+          let authToken = window.sessionStorage.getItem('auth');
+          let baseUrl = window.location.href;
+          let index = baseUrl.indexOf('/', 10);
+          baseUrl = baseUrl.slice(0, index);
+          // start and end dates
           let initStart = args.start;
           let initEnd = args.end
           while(initStart < initEnd) {
+            let advancedHour = initStart.addHours(1);
+            let roomAvailability = {
+              start_time: `${initStart.getHours()}:${initStart.getMinutes()}`,
+              end_time: `${advancedHour.getHours()}:${advancedHour.getMinutes()}`,
+              date: `${initStart.getYear()}-${initStart.getMonth()+1}-${initStart.getDay()}`,
+              is_booked: false,
+              testing_room_id: this.roomID
+            }
+            console.log(roomAvailability)
+            // axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvlability, {headers: {'Authorization':`token ${authToken}`}})
+            // .then(res => {
+            //   console.log("should be in db");
+            //   console.log(res);
+            // })
+            // .catch(err => {
+            //   console.log("this is an error");
+            //   console.log(err);
+            // })
             this.calendar.events.add({
             start: initStart,
             end: initStart.addHours(1),
@@ -64,7 +88,7 @@ export default {
             text: "Available",
             barColor: "green"
             });
-            initStart = initStart.addHours(1);
+            initStart = advancedHour
           }
           
           // adding event
