@@ -72,26 +72,25 @@ export default {
               testing_room_id: this.roomID
             }
             console.log(roomAvailability)
-            // axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvlability, {headers: {'Authorization':`token ${authToken}`}})
-            // .then(res => {
-            //   console.log("should be in db");
-            //   console.log(res);
-            // })
-            // .catch(err => {
-            //   console.log("this is an error");
-            //   console.log(err);
-            // })
+            axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvailability, {headers: {'Authorization':`token ${authToken}`}})
+            .then(res => {
+              console.log(res);
+            })
+            .catch(err => {
+              console.log("API Error");
+              console.log(err);
+            })
+            // adding event
             this.calendar.events.add({
-            start: initStart,
-            end: initStart.addHours(1),
-            id: DayPilot.guid(),
-            text: "Available",
-            barColor: "green"
+              start: initStart,
+              end: initStart.addHours(1),
+              id: DayPilot.guid(),
+              text: "Available",
+              barColor: "green"
             });
             initStart = advancedHour
           }
           
-          // adding event
           
         }
       },
