@@ -195,7 +195,7 @@ export default {
       let baseUrl = window.location.href;
       let index = baseUrl.indexOf('/', 10);
       baseUrl = baseUrl.slice(0, index);
-      axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvlability, {headers: {'Authorization':`token ${auth}`}})
+      axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvlability, {headers: {'Authorization':`token ${authToken}`}})
       .then(res => {
         console.log("should be in db");
         console.log(res);
