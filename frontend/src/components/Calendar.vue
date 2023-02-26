@@ -2,42 +2,10 @@
   <div class="calendar-container">
     <div class="calendar-nav-btns">
       <button @click="previousWeek">Previous</button>
-      <button @click="togglePopout">Add Availability</button>
       <button @click="advanceWeek">Next</button>
     </div>
     <DayPilotCalendar id="dp" :config="config" ref="calendar"/>
-    <!-- custome popout for avlability form -->
-    <PopOut v-if="popOutToggle">
-      <div class="popout-header">
-        <p class="popout-name">Make Room Availability</p>
-        <button @click="togglePopout" class="close-popout">X</button>
-      </div>
-      <form class="availability-form">
-        <h2 class="form-header">Time Range</h2>
-        <div class="availability-inputs">
-          <span>
-            <h3>Start Time</h3>
-            <input v-model="startTime" type="time" name="start-time" id="start-time" step="3600000">
-          </span>
-          <span>
-            <h3>End Time</h3>
-            <input v-model="endTime" type="time" name="start-time" id="start-time" step="3600000">
-          </span>
-        </div>
-        <h2 class="form-header">Date Range</h2>
-        <div class="availability-inputs">
-          <span>
-            <h3>Start Date</h3>
-            <input v-model="startDate" type="date" name="start-date" id="start-date">
-          </span>
-          <span>
-            <h3>End Date</h3>
-            <input v-model="endDate" type="date" name="end-date" id="end-date">
-          </span>
-        </div>
-        <button @click="addAvailabilityEvent" class="form-btn">Submit Availability</button>
-      </form>
-    </PopOut>
+    <p>* hint: you can use the calendar to make new availabilitys by clicking and dragging</p>
   </div>
 </template>
 
@@ -72,22 +40,29 @@ export default {
               testing_room_id: this.roomID
             }
             console.log(roomAvailability)
-            axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvailability, {headers: {'Authorization':`token ${authToken}`}})
+            await axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvailability, {headers: {'Authorization':`token ${authToken}`}})
             .then(res => {
               console.log(res);
+              this.calendar.events.add({
+                start: initStart,
+                end: initStart.addHours(1),
+                id: DayPilot.guid(),
+                text: "Available",
+                barColor: "green"
+              });
             })
             .catch(err => {
-              console.log("API Error");
-              console.log(err);
+              // checks for unique feild error
+              if(err.response.data.non_field_errors) {
+                alert(`${roomAvailability.date} ${roomAvailability.start_time}-${roomAvailability.end_time} already has a availability assigned to it`)
+              }
+              else {
+                console.log("API Error");
+                console.log(err);
+              }
             })
             // adding event
-            this.calendar.events.add({
-              start: initStart,
-              end: initStart.addHours(1),
-              id: DayPilot.guid(),
-              text: "Available",
-              barColor: "green"
-            });
+            
             initStart = advancedHour
           }
           
@@ -213,37 +188,6 @@ export default {
       else {
         this.popOutToggle = true;
       }
-    },
-    addAvailabilityEvent(e) {
-      console.log("add avlability");
-      // how to get data bindings
-      console.log(`startTime:${typeof this.startTime}`);
-      console.log(`endTime:${this.endTime}`);
-      console.log(`startDate;${typeof this.startDate}`);
-      console.log(`endDate:${this.endDate}`);
-      console.log(`room id: ${this.roomID}`);
-      let roomAvlability = {
-        start_time: this.startTime,
-        end_time: this.endTime,
-        date: this.startDate,
-        is_booked: false,
-        testing_room_id: this.roomID
-      }
-      // getting variables needed for get request (commented out so I can figure out mass booking)
-      // let authToken = window.sessionStorage.getItem('auth');
-      // let baseUrl = window.location.href;
-      // let index = baseUrl.indexOf('/', 10);
-      // baseUrl = baseUrl.slice(0, index);
-      // axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvlability, {headers: {'Authorization':`token ${authToken}`}})
-      // .then(res => {
-      //   console.log("should be in db");
-      //   console.log(res);
-      // })
-      // .catch(err => {
-      //   console.log("this is an error");
-      //   console.log(err);
-      // })
-      e.preventDefault(e);
     }
   },
   mounted() {
