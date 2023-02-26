@@ -5,7 +5,7 @@
       <button @click="togglePopout">Add Availability</button>
       <button @click="advanceWeek">Next</button>
     </div>
-    <DayPilotCalendar id="dp" :config="config" ref="calendar" />
+    <DayPilotCalendar id="dp" :config="config" ref="calendar"/>
     <!-- custome popout for avlability form -->
     <PopOut v-if="popOutToggle">
       <div class="popout-header">
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { DayPilotCalendar } from '@daypilot/daypilot-lite-vue'
+import { DayPilot,DayPilotCalendar } from '@daypilot/daypilot-lite-vue'
 import axios from 'axios'
 import PopOut from './PopOut.vue'
 export default {
@@ -53,7 +53,23 @@ export default {
         viewType: "Week",
         eventResizeHandling: "Disabled",
         eventMoveHandling: "Disabled",
-        timeRangeSelectedHandling: "Disabled"
+        onTimeRangeSelected: async (args) => {
+          let initStart = args.start;
+          let initEnd = args.end
+          while(initStart < initEnd) {
+            this.calendar.events.add({
+            start: initStart,
+            end: initStart.addHours(1),
+            id: DayPilot.guid(),
+            text: "Available",
+            barColor: "green"
+            });
+            initStart = initStart.addHours(1);
+          }
+          
+          // adding event
+          
+        }
       },
       roomID: -1,
       popOutToggle: false,
@@ -106,7 +122,7 @@ export default {
               eventBarColor = "red";
             }
             else {
-              eventText = "Avalable";
+              eventText = "Available";
               eventBarColor = "green";
             }
             // event to be added to events
@@ -178,9 +194,9 @@ export default {
     addAvailabilityEvent(e) {
       console.log("add avlability");
       // how to get data bindings
-      console.log(`startTime:${this.startTime}`);
+      console.log(`startTime:${typeof this.startTime}`);
       console.log(`endTime:${this.endTime}`);
-      console.log(`startDate;${this.startDate}`);
+      console.log(`startDate;${typeof this.startDate}`);
       console.log(`endDate:${this.endDate}`);
       console.log(`room id: ${this.roomID}`);
       let roomAvlability = {
@@ -190,20 +206,20 @@ export default {
         is_booked: false,
         testing_room_id: this.roomID
       }
-      // getting variables needed for get request
-      let authToken = window.sessionStorage.getItem('auth');
-      let baseUrl = window.location.href;
-      let index = baseUrl.indexOf('/', 10);
-      baseUrl = baseUrl.slice(0, index);
-      axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvlability, {headers: {'Authorization':`token ${authToken}`}})
-      .then(res => {
-        console.log("should be in db");
-        console.log(res);
-      })
-      .catch(err => {
-        console.log("this is an error");
-        console.log(err);
-      })
+      // getting variables needed for get request (commented out so I can figure out mass booking)
+      // let authToken = window.sessionStorage.getItem('auth');
+      // let baseUrl = window.location.href;
+      // let index = baseUrl.indexOf('/', 10);
+      // baseUrl = baseUrl.slice(0, index);
+      // axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvlability, {headers: {'Authorization':`token ${authToken}`}})
+      // .then(res => {
+      //   console.log("should be in db");
+      //   console.log(res);
+      // })
+      // .catch(err => {
+      //   console.log("this is an error");
+      //   console.log(err);
+      // })
       e.preventDefault(e);
     }
   },
