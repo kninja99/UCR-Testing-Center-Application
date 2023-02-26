@@ -73,6 +73,15 @@ export default {
             // increment are start time for next event
             initStart = advancedHour;
           }
+        },
+        onBeforeEventRender: async (args) => {
+          args.data.areas = [
+          {
+            cssClass: "scheduler_default_event_delete",
+            action: "None",
+            visibility: "Visible",
+            onClick: args => {console.log("delete event"); }
+          }];
         }
       },
       roomID: -1
