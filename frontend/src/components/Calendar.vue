@@ -1,63 +1,81 @@
 <template>
-  <div class = "calendar-container">
+  <div class="calendar-container">
     <div class="calendar-nav-btns">
       <button @click="previousWeek">Previous</button>
-      <button @click="togglePopout">Add Availability</button>
       <button @click="advanceWeek">Next</button>
     </div>
-    <DayPilotCalendar id="dp" :config="config"  ref="calendar"/>
-    <!-- custome popout for avlability form -->
-    <PopOut v-if="popOutToggle">
-      <div class="popout-header">
-        <p class="popout-name">Make Room Availability</p>
-        <button @click="togglePopout" class="close-popout">X</button>
-      </div>
-      <form class="availability-form">
-        <h2 class="form-header">Time Range</h2>
-        <div class="availability-inputs">
-          <span>
-            <h3>Start Time</h3>
-            <input type="time" name="start-time" id="start-time">
-          </span>
-          <span>
-            <h3>End Time</h3>
-            <input type="time" name="start-time" id="start-time">
-          </span>
-        </div>
-        <h2 class="form-header">Date Range</h2>
-        <div class="availability-inputs">
-          <span>
-            <h3>Start Date</h3>
-            <input type="date" name="start-date" id="start-date">
-          </span>
-          <span>
-            <h3>End Date</h3>
-            <input type="date" name="end-date" id="end-date">
-          </span>
-        </div>
-        <button @click="addAvailabilityEvent" class = "form-btn">Submit Availability</button>
-      </form>
-    </PopOut >
+    <DayPilotCalendar id="dp" :config="config" ref="calendar"/>
+    <p>* hint: you can use the calendar to make new availabilitys by clicking and dragging</p>
   </div>
-  
 </template>
 
 <script>
-import {DayPilotCalendar} from '@daypilot/daypilot-lite-vue'
+import { DayPilot,DayPilotCalendar } from '@daypilot/daypilot-lite-vue'
 import axios from 'axios'
 import PopOut from './PopOut.vue'
 export default {
   name: 'Calendar',
-  data: function() {
+  data: function () {
     return {
       config: {
         viewType: "Week",
         eventResizeHandling: "Disabled",
         eventMoveHandling: "Disabled",
-        timeRangeSelectedHandling: "Disabled"
+        /**
+         * Add a new avlability to a testing room bassed off a time
+         * range selection done on the dayplot calendar
+         * @param {*} args args that are supplied from time range select event in dayplot
+         */
+        onTimeRangeSelected: async (args) => {
+          //getting variables needed for request (commented out so I can figure out mass booking)
+          let authToken = window.sessionStorage.getItem('auth');
+          let baseUrl = window.location.href;
+          let index = baseUrl.indexOf('/', 10);
+          baseUrl = baseUrl.slice(0, index);
+          // start and end dates from time select
+          let initStart = args.start;
+          let initEnd = args.end;
+          // while loop that will break our time selection up into
+          // hour blocks
+          while(initStart < initEnd) {
+            let advancedHour = initStart.addHours(1);
+            // roomAvailability structure for api call
+            let roomAvailability = {
+              start_time: `${initStart.getHours()}:${initStart.getMinutes()}`,
+              end_time: `${advancedHour.getHours()}:${advancedHour.getMinutes()}`,
+              date: `${initStart.getYear()}-${initStart.getMonth()+1}-${initStart.getDay()}`,
+              is_booked: false,
+              testing_room_id: this.roomID
+            };
+            // api call that will be used to send this room avalability to db
+            await axios.post(`${baseUrl}/api/testingRoomsAvailability/`, roomAvailability, {headers: {'Authorization':`token ${authToken}`}})
+            .then(res => {
+              // updating our calendar event with new event if api call works
+              this.calendar.events.add({
+                start: initStart,
+                end: initStart.addHours(1),
+                id: DayPilot.guid(),
+                text: "Available",
+                barColor: "green"
+              });
+            })
+            // error handling
+            .catch(err => {
+              // checks for unique feild error
+              if(err.response.data.non_field_errors) {
+                alert(`${roomAvailability.date} ${roomAvailability.start_time}-${roomAvailability.end_time} already has a availability assigned to it`)
+              }
+              else {
+                console.log("API Error");
+                console.log(err);
+              }
+            })
+            // increment are start time for next event
+            initStart = advancedHour;
+          }
+        }
       },
-      roomID: -1,
-      popOutToggle:false
+      roomID: -1
     }
   },
   components: {
@@ -80,48 +98,48 @@ export default {
       // getting variables needed for get request
       let authToken = window.sessionStorage.getItem('auth');
       let baseUrl = window.location.href;
-      let index = baseUrl.indexOf('/',10);
-      baseUrl = baseUrl.slice(0,index);
+      let index = baseUrl.indexOf('/', 10);
+      baseUrl = baseUrl.slice(0, index);
       // get request for room avlability
       await axios.get(`${baseUrl}/api/testingRoomsAvailability/roomAvailability/`, {
-        headers: {'Authorization':`token ${authToken}`},
+        headers: { 'Authorization': `token ${authToken}` },
         params: {
           id: this.roomID,
         }
       })
-      .then((res) => {
-        let availability = res.data
-        // populating events
-        for(let i = 0; i < availability.length ; i+=1 ) {
-          let eventText;
-          let eventBarColor;
-          let startTime = `${availability[i].date}T${availability[i].start_time}`
-          let endTime = `${availability[i].date}T${availability[i].end_time}`
-          // determining the inner text and bar color
-          if(availability[i].is_booked){
-            eventText = "Booked";
-            eventBarColor = "red";
+        .then((res) => {
+          let availability = res.data
+          // populating events
+          for (let i = 0; i < availability.length; i += 1) {
+            let eventText;
+            let eventBarColor;
+            let startTime = `${availability[i].date}T${availability[i].start_time}`
+            let endTime = `${availability[i].date}T${availability[i].end_time}`
+            // determining the inner text and bar color
+            if (availability[i].is_booked) {
+              eventText = "Booked";
+              eventBarColor = "red";
+            }
+            else {
+              eventText = "Available";
+              eventBarColor = "green";
+            }
+            // event to be added to events
+            let event = {
+              id: availability[i].id,
+              start: startTime,
+              end: endTime,
+              text: eventText,
+              barColor: eventBarColor
+            }
+            events.push(event);
           }
-          else {
-            eventText = "Avalable";
-            eventBarColor = "green";
-          }
-          // event to be added to events
-          let event = {
-            id: availability[i].id,
-            start: startTime,
-            end: endTime,
-            text: eventText,
-            barColor: eventBarColor
-          }
-          events.push(event);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+        })
+        .catch((err) => {
+          console.log(err);
+        })
 
-      this.calendar.update({events});
+      this.calendar.update({ events });
     },
     /**
      * getting room id from backend
@@ -130,22 +148,22 @@ export default {
       // getting variables needed for get request
       let authToken = window.sessionStorage.getItem('auth');
       let baseUrl = window.location.href;
-      let index = baseUrl.indexOf('/',10);
-      baseUrl = baseUrl.slice(0,index);
+      let index = baseUrl.indexOf('/', 10);
+      baseUrl = baseUrl.slice(0, index);
       // request to get testing room data
       await axios.get(`${baseUrl}/api/testingRooms/getTestingRoom/`, {
-          headers: {'Authorization':`token ${authToken}`},
-          params: {
+        headers: { 'Authorization': `token ${authToken}` },
+        params: {
           roomNum: this.$route.params.room,
           bldg: this.$route.params.bldg
-          }
+        }
       })
-      .then(res => {
+        .then(res => {
           this.roomID = res.data[0].id;
-      })
-      .catch((err) => {
+        })
+        .catch((err) => {
           console.log(err);
-      })
+        })
     },
     /**
      * Advance the week in dayplot calendar
@@ -165,16 +183,12 @@ export default {
      * toggleing our add availability popout
      */
     togglePopout() {
-      if(this.popOutToggle) {
+      if (this.popOutToggle) {
         this.popOutToggle = false;
       }
       else {
         this.popOutToggle = true;
       }
-    },
-    addAvailabilityEvent(e){
-      console.log("add avlability");
-      e.preventDefault(e);
     }
   },
   mounted() {
