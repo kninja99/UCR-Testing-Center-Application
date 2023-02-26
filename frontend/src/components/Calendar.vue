@@ -27,7 +27,7 @@ export default {
          * @param {*} args args that are supplied from time range select event in dayplot
          */
         onTimeRangeSelected: async (args) => {
-          //getting variables needed for request (commented out so I can figure out mass booking)
+          //getting variables needed for request
           let authToken = window.sessionStorage.getItem('auth');
           let baseUrl = window.location.href;
           let index = baseUrl.indexOf('/', 10);
@@ -80,13 +80,27 @@ export default {
             cssClass: "scheduler_default_event_delete",
             action: "None",
             visibility: "Visible",
+            // Event call for close btn
             onClick: args => {
-              console.log("event deleteing");
+              //getting variables needed for request
+              let authToken = window.sessionStorage.getItem('auth');
+              let baseUrl = window.location.href;
+              let index = baseUrl.indexOf('/', 10);
+              baseUrl = baseUrl.slice(0, index);
               // have to make api call to delete, can use args.source.data.id
               // (which is our id that matches in db)
-              console.log(args.source)
-              // will remove event from calendar
-              //this.calendar.events.remove(args.source);
+              axios.delete(`${baseUrl}/api/testingRoomsAvailability/${args.source.data.id}/`, {
+                headers: {'Authorization':`token ${authToken}`}
+              })
+              .then(res => {
+                // will visually remove event from calendar
+                this.calendar.events.remove(args.source);
+              })
+              .catch(err => {
+                // error handling so app doesn't crash on request
+                console.log("API Error")
+                console.log(err);
+              })
             }
           }];
         }
