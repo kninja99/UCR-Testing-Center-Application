@@ -10,7 +10,8 @@ export default {
         seatNum : Number
     },
     data: () => ({
-        roomActions: false
+        roomActions: false,
+        roomId: -1
     }),
     methods: {
         roomClickEvent(e) {
@@ -51,24 +52,30 @@ export default {
             let baseUrl = window.location.href;
             let index = baseUrl.indexOf('/', 10);
             baseUrl = baseUrl.slice(0, index);
-            await axios.get(`${baseUrl}/api/testingRooms/getTestingRoom/`, {
-                headers: { 'Authorization': `token ${authToken}` },
-                params: {
-                    roomNum: this.$props.roomNum,
-                    bldg: this.$props.bldg
-                }
-            })
-            .then(res => {
-                roomId = res.data[0].id;
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-            console.log(roomId);
+            console.log(this.roomId);
             // removing element from dom
             this.$destroy();
             this.$el.parentNode.removeChild(this.$el);
         }
+    },
+    mounted() {
+        let authToken = window.sessionStorage.getItem('auth');
+        let baseUrl = window.location.href;
+        let index = baseUrl.indexOf('/', 10);
+        baseUrl = baseUrl.slice(0, index);
+        axios.get(`${baseUrl}/api/testingRooms/getTestingRoom/`, {
+            headers: { 'Authorization': `token ${authToken}` },
+            params: {
+                roomNum: this.$props.roomNum,
+                bldg: this.$props.bldg
+            }
+        })
+        .then(res => {
+            this.roomId = res.data[0].id;
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     }
 }   
 </script>
