@@ -16,6 +16,17 @@ export default {
             catch {
                 alert("room is not reachable");
             }
+        },
+        /**
+         * checks to see if a user is admin, if so it will render admin actions
+         */
+        isAdmin() {
+            if(window.sessionStorage.getItem("userType") === 'admin') {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     }
 }   
@@ -24,6 +35,7 @@ export default {
 <template>
     <div @click="roomClickEvent" class="room-card-element">
         <div class="room-card-element-color">
+            <button v-if="this.isAdmin()" class = "room-actions">&#8942;</button>
             
         </div>
 

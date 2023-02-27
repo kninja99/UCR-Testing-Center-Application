@@ -38,3 +38,16 @@
     padding-right: 10px;
     background-color: white;
 }
+
+.room-actions {
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    font-size: 34px;
+    color: #FFF;
+    background-color: transparent;
+}
+
+.room-actions:hover {
+    color: #e6e6e6;
+}
