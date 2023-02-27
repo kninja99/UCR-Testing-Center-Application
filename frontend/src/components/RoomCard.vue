@@ -8,15 +8,23 @@ export default {
         bldg : String,
         seatNum : Number
     },
+    data: () => ({
+        roomActions: false
+    }),
     methods: {
-        roomClickEvent() {
-            try {
-                this.$router.push({ path: `rooms/${this.$props.bldg}/${this.$props.roomNum}`});
+        roomClickEvent(e) {
+            // checking to make sure we aren't click on our action areas
+            if(e.target.className != "room-actions-btn" 
+            && e.target.className != "admin-room-actions" 
+            && e.target.className != "remove-room-btn"){
+                try {
+                    this.$router.push({ path: `rooms/${this.$props.bldg}/${this.$props.roomNum}`});
+                }
+                catch {
+                    alert("room is not reachable");
+                }
             }
-            catch {
-                alert("room is not reachable");
-            }
-        },
+        }, 
         /**
          * checks to see if a user is admin, if so it will render admin actions
          */
@@ -27,6 +35,14 @@ export default {
             else {
                 return false;
             }
+        },
+        toggleRoomActions() {
+            if(this.roomActions) {
+                this.roomActions = false;
+            }
+            else {
+                this.roomActions = true;
+            }
         }
     }
 }   
@@ -35,8 +51,10 @@ export default {
 <template>
     <div @click="roomClickEvent" class="room-card-element">
         <div class="room-card-element-color">
-            <button v-if="this.isAdmin()" class = "room-actions">&#8942;</button>
-            
+            <button @click="toggleRoomActions" v-if="this.isAdmin()" class = "room-actions-btn">&#8942;</button>
+            <div v-if="this.roomActions" class="admin-room-actions">
+                <button class="remove-room-btn">Remove</button>
+            </div>
         </div>
 
         <div class="room-card-element-text">
