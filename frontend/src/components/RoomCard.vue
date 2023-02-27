@@ -47,15 +47,25 @@ export default {
             }
         },
         async removeRoomEvent() {
-            let roomId = -1
             let authToken = window.sessionStorage.getItem('auth');
             let baseUrl = window.location.href;
             let index = baseUrl.indexOf('/', 10);
             baseUrl = baseUrl.slice(0, index);
-            console.log(this.roomId);
-            // removing element from dom
-            this.$destroy();
-            this.$el.parentNode.removeChild(this.$el);
+            // delete call to db
+            axios.delete(`${baseUrl}/api/testingRooms/${this.roomId}/`, {
+                headers: {'Authorization':`token ${authToken}`}
+            })
+            .then(res => {
+                console.log(res);
+                // removes element from DOM
+                this.$destroy();
+                this.$el.parentNode.removeChild(this.$el);
+            })
+            .catch(err => {
+                // error handling so app doesn't crash on request
+                console.log("API Error");
+                console.log(err);
+            });
         }
     },
     mounted() {
