@@ -28,6 +28,16 @@
         <div class="student-test-sched-container">
             <StudentTestElem day='Tuesday' date='11/14/2023' bldgName='Winston Chung Hall' roomNum='223' timeBlock='10:00am - 11:00am' seatLeft='10'/>
             <StudentTestElem day='Wednesday' date='11/15/2023' bldgName='Dundee' roomNum='1003' timeBlock='1:00pm - 5:00pm' seatLeft='50'/>
+            <StudentTestElem day='Tuesday' date='11/14/2023' bldgName='Winston Chung Hall' roomNum='223' timeBlock='10:00am - 11:00am' seatLeft='10'/>
+            <StudentTestElem day='Wednesday' date='11/15/2023' bldgName='Dundee' roomNum='1003' timeBlock='1:00pm - 5:00pm' seatLeft='50'/>
+            <StudentTestElem day='Tuesday' date='11/14/2023' bldgName='Winston Chung Hall' roomNum='223' timeBlock='10:00am - 11:00am' seatLeft='10'/>
+            <StudentTestElem day='Wednesday' date='11/15/2023' bldgName='Dundee' roomNum='1003' timeBlock='1:00pm - 5:00pm' seatLeft='50'/>
+            <StudentTestElem day='Tuesday' date='11/14/2023' bldgName='Winston Chung Hall' roomNum='223' timeBlock='10:00am - 11:00am' seatLeft='10'/>
+            <StudentTestElem day='Wednesday' date='11/15/2023' bldgName='Dundee' roomNum='1003' timeBlock='1:00pm - 5:00pm' seatLeft='50'/>
+            <StudentTestElem day='Tuesday' date='11/14/2023' bldgName='Winston Chung Hall' roomNum='223' timeBlock='10:00am - 11:00am' seatLeft='10'/>
+            <StudentTestElem day='Wednesday' date='11/15/2023' bldgName='Dundee' roomNum='1003' timeBlock='1:00pm - 5:00pm' seatLeft='50'/>
+            <StudentTestElem day='Tuesday' date='11/14/2023' bldgName='Winston Chung Hall' roomNum='223' timeBlock='10:00am - 11:00am' seatLeft='10'/>
+            <StudentTestElem day='Wednesday' date='11/15/2023' bldgName='Dundee' roomNum='1003' timeBlock='1:00pm - 5:00pm' seatLeft='50'/>
         </div>
         <CornerStyle />
     </div>

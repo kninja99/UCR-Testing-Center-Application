@@ -163,6 +163,9 @@ button:hover {
     .admin-notif-element{
         flex-wrap: wrap;
     }
+    .student-test-sched-element{
+        flex-wrap: wrap;
+    }
 }
 
 @media all and (max-height:692px) {
@@ -180,6 +183,9 @@ button:hover {
         overflow-y: auto;
     }
     .admin-notif-element{
+        flex-wrap: wrap;
+    }
+    .student-test-sched-element{
         flex-wrap: wrap;
     }
 }
