@@ -4,16 +4,17 @@
     import CornerStyle from "../components/CornerStyle.vue"
     import Header from "../components/Header.vue";
     import NavBtn from "../components/NavBtn.vue";
+    import StudentTestElem from "../components/StudentTestSchedElement.vue"
     export default {
         components: {
-            Card, NavBar, Header, CornerStyle, NavBtn
+            Card, NavBar, Header, CornerStyle, NavBtn, StudentTestElem
         }
     }
 </script>
 
 <template>
     <div class="page-content">
-        <Header title="Student Course Testing Rooms"/>
+        <Header title="Testing Rooms"/>
         <NavBtn/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
@@ -24,8 +25,8 @@
         { title: 'Inbox', img: 'mailNav-icon.svg', route: '/student/inbox' },
         { title: 'Settings', img: 'settings-icon.svg', route: '/student/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: '/student/account' }]" />
-        <div class="student-room-card-container">
-            <Card className="CS178B" profName="Neftali" route="/student/rooms/testView"/>
+        <div class="student-test-sched-container">
+            <StudentTestElem day='Tuesday' date='11/14/2023' bldgName='Winston Chung Hall' roomNum='223' timeBlock='10:00am - 11:00am' seatLeft='10'/>
         </div>
         <CornerStyle />
     </div>

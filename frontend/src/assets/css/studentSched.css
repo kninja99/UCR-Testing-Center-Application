@@ -1,0 +1,57 @@
+.student-test-sched-container{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items:flex-start;
+    grid-area: card;
+    flex-wrap: wrap;
+    height: fit-content;
+    min-height: 100%;
+}
+.student-test-sched-element{
+    width: 100%;
+    min-height: 70px;
+    border-bottom: solid var(--UcrBlue) 0px;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    justify-self: start;
+}
+.student-test-sched-element:nth-child(odd){
+    background-color: var(--Grey);
+}
+.student-test-sched-element:nth-child(even){
+    background-color: var(--White);
+}
+
+
+
+.student-day-column{
+    text-align: center;
+}
+
+.student-date-column{
+    text-align: center;
+}
+
+.student-bldg-column{
+    text-align: center;
+}
+
+.student-room-column{
+    text-align: center;
+}
+
+.student-time-block-column{
+    text-align: center;
+}
+
+.student-seat-left-column{
+    text-align: center;
+}
+
+.student-book-button{
+    text-align: center;
+    border-radius: 20px;
+    background-color: var(--UcrGold);
+}

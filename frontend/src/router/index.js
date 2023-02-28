@@ -11,6 +11,7 @@ import ProctorRoomSelect from '../views/ProctorRoomSelect.vue';
 import ProctorRoomView from '../views/ProctorRoomView.vue';
 import Student from '../views/Student.vue';
 import StudentRoom from '../views/StudentRoom.vue';
+import StudentTestView from '../views/StudentTestView.vue';
 import Professor from '../views/Professor.vue';
 import ProctorTestView from '../views/ProctorTestView.vue';
 
@@ -134,6 +135,15 @@ const routes = [
     path: '/student/rooms',
     name: 'Student-Rooms',
     component: StudentRoom,
+    meta: {
+      needAuth: true,
+      userType: 'student',
+    },
+  },
+  {
+    path: '/student/rooms/testView',
+    name: 'Student-Rooms-Test-View',
+    component: StudentTestView,
     meta: {
       needAuth: true,
       userType: 'student',
