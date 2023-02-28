@@ -32,25 +32,25 @@
 <template>
     <div class="student-test-sched-element">
         <div class="student-day-column">
-            {{day}}
+            <p>{{day}}</p>
         </div>
         <div class="student-date-column">
-            {{date}}
+            <p>{{date}}</p>
         </div>
         <div class="student-bldg-column">
-            {{bldgName}}
+            <p>{{bldgName}}</p>
         </div>
         <div class="student-room-column">
-            Room: {{roomNum}}
+            <p>Room: {{roomNum}}</p>
         </div> 
         <div class="student-time-block-column">
-            {{timeBlock}}
+            <p>{{timeBlock}}</p>
         </div> 
         <div class="student-seat-left-column">
-            {{seatLeft}} Seats Left
+            <p>{{seatLeft}} Seats Left</p>
         </div> 
         <div> 
-            <button class="student-book-button">Book</button>
+            <p><button class="student-book-button">Book</button></p>
         </div>
     </div> 
 </template>

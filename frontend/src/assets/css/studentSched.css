@@ -7,6 +7,7 @@
     flex-wrap: wrap;
     height: fit-content;
     min-height: 100%;
+    overflow-y: auto;
 }
 .student-test-sched-element{
     width: 100%;
@@ -27,31 +28,31 @@
 
 
 .student-day-column{
-    text-align: center;
+    text-align: left;
 }
 
 .student-date-column{
-    text-align: center;
+    text-align: left;
 }
 
 .student-bldg-column{
-    text-align: center;
+    text-align: left;
 }
 
 .student-room-column{
-    text-align: center;
+    text-align: left;
 }
 
 .student-time-block-column{
-    text-align: center;
+    text-align: left;
 }
 
 .student-seat-left-column{
-    text-align: center;
+    text-align: left;
 }
 
 .student-book-button{
-    text-align: center;
+    text-align: left;
     border-radius: 20px;
     background-color: var(--UcrGold);
 }
