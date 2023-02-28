@@ -49,7 +49,7 @@
         <div class="student-seat-left-column">
             <p>{{seatLeft}} Seats Left</p>
         </div> 
-        <div> 
+        <div class="student-book-button-container"> 
             <p><button class="student-book-button">Book</button></p>
         </div>
     </div> 

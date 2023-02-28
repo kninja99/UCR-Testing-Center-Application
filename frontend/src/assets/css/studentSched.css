@@ -15,9 +15,10 @@
     border-bottom: solid var(--UcrBlue) 0px;
     display:flex;
     flex-direction:row;
-    justify-content:space-evenly;
+    justify-content:space-around;
     justify-self: start;
-    /* padding: 5px; */
+    /* align-content: flex-start; */
+    padding: 10px;
 }
 .student-test-sched-element:nth-child(odd){
     background-color: var(--Grey);
@@ -31,36 +32,50 @@
 .student-day-column{
     text-align: left;
     padding: 5px;
+    width: 12.5%;
+    flex-wrap: wrap;
 }
 
 .student-date-column{
     text-align: left;
     padding: 5px;
+    width: 12.5%;
+    flex-wrap: wrap;
 }
 
 .student-bldg-column{
     text-align: left;
     padding: 5px;
+    width: 12.5%;
 }
 
 .student-room-column{
     text-align: left;
     padding: 5px;
+    width: 12.5%;
 }
 
 .student-time-block-column{
     text-align: left;
     padding: 5px;
+    width: 12.5%;
 }
 
 .student-seat-left-column{
     text-align: left;
     padding: 5px;
+    width: 12.5%;
 }
 
 .student-book-button{
-    text-align: left;
+    text-align: center;
     border-radius: 20px;
     background-color: var(--UcrGold);
+    padding: 5px 10px 5px 10px;
+    
+}
+.student-book-button-container{
+    width: 12.5%;
     padding: 5px;
+    align-content: left;
 }
