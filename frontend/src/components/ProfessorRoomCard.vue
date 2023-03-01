@@ -4,10 +4,10 @@ export default {
   componenets: { Header },
     props: {
         cardColor : String,
-        room: Number,
+        roomNum: Number,
         approval: Boolean,
-        seats: Number,
-        building: String
+        seatNum: Number,
+        bldg: String
     }
 }   
 </script>
@@ -19,7 +19,7 @@ export default {
 
         <div class="room-card-element-text">
             <div class="room-card-element-location">
-                Room: {{roomNum}}<br>Bldg:{{bldg}}
+                Room: {{roomNum}}<br>{{bldg}}
             </div>
             <div class="room-card-element-seats">
                 Seats: {{seatNum}}<br>Approval:{{approval}}

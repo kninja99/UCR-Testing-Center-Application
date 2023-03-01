@@ -151,4 +151,6 @@ button:hover {
 
 .room-page-contents {
     grid-area: card;
+    overflow-y: auto;
+    height:100%;
 }
