@@ -2,12 +2,17 @@
 @import url(./navBar.css);
 @import url(./login.css);
 @import url(./header.css);
+@import url(./adminNotif.css);
 @import url(./addButton.css);
 @import url(./calendar.css);
 @import url(./testCard.css);
 @import url(./roomCard.css);
 @import url(./studentCheckInHeader.css);
 @import url(./studentStatusElement.css);
+@import url(./popout.css);
+@import url(./studentStatusButton.css);
+@import url(./studentRoomCard.css);
+@import url(./studentStatusActions.css);
 @import url(./profRoomCard.css);
 
 :root {
@@ -17,12 +22,17 @@
     --GoldHover: #eba817;
     --White: #FFF;
     --Grey: #e2e2e2;
-
+    --Green: #1adf00;
+    --Red: #ff0000;
 }
 
 html {
     height: 100vh;
     width: 100vw;
+}
+
+input:focus {
+    outline: none;
 }
 
 body {
@@ -55,7 +65,7 @@ button:hover {
 
 /* admin home page setup */
 
-.admin-home {
+.page-content {
     display: grid;
     grid-template-columns: 270px 3fr;
     grid-template-rows: .1fr 1fr 1fr;
@@ -68,23 +78,21 @@ button:hover {
 }
 
 @media all and (max-width:642px) {
-    .admin-home {
+    .page-content {
         grid-template-columns: 1fr 3fr;
     }
 }
 
 @media all and (max-width:642px) {
-    .admin-home {
+    .page-content {
         grid-template-areas: "header header"
             "card card"
             "card card";
     }
-
-
 }
 
 @media all and (max-height:692px) {
-    .admin-home {
+    .page-content {
         grid-template-areas:
             "header header"
             "card card"
@@ -113,6 +121,17 @@ button:hover {
     overflow-y: auto;
     height: auto;
 }
+.student-room-card-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: flex-start;
+    overflow-y: auto;
+    height: auto;
+    grid-area: card;
+    padding: 20px;
+    flex-wrap: wrap;
+}
 
 .student-checkin-container {
     display: flex;
@@ -124,15 +143,43 @@ button:hover {
     height: auto;
 }
 
+
+
 @media all and (max-width:642px) {
     .test-card-container {
         justify-content: center;
+    }
+    .student-room-card-container{
+        justify-content: center;
+        overflow-y: auto;
+        flex-wrap: wrap;
+    }
+    .admin-notif-container{
+        justify-content: flex-start;
+        justify-self: stretch;
+        overflow-y: auto;
+    }
+    .admin-notif-element{
+        flex-wrap: wrap;
     }
 }
 
 @media all and (max-height:692px) {
     .test-card-container {
         justify-content: center;
+    }
+    .student-room-card-container{
+        justify-content: center;
+        overflow-y: auto;
+        flex-wrap: wrap;
+    }
+    .admin-notif-container{
+        justify-content: flex-start;
+        justify-self: stretch;
+        overflow-y: auto;
+    }
+    .admin-notif-element{
+        flex-wrap: wrap;
     }
 }
 
@@ -148,6 +195,7 @@ button:hover {
         justify-content: center;
     }
 }
+
 
 .room-page-contents {
     grid-area: card;

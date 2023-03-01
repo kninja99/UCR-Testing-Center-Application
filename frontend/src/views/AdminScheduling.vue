@@ -22,7 +22,7 @@ export default {
 
 
 <template>
-     <div class="admin-home">
+     <div class="page-content">
         <Header :title="this.$route.params.bldg + ' ' +this.$route.params.room"/>
 
         <!-- nav-elements is an array of objects that map nav elements -->

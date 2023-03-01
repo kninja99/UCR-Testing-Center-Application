@@ -10,6 +10,7 @@ import AdminScheduling from '../views/AdminScheduling.vue';
 import ProctorRoomSelect from '../views/ProctorRoomSelect.vue';
 import ProctorRoomView from '../views/ProctorRoomView.vue';
 import Student from '../views/Student.vue';
+import StudentRoom from '../views/StudentRoom.vue';
 import Professor from '../views/Professor.vue';
 import ProctorTestView from '../views/ProctorTestView.vue';
 import ProfessorRoomView from '../views/ProfessorRoomView.vue';
@@ -93,9 +94,18 @@ const routes = [
     },
   },
   {
-    path: '/proctor/rooms/testTimes',
+    path: '/proctor/rooms/:bldg/:room',
     name: 'Proctor-Rooms',
     component: ProctorRoomView,
+    meta: {
+      needAuth: true,
+      userType: 'proctor',
+    },
+  },
+  {
+    path: '/proctor/rooms/:bldg/:room/testView',
+    name: 'Proctor-Rooms',
+    component: ProctorTestView,
     meta: {
       needAuth: true,
       userType: 'proctor',
@@ -131,9 +141,13 @@ const routes = [
     },
   },
   {
-    path: '/proctor/rooms/testTimes/testView',
-    name: 'Proctor-Rooms',
-    component: ProctorTestView,
+    path: '/student/rooms',
+    name: 'Student-Rooms',
+    component: StudentRoom,
+    meta: {
+      needAuth: true,
+      userType: 'student',
+    },
   },
 ];
 

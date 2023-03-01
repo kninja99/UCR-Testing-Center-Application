@@ -1,5 +1,5 @@
 <script>
-    import Card from "../components/Card.vue"
+    import Card from "../components/StudentRoomCard.vue"
     import NavBar from "../components/NavBar.vue"
     import CornerStyle from "../components/CornerStyle.vue"
     import Header from "../components/Header.vue";
@@ -13,7 +13,7 @@
 
 <template>
     <div class="page-content">
-        <Header title="Student Portal"/>
+        <Header title="Student Course Testing Rooms"/>
         <NavBtn/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
@@ -24,9 +24,12 @@
         { title: 'Inbox', img: 'mailNav-icon.svg', route: '/student/inbox' },
         { title: 'Settings', img: 'settings-icon.svg', route: '/student/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: '/student/account' }]" />
-        <div class="card-container">
-            <Card img-name="room-icon.svg" button-header="View Rooms" route="student/rooms" />
-            <Card img-name="email-icon.svg" button-header="View Inbox" route="student/inbox" />
+        <div class="student-room-card-container">
+            <Card className="CS178B" profName="Neftali" />
+            <Card className="CS178B" profName="Neftali" />
+            <Card className="CS178B" profName="Neftali" />
+            <Card className="CS178B" profName="Neftali" />
+            <Card className="CS178B" profName="Neftali" />
         </div>
         <CornerStyle />
     </div>

@@ -1,16 +1,5 @@
 /* Student Status Element Styles */
 
-.student-checkin-container {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-    grid-area: card;
-    flex-wrap: wrap;
-    height: fit-content;
-    min-height: 100%;
-}
-
 .status-element {
     width: 100%;
     height: 70px;
@@ -33,4 +22,5 @@
     color: #000;
     margin: 20px;
     font-size: 20px;
+    width: 200px;
 }
