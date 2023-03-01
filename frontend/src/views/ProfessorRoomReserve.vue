@@ -3,7 +3,7 @@ import Card from "../components/Card.vue"
 import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
-import Calendar from '../components/Calendar.vue'
+import CalendarProfessor from '../components/CalendarProfessor.vue'
 import NavBtn from "../components/NavBtn.vue";
 import axios from "axios";
 export default {
@@ -12,7 +12,7 @@ export default {
         NavBar,
         Header,
         CornerStyle,
-        Calendar,
+        CalendarProfessor,
         NavBtn
     }
 }
@@ -37,7 +37,7 @@ export default {
         <NavBtn />       
 
         <div class="dp-container">
-            <Calendar/>
+            <CalendarProfessor/>
         </div>
 
         <CornerStyle/>
