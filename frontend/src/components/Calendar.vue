@@ -4,6 +4,16 @@
       <button @click="previousWeek">Previous</button>
       <button @click="advanceWeek">Next</button>
     </div>
+    <div class="calendar-book-btns">
+      <button @click="book">Book Sunday</button>
+      <button @click="book">Book Monday</button>
+      <button @click="book">Book Tuesday</button>
+      <button @click="book">Book Wednesday</button>
+      <button @click="book">Book Thursday</button>
+      <button @click="book">Book Friday</button>
+      <button @click="book">Book Saturday</button>
+
+    </div>
     <DayPilotCalendar id="dp" :config="config" ref="calendar"/>
     <p>* hint: you can use the calendar to make new availabilitys by clicking and dragging</p>
   </div>
