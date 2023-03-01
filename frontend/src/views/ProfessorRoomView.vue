@@ -16,7 +16,7 @@ export default {
 
 
 <template>
-    <div class="admin-home">
+    <div class="page-content">
         <Header title="Instructor Portal"/>
         <NavBtn/>
 
