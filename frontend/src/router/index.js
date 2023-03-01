@@ -13,6 +13,7 @@ import Student from '../views/Student.vue';
 import StudentRoom from '../views/StudentRoom.vue';
 import Professor from '../views/Professor.vue';
 import ProctorTestView from '../views/ProctorTestView.vue';
+import ProfessorRoomView from '../views/ProfessorRoomView.vue';
 
 Vue.use(VueRouter);
 
@@ -115,6 +116,15 @@ const routes = [
     path: '/professor',
     name: 'professor',
     component: Professor,
+    meta: {
+      needAuth: true,
+      userType: 'professor',
+    },
+  },
+  {
+    path: '/professor/rooms',
+    name: 'Professor-room',
+    component: ProfessorRoomView,
     meta: {
       needAuth: true,
       userType: 'professor',

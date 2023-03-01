@@ -13,7 +13,7 @@
 @import url(./studentStatusButton.css);
 @import url(./studentRoomCard.css);
 @import url(./studentStatusActions.css);
-
+@import url(./profRoomCard.css);
 
 :root {
     --UcrBlue: #003DA5;
@@ -199,5 +199,6 @@ button:hover {
 
 .room-page-contents {
     grid-area: card;
-    overflow: auto;
+    overflow-y: auto;
+    height:100%;
 }
