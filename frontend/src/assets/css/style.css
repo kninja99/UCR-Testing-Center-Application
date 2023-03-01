@@ -8,7 +8,7 @@
 @import url(./roomCard.css);
 @import url(./studentCheckInHeader.css);
 @import url(./studentStatusElement.css);
-
+@import url(./profRoomCard.css);
 
 :root {
     --UcrBlue: #003DA5;

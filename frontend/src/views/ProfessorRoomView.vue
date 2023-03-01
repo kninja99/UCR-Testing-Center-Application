@@ -1,12 +1,12 @@
 <script>
-import Card from "../components/Card.vue"
+import ProfRoomCard from "../components/ProfessorRoomCard.vue"
 import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
 import Header from "../components/Header.vue";
 import NavBtn from "../components/NavBtn.vue";
 export default {
     components: {
-        Card, NavBar, Header, CornerStyle, NavBtn
+        ProfRoomCard, NavBar, Header, CornerStyle, NavBtn
     }
 }
 </script>
@@ -26,10 +26,12 @@ export default {
         { title: 'Inbox', img: 'mailNav-icon.svg', route: '/professor/inbox' },
         { title: 'Settings', img: 'settings-icon.svg', route: '/professor/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: '/professor/account' }]" />
-        <!-- <div class="card-container">
-            <Card img-name="room-icon.svg" button-header="View Rooms" route="professor/rooms" />
-            <Card img-name="email-icon.svg" button-header="View Inbox" route="professor/inbox" />
-        </div> -->
+        <div class="room-page-contents">
+            <AddRoomButton buttonName="Add New Reservation"/>
+            <div class = "room-cards">
+                <ProfRoomCard cardColor='18ACFF' roomNum="101" bldg="Winston Chung" seatsNum="30" approval="true" />
+            </div>
+        </div>
 
 
         <CornerStyle />
