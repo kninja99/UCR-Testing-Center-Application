@@ -38,3 +38,46 @@
     padding-right: 10px;
     background-color: white;
 }
+
+.room-actions-btn {
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    font-size: 34px;
+    color: #FFF;
+    background-color: transparent;
+}
+
+.room-actions:hover {
+    color: #e6e6e6;
+}
+
+.admin-room-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    float: right;
+    margin-top: 20px;
+    z-index: 1;
+    width: 80%;
+    height: 50px;
+    background-color: #fff;
+    box-shadow: #000 5px 5px 15px;
+}
+
+.admin-room-actions:hover {
+    cursor: default;
+}
+
+.remove-room-btn {
+    color: #fff;
+    background-color: #ff0000;
+    width: 80%;
+    height: 25px;
+    border-radius: 25px;
+}
+
+.remove-room-btn:hover {
+    background-color: #e60202;
+}
