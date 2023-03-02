@@ -15,7 +15,6 @@
   
       </div>
       <DayPilotCalendar id="dp" :config="config" ref="calendar"/>
-      <p>* hint: you can use the calendar to make new availabilitys by clicking and dragging</p>
     </div>
   </template>
   
