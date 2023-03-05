@@ -39,7 +39,6 @@
 .student-day-column{
     text-align: left;
     padding: 5px;
-    /* min-width: 12.5%; */
     min-width: 14.2%;
     flex-wrap: wrap;
 }
@@ -49,7 +48,6 @@
 .student-date-column{
     text-align: left;
     padding: 5px;
-    /* min-width: 12.5%; */
     min-width: 14.2%;
     flex-wrap: wrap;
 }
@@ -57,28 +55,24 @@
 .student-bldg-column{
     text-align: left;
     padding: 5px;
-    /* min-width: 12.5%; */
     min-width: 14.2%;
 }
 
 .student-room-column{
     text-align: left;
     padding: 5px;
-    /* min-width: 12.5%; */
     min-width: 14.2%;
 }
 
 .student-time-block-column{
     text-align: left;
     padding: 5px;
-    /* min-width: 12.5%; */
     min-width: 14.2%;
 }
 
 .student-seat-left-column{
     text-align: left;
     padding: 5px;
-    /* min-width: 12.5%; */
     min-width: 14.2%;
 }
 
