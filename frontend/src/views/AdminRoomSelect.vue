@@ -7,9 +7,10 @@ import Header from "../components/Header.vue";
 import AddRoomButton from "../components/AddRoomButton.vue"
 import RoomCard from '../components/RoomCard.vue';
 import NavBtn from "../components/NavBtn.vue";
+import PopOut from '../components/PopOut.vue';
 export default {
     components: {
-        Card, NavBar, Header, CornerStyle, AddRoomButton, RoomCard, NavBtn
+        Card, NavBar, Header, CornerStyle, AddRoomButton, RoomCard, NavBtn, PopOut
     },
     data: () => ({
         rooms: []
@@ -60,6 +61,9 @@ export default {
                 <RoomCard v-for="(room) in this.rooms" cardColor='18ACFF' :roomNum="room.room_number" :bldg="room.bldg" :seatNum="room.capacity" />
             </div>
         </div>
-        <CornerStyle />
+        <PopOut class = "new-room-popup" title = "New Room">
+            
+        </PopOut>
+        <CornerStyle/>
     </div>
 </template>
