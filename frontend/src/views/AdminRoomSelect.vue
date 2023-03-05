@@ -65,19 +65,17 @@ export default {
             <form action="#" class="new-room-form">
                 <span>
                     <label class="new-room-label" for="room-number">Room Number</label>
-                    <input type="number" name="room-number" id="room-number" placeholder="142">
+                    <input type="number" name="room-number" id="room-number" placeholder="142" min="1">
                 </span>
                 <span>
                     <label class="new-room-label" for="room-number">Building</label>
-                    <input type="Text" name="room-number" id="room-number" placeholder="Winston Chung Hall">
+                    <input type="Text" name="room-number" id="room-number" placeholder="Winston Chung Hall" >
                 </span>
                 <span>
                     <label class="new-room-label" for="room-number">Capacity</label>
-                    <input type="number" name="room-number" id="room-number" placeholder="50">
+                    <input type="number" name="room-number" id="room-number" placeholder="50" min="1">
                 </span>
-                
-                
-                <button>Create</button>
+                <button id="create-room-btn">Create</button>
             </form>
         </PopOut>
         <CornerStyle/>
