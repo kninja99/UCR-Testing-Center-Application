@@ -14,7 +14,10 @@ export default {
     },
     data: () => ({
         rooms: [],
-        popOutToggle: false
+        popOutToggle: false,
+        newRoomNumber: null,
+        newRoomBldg: null,
+        newRoomCap: null
     }),
     methods: {
         testToggle() {
@@ -26,10 +29,21 @@ export default {
             }
         },
         closePopout(e) {
-            console.log(e);
             if(e.target.className === "popout-close") {
                 this.popOutToggle = false;
+                this.newRoomNumber = this.newRoomBldg =this.newRoomCap = null;
             }
+        },
+        createNewRoomEvent(e) {
+            console.log("creating new room");
+            console.log(this.newRoomNumber);
+            console.log(this.newRoomBldg);
+            console.log(this.newRoomCap);
+
+            // clear previous inputs and closes popout
+            this.popOutToggle = false;
+            this.newRoomNumber = this.newRoomBldg =this.newRoomCap = null;
+            e.preventDefault(e);
         }
     },
     created: async function() {
@@ -82,17 +96,17 @@ export default {
             <form action="#" class="new-room-form">
                 <span>
                     <label class="new-room-label" for="room-number">Room Number</label>
-                    <input type="number" name="room-number" id="room-number" placeholder="142" min="1">
+                    <input v-model = "newRoomNumber" type="number" name="room-number" id="room-number" placeholder="142" min="1">
                 </span>
                 <span>
-                    <label class="new-room-label" for="room-number">Building</label>
-                    <input type="Text" name="room-number" id="room-number" placeholder="Winston Chung Hall" >
+                    <label class="new-room-label" for="room-bldg">Building</label>
+                    <input v-model = "newRoomBldg" type="Text" name="room-bldg" id="room-bldg" placeholder="Winston Chung Hall" >
                 </span>
                 <span>
-                    <label class="new-room-label" for="room-number">Capacity</label>
-                    <input type="number" name="room-number" id="room-number" placeholder="50" min="1">
+                    <label class="new-room-label" for="room-capacity">Capacity</label>
+                    <input v-model = "newRoomCap" type="number" name="room-capacity" id="room-capacity" placeholder="50" min="1">
                 </span>
-                <button id="create-room-btn">Create</button>
+                <button @click="createNewRoomEvent" id="create-room-btn">Create</button>
             </form>
         </PopOut>
         <CornerStyle/>
