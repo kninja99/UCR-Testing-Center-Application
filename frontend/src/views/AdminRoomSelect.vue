@@ -13,8 +13,25 @@ export default {
         Card, NavBar, Header, CornerStyle, AddRoomButton, RoomCard, NavBtn, PopOut
     },
     data: () => ({
-        rooms: []
+        rooms: [],
+        popOutToggle: false
     }),
+    methods: {
+        testToggle() {
+            if(this.popOutToggle) {
+                this.popOutToggle = false;
+            }
+            else {
+                this.popOutToggle= true;
+            }
+        },
+        closePopout(e) {
+            console.log(e);
+            if(e.target.className === "popout-close") {
+                this.popOutToggle = false;
+            }
+        }
+    },
     created: async function() {
         let authToken = window.sessionStorage.getItem('auth');
         // constructing url that works with our api
@@ -55,13 +72,13 @@ export default {
         { title: 'Settings', img: 'settings-icon.svg', route: '/admin/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: '/admin/account' }]" />
         <div class="room-page-contents">
-            <AddRoomButton buttonName="Add New Room"/>
+            <AddRoomButton buttonName="Add New Room" v-on:click.native="testToggle"/>
             <!-- renders all testing rooms in db -->
             <div class = "room-cards">
                 <RoomCard v-for="(room) in this.rooms" cardColor='18ACFF' :roomNum="room.room_number" :bldg="room.bldg" :seatNum="room.capacity" />
             </div>
         </div>
-        <PopOut class = "new-room-popup" title = "New Room">
+        <PopOut v-on:click.native = "closePopout" v-if="popOutToggle" class = "new-room-popup" title = "New Room">
             <form action="#" class="new-room-form">
                 <span>
                     <label class="new-room-label" for="room-number">Room Number</label>
