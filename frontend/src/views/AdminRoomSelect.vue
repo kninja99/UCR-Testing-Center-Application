@@ -54,7 +54,7 @@ export default {
                 axios.post(`${baseUrl}/api/testingRooms/`, newRoom,
                     { headers: { 'Authorization': `token ${authToken}` } })
                     .then(res => {
-                        console.log("new room created");
+                        this.rooms.push(res.data);
                     })
                     .catch(err => {
                         console.log(err);
