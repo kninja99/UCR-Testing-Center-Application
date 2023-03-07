@@ -18,7 +18,8 @@ export default {
         newRoomNumber: null,
         newRoomBldg: null,
         newRoomCap: null,
-        error: false
+        error: false,
+        errorMsg: ""
     }),
     methods: {
         testToggle() {
@@ -54,22 +55,28 @@ export default {
                 axios.post(`${baseUrl}/api/testingRooms/`, newRoom,
                     { headers: { 'Authorization': `token ${authToken}` } })
                     .then(res => {
+                        // adds new room to frontend
                         this.rooms.push(res.data);
+                        // clears popout
+                        this.popOutToggle = false;
+                        this.newRoomNumber = this.newRoomBldg = this.newRoomCap = null;
+                        this.error = false;
                     })
                     .catch(err => {
-                        console.log(err);
+                        if (err.response.data.non_field_errors) {
+                            this.errorMsg = "Room already exist, try again";
+                        }
+                        else {
+                            this.errorMsg = "Server Error";
+                        }
+                        this.error = true;
                     });
-                // also add new room to frontend
-                // clear previous inputs and closes popout
-                this.popOutToggle = false;
-                this.newRoomNumber = this.newRoomBldg = this.newRoomCap = null;
-                this.error = false;
                 e.preventDefault(e);
             }
             else {
                 // generate an error msg
+                this.errorMsg = "Make sure you fill in all inputs";
                 this.error = true;
-                console.log("error");
                 e.preventDefault(e);
             }
         },
@@ -146,7 +153,7 @@ export default {
                     <input v-model="newRoomCap" type="number" name="room-capacity" id="room-capacity" placeholder="50"
                         min="1">
                 </span>
-                <p v-if="this.error" class="err-msg">Make Sure you fill in all inputs</p>
+                <p v-if="this.error" class="err-msg">{{ errorMsg }}</p>
                 <button @click="createNewRoomEvent" id="create-room-btn">Create</button>
             </form>
         </PopOut>
