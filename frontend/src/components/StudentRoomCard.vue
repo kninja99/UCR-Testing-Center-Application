@@ -2,18 +2,19 @@
 export default {
     props: {
         className: String,
-        profName: String
+        profName: String,
+        route: String
     }
 }   
 </script>
 
 <template>
-    <div class="student-room-card-element">
+    <router-link :to="route" class="student-room-card-element">
         <div class="student-room-card-element-color">
         </div>
 
         <div class="room-card-element-text">
             {{className}}<br>Prof {{profName}}
         </div>
-    </div>
+    </router-link>
 </template>
