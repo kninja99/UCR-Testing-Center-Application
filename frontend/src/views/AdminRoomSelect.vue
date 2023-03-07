@@ -39,8 +39,27 @@ export default {
 
             let validRoom = this.newRoomFormCheck();
             if (validRoom) {
-                // make room
-                console.log("make room");
+                //getting variables needed for request
+                let authToken = window.sessionStorage.getItem('auth');
+                let baseUrl = window.location.href;
+                let index = baseUrl.indexOf('/', 10);
+                baseUrl = baseUrl.slice(0, index);
+                // getting form data
+                let newRoom = {
+                    room_number: this.newRoomNumber,
+                    bldg: this.newRoomBldg,
+                    capacity: this.newRoomCap
+                }
+                // api call to add room to database
+                axios.post(`${baseUrl}/api/testingRooms/`, newRoom,
+                    { headers: { 'Authorization': `token ${authToken}` } })
+                    .then(res => {
+                        console.log("new room created");
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+                // also add new room to frontend
                 // clear previous inputs and closes popout
                 this.popOutToggle = false;
                 this.newRoomNumber = this.newRoomBldg = this.newRoomCap = null;
