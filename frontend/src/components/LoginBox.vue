@@ -58,7 +58,7 @@
                 })
                 .catch((err) => {
                     let errorMsg = err.response.data;
-                    if(errorMsg.username || errorMsg.passowrd){
+                    if(errorMsg.username || errorMsg.password){
                         this.error = "Please input both username and password"
                     }
                     else if(errorMsg.non_field_errors){
