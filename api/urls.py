@@ -6,6 +6,7 @@ router = routers.DefaultRouter()
 router.register(r'foos', views.FooViewSet)
 router.register(r'testingRooms',views.TestingRoomViewSet)
 router.register(r'testingRoomsAvailability',views.TestingRoomViewAvailabilitySet)
+router.register(r'professorReservation',views.ProfessorReservationSet)
 
 
 urlpatterns = [

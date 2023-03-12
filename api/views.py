@@ -2,8 +2,8 @@ from django.http import HttpResponse
 
 from rest_framework import viewsets
 
-from .serializers import FooSerializer, TestingRoomSerializer, TestingRoomAvailabilitySerializer
-from .models import Foo, TestingRoom, TestingRoomAvailability
+from .serializers import FooSerializer, TestingRoomSerializer, TestingRoomAvailabilitySerializer, ProfessorReservationSerializer
+from .models import Foo, TestingRoom, TestingRoomAvailability, ProfessorReservation
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -41,4 +41,9 @@ class TestingRoomViewAvailabilitySet(viewsets.ModelViewSet):
         getAvailability = TestingRoomAvailability.objects.filter(testing_room_id = id)
         serializer = TestingRoomAvailabilitySerializer(getAvailability, many=True)
         return Response(serializer.data)
+
+class ProfessorReservationSet(viewsets.ModelViewSet):
+    #queryset = TestingRoomAvailability.objects.filter(testing_room_id = 7)
+    queryset = ProfessorReservation.objects.all()
+    serializer_class = ProfessorReservationSerializer
     

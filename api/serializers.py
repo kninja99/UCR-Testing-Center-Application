@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Foo, TestingRoom, TestingRoomAvailability
+from .models import Foo, TestingRoom, TestingRoomAvailability, ProfessorReservation
 
 
 class FooSerializer(serializers.HyperlinkedModelSerializer):
@@ -22,3 +22,9 @@ class TestingRoomAvailabilitySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TestingRoomAvailability
         fields = ("id","testing_room_id","start_time", "end_time" ,"date", "is_booked")
+        
+class ProfessorReservationSerializer(serializers.HyperlinkedModelSerializer):
+    
+    class Meta:
+        model = ProfessorReservation
+        fields = ("room_aval", "professor", "approved")
