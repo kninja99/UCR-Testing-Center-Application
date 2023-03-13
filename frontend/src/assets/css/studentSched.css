@@ -1,0 +1,90 @@
+.student-test-sched-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: flex-start;
+    overflow-y: auto;
+    grid-area: card;
+    height: auto;
+    width: 100%;
+}
+.student-test-sched-element{
+    width: 100%;
+    min-height: fit-content;
+    height: fit-content;
+    border-bottom: solid var(--UcrBlue) 0px;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    justify-self: start;
+}
+.student-test-sched-element:nth-child(odd){
+    background-color: var(--Grey);
+}
+.student-test-sched-element:nth-child(even){
+    background-color: var(--White);
+}
+
+.student-test-sched-text{
+    width: 100%;
+    height: fit-content;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    justify-self: start;
+    flex-wrap: wrap;
+}
+
+.student-day-column{
+    text-align: left;
+    padding: 5px;
+    min-width: 14.2%;
+    flex-wrap: wrap;
+}
+
+
+
+.student-date-column{
+    text-align: left;
+    padding: 5px;
+    min-width: 14.2%;
+    flex-wrap: wrap;
+}
+
+.student-bldg-column{
+    text-align: left;
+    padding: 5px;
+    min-width: 14.2%;
+}
+
+.student-room-column{
+    text-align: left;
+    padding: 5px;
+    min-width: 14.2%;
+}
+
+.student-time-block-column{
+    text-align: left;
+    padding: 5px;
+    min-width: 14.2%;
+}
+
+.student-seat-left-column{
+    text-align: left;
+    padding: 5px;
+    min-width: 14.2%;
+}
+
+.student-book-button{
+    text-align: center;
+    border-radius: 20px;
+    background-color: var(--UcrGold);
+    padding: 5px 10px 5px 10px;
+    
+}
+.student-book-button-container{
+    min-width: 12.5%;
+    padding: 5px;
+    align-content: left;
+}
