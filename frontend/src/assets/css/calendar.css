@@ -52,12 +52,11 @@
   padding: 7px;
   width: 140px;
   border-radius: 10px;
+  margin-inline: 8px;
 }
 
 .dp {
   max-width: min-content;
-
-
   display: flex;
   flex-direction: row;
   justify-content: space-around;

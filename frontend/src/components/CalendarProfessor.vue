@@ -146,6 +146,9 @@
         else {
           this.popOutToggle = true;
         }
+      },
+      book() {
+        console.log("BOOKED");
       }
     },
     mounted() {
