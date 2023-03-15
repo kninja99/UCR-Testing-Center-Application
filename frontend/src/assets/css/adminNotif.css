@@ -68,7 +68,20 @@
     height: 30px;
     width: 30px;
     margin: 10px;
-    
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.flag-button{
+    background-color: #FFB718;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .admin-notif-buttons{
@@ -76,4 +89,10 @@
     vertical-align: middle;
     justify-content: space-around;
     align-items: center;
+}
+
+.admin-notif-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
