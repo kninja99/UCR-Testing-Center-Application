@@ -16,6 +16,7 @@ import Professor from '../views/Professor.vue';
 import ProctorTestView from '../views/ProctorTestView.vue';
 import ProfessorRoomReserve from '../views/ProfessorRoomReserve'
 import ProfessorRoomView from '../views/ProfessorRoomView.vue';
+import ProfessorResRoom from '../views/ProfessorResRoom.vue';
 
 Vue.use(VueRouter);
 
@@ -139,7 +140,16 @@ const routes = [
     meta: {
       needAuth: true,
       userType: 'professor',
-    },
+    }, 
+  },
+  {
+    path: '/professor/new-res',
+    name: 'Professor-room',
+    component: ProfessorResRoom,
+    // meta: {
+    //   needAuth: true,
+    //   userType: 'professor',
+    // },
   },
   // Student Routes
   {
