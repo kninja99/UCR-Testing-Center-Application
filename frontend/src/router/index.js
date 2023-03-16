@@ -128,10 +128,10 @@ const routes = [
     path: '/professor/reservation/rooms/:bldg/:room',
     name: 'professor-room-reserve',
     component: ProfessorRoomReserve,
-    //meta: {
-    //  needAuth: true,
-    //  userType: 'professor',
-    //},
+    meta: {
+      needAuth: true,
+      userType: 'professor',
+    },
   },
   {
     path: '/professor/rooms',
@@ -146,10 +146,10 @@ const routes = [
     path: '/professor/reservation/select-room',
     name: 'Professor-room',
     component: ProfessorResRoom,
-    // meta: {
-    //   needAuth: true,
-    //   userType: 'professor',
-    // },
+    meta: {
+      needAuth: true,
+      userType: 'professor',
+    },
   },
   // Student Routes
   {
