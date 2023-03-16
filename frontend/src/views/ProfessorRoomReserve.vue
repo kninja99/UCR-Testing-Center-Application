@@ -22,24 +22,24 @@ export default {
 
 
 <template>
-     <div class="page-content">
-        <Header :title="this.$route.params.bldg + ' ' +this.$route.params.room"/>
+    <div class="page-content">
+        <Header :title="this.$route.params.bldg + ' ' + this.$route.params.room" />
 
         <!-- nav-elements is an array of objects that map nav elements -->
         <!-- object {title:Sting , img:String , route:String} -->
         <NavBar :nav-elements="[
-        { title: 'Dashboard', img: 'dashBoard-icon.svg', route: '/admin' },
-        { title: 'Rooms', img: 'roomNav-icon.svg', route: '/admin/rooms' },
-        { title: 'Inbox', img: 'mailNav-icon.svg', route: '/admin/inbox' },
-        { title: 'Settings', img: 'settings-icon.svg', route: '/admin/settings' },
-        { title: 'My Account', img: 'profile-icon.svg', route: '/admin/account' }]" />
+            { title: 'Dashboard', img: 'dashBoard-icon.svg', route: '/professor' },
+            { title: 'Rooms', img: 'roomNav-icon.svg', route: '/professor/rooms' },
+            { title: 'Inbox', img: 'mailNav-icon.svg', route: '/professor/inbox' },
+            { title: 'Settings', img: 'settings-icon.svg', route: '/professor/settings' },
+            { title: 'My Account', img: 'profile-icon.svg', route: '/professor/account' }]" />
 
-        <NavBtn />       
+        <NavBtn />
 
         <div class="dp-container">
-            <CalendarProfessor/>
+            <CalendarProfessor />
         </div>
 
-        <CornerStyle/>
-    </div> 
+        <CornerStyle />
+    </div>
 </template>
