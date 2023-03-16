@@ -9,7 +9,13 @@ import NavBtn from "../components/NavBtn.vue";
 export default {
     components: {
         ProfRoomCard, NavBar, Header, CornerStyle, NavBtn, AddRoomButton
-    }
+    },
+    methods: {
+        routeToReservations() {
+            console.log("test");
+            this.$router.push(`new-res`);
+        }
+    },
 }
 </script>
 
@@ -29,10 +35,10 @@ export default {
         { title: 'Settings', img: 'settings-icon.svg', route: '/professor/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: '/professor/account' }]" />
         <div class="room-page-contents">
-            <AddRoomButton buttonName="Make New Reservation"/>
+            <AddRoomButton v-on:click.native="routeToReservations" buttonName="Make New Reservation"/>
             <div class = "room-cards">
-                <ProfRoomCard cardColor='18ACFF' roomNum="101" bldg="Winston Chung" seatNum="30" approval="true" />
-                <ProfRoomCard cardColor='18ACFF' roomNum="232" bldg="Bournes" seatNum="30" approval="false" />
+                <ProfRoomCard cardColor='18ACFF' :roomNum="101" bldg="Winston Chung" :seatNum="30" :approval="true" />
+                <ProfRoomCard cardColor='18ACFF' :roomNum="232" bldg="Bournes" :seatNum="30" :approval="false" />
             </div>
         </div>
 

@@ -17,7 +17,7 @@
 
 <template>
     <div class="page-content">
-        <Header title="Instructor Portal"/>
+        <Header title="Select Room For New Reservation"/>
         <NavBtn/>
 
         <!-- nav-elements is an array of objects that map nav elements -->
@@ -29,10 +29,10 @@
         { title: 'Settings', img: 'settings-icon.svg', route: '/professor/settings' },
         { title: 'My Account', img: 'profile-icon.svg', route: '/professor/account' }]" />
         <div class="room-page-contents">
-            <AddRoomButton buttonName="Make New Reservation"/>
+            <!-- need to add rooms that have avlavility -->
             <div class = "room-cards">
-                <ProfRoomCard cardColor='18ACFF' roomNum="101" bldg="Winston Chung" seatNum="30" approval="true" />
-                <ProfRoomCard cardColor='18ACFF' roomNum="232" bldg="Bournes" seatNum="30" approval="false" />
+                <ProfRoomCard cardColor='18ACFF' :roomNum="101" bldg="Winston Chung" :seatNum="30" :approval="true" />
+                <ProfRoomCard cardColor='18ACFF' :roomNum="232" bldg="Bournes" :seatNum="30" :approval="false" />
             </div>
         </div>
 
