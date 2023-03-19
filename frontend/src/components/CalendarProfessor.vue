@@ -6,13 +6,13 @@
         <button @click="advanceWeek">Next</button>
       </div>
       <div class="calendar-book-btns">
-        <button @click="book">Book Sunday</button>
-        <button @click="book">Book Monday</button>
-        <button @click="book">Book Tuesday</button>
-        <button @click="book">Book Wednesday</button>
-        <button @click="book">Book Thursday</button>
-        <button @click="book">Book Friday</button>
-        <button @click="book">Book Saturday</button>
+        <button :value="0" @click="book">Book Sunday</button>
+        <button :value="1" @click="book">Book Monday</button>
+        <button :value="2" @click="book">Book Tuesday</button>
+        <button :value="3" @click="book">Book Wednesday</button>
+        <button :value="4" @click="book">Book Thursday</button>
+        <button :value="5" @click="book">Book Friday</button>
+        <button :value="6" @click="book">Book Saturday</button>
   
       </div>
       <DayPilotCalendar id="dp" :config="config" ref="calendar"/>
@@ -137,8 +137,13 @@
         this.calendar.startDate = this.calendar.startDate.addDays(-7);
         this.calendar.update();
       },
-      book() {
-        console.log("BOOKED");
+      book(e) {
+        // gets target date index
+        let dayOfWeek = Number(e.target.value);
+        // gets correct date that we are selecting for booking
+        let dateSelected = this.calendar.startDate.firstDayOfWeek("en-us").addDays(dayOfWeek);
+        console.log(dayOfWeek);
+        console.log(dateSelected);
       },
       goBackEvent() {
         this.$router.go(-1);
