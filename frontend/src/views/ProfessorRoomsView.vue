@@ -1,29 +1,29 @@
 <script>
-import Card from "../components/Card.vue"
+import ProfRoomCard from "../components/ProfessorRoomCard.vue"
 import NavBar from "../components/NavBar.vue"
 import CornerStyle from "../components/CornerStyle.vue"
+import AddRoomButton from "../components/AddRoomButton.vue"
+
 import Header from "../components/Header.vue";
-import CalendarProfessor from '../components/CalendarProfessor.vue'
 import NavBtn from "../components/NavBtn.vue";
-import axios from "axios";
 export default {
     components: {
-        Card,
-        NavBar,
-        Header,
-        CornerStyle,
-        CalendarProfessor,
-        NavBtn
-    }
+        ProfRoomCard, NavBar, Header, CornerStyle, NavBtn, AddRoomButton
+    },
+    methods: {
+        routeToReservations() {
+            this.$router.push(`reservation/select-room`);
+        }
+    },
 }
-
 </script>
 
 
 
 <template>
     <div class="page-content">
-        <Header :title="this.$route.params.bldg + ' ' + this.$route.params.room" />
+        <Header title="Instructor Portal" />
+        <NavBtn />
 
         <!-- nav-elements is an array of objects that map nav elements -->
         <!-- object {title:Sting , img:String , route:String} -->
@@ -33,12 +33,14 @@ export default {
             { title: 'Inbox', img: 'mailNav-icon.svg', route: '/professor/inbox' },
             { title: 'Settings', img: 'settings-icon.svg', route: '/professor/settings' },
             { title: 'My Account', img: 'profile-icon.svg', route: '/professor/account' }]" />
-
-        <NavBtn />
-
-        <div class="dp-container">
-            <CalendarProfessor />
+        <div class="room-page-contents">
+            <AddRoomButton v-on:click.native="routeToReservations" buttonName="Make New Reservation" />
+            <div class="room-cards">
+                <ProfRoomCard cardColor='18ACFF' :roomNum="101" bldg="Winston Chung" :seatNum="30" :approval="true" />
+                <ProfRoomCard cardColor='18ACFF' :roomNum="232" bldg="Bournes" :seatNum="30" :approval="false" />
+            </div>
         </div>
+
 
         <CornerStyle />
     </div>

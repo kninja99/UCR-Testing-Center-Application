@@ -123,7 +123,8 @@ button:hover {
     overflow-y: auto;
     height: auto;
 }
-.student-room-card-container{
+
+.student-room-card-container {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -151,20 +152,24 @@ button:hover {
     .test-card-container {
         justify-content: center;
     }
-    .student-room-card-container{
+
+    .student-room-card-container {
         justify-content: center;
         overflow-y: auto;
         flex-wrap: wrap;
     }
-    .admin-notif-container{
+
+    .admin-notif-container {
         justify-content: flex-start;
         justify-self: stretch;
         overflow-y: auto;
     }
-    .admin-notif-element{
+
+    .admin-notif-element {
         flex-wrap: wrap;
     }
-    .student-test-sched-element{
+
+    .student-test-sched-element {
         flex-wrap: wrap;
     }
 }
@@ -173,20 +178,24 @@ button:hover {
     .test-card-container {
         justify-content: center;
     }
-    .student-room-card-container{
+
+    .student-room-card-container {
         justify-content: center;
         overflow-y: auto;
         flex-wrap: wrap;
     }
-    .admin-notif-container{
+
+    .admin-notif-container {
         justify-content: flex-start;
         justify-self: stretch;
         overflow-y: auto;
     }
-    .admin-notif-element{
+
+    .admin-notif-element {
         flex-wrap: wrap;
     }
-    .student-test-sched-element{
+
+    .student-test-sched-element {
         flex-wrap: wrap;
     }
 }
@@ -208,5 +217,21 @@ button:hover {
 .room-page-contents {
     grid-area: card;
     overflow-y: auto;
-    height:100%;
+    height: 100%;
+}
+
+.go-back-btn {
+    background-color: var(--UcrGold);
+    font-size: 16px;
+    border-radius: 20px;
+    margin-top: 10px;
+    float: left;
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-weight: 600;
+    color: #292929;
+}
+
+.go-back-btn:hover {
+    background-color: var(--GoldHover);
 }
