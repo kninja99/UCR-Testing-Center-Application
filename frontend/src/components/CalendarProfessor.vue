@@ -33,7 +33,8 @@
           eventMoveHandling: "Disabled",
           timeRangeSelectedHandling: "Disabled"
         },
-        roomID: -1
+        roomID: -1,
+        dateDictionary: new Object()
       }
     },
     components: {
@@ -90,13 +91,22 @@
                 text: eventText,
                 barColor: eventBarColor
               }
+              // building our key value for dateDictionary
+              let tLocation = startTime.indexOf("T");
+              let calendarDate = new DayPilot.Date(startTime.slice(0,tLocation));
+              // adding event ids to our array associated with that date
+              if(!this.dateDictionary[calendarDate.value]) {
+                this.dateDictionary[calendarDate.value] = [event.id];
+              }
+              else {
+                this.dateDictionary[calendarDate.value].push(event.id);
+              }
               events.push(event);
             }
           })
           .catch((err) => {
             console.log(err);
           })
-  
         this.calendar.update({ events });
       },
       /**
@@ -142,8 +152,9 @@
         let dayOfWeek = Number(e.target.value);
         // gets correct date that we are selecting for booking
         let dateSelected = this.calendar.startDate.firstDayOfWeek("en-us").addDays(dayOfWeek);
-        console.log(dayOfWeek);
-        console.log(dateSelected);
+        // getting all event IDs on target day
+        let eventIdList = this.dateDictionary[dateSelected.value];
+        console.log(eventIdList)
       },
       goBackEvent() {
         this.$router.go(-1);
