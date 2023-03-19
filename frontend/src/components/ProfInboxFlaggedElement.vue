@@ -1,11 +1,11 @@
 <script>
-    import AdminNotifButtons from './AdminNotifButtons.vue';
+    // import AdminNotifButtons from './AdminNotifButtons.vue';
     export default {
-        components: {
-            AdminNotifButtons
-        },
+        // components: {
+        //     AdminNotifButtons
+        // },
         props: {
-            profName: {
+            studentName: {
                 type:String,
                 required: true
             },
@@ -34,9 +34,9 @@
 </script>
 
 <template>
-    <div class="admin-notif-element">
+    <div class="status-element">
         <div class="profColumn">
-            <p>Prof: {{profName}} <br>{{className}}</p>
+            <p>{{studentName}}<br>{{className}}</p>
         </div>
 
         <div class="room-column">
@@ -44,13 +44,13 @@
         </div>
         
         <div class="sched-column">
-            <p>Schedule: {{schedDate}}<br>{{schedTimeFrom}} - {{schedTimeTo}}</p>
+            <p>{{schedDate}}<br>{{schedTimeFrom}} - {{schedTimeTo}}</p>
         </div>
-        <div class="admin-notif-buttons">
+        <!-- <div class="admin-notif-buttons"> same styling -->
+        <div class="prof-notif-icon">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <button class="check-button"><i class="fa fa-check"></i></button>
-            <button class="mail-button"><i class="fa fa-envelope"></i></button>
-            <button class="reject-button"><i class="fa fa-close"></i></button>
+            <span class="flag-button"><i class="fa fa-flag"></i></span>
+            <span>Student-Flagged</span>
         </div> 
 
     </div> 
