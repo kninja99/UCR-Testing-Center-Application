@@ -24,7 +24,8 @@ class TestingRoomAvailabilitySerializer(serializers.HyperlinkedModelSerializer):
         fields = ("id","testing_room_id","start_time", "end_time" ,"date", "is_booked")
         
 class ProfessorReservationSerializer(serializers.HyperlinkedModelSerializer):
-    
+    professor = serializers.CharField(source="professor.username", read_only=True)
+    availability_id = serializers.PrimaryKeyRelatedField(queryset=TestingRoomAvailability.objects.all(),source = "room_aval.id")
     class Meta:
         model = ProfessorReservation
-        fields = ("room_aval", "professor", "approved")
+        fields = ("id","availability_id", "professor", "approved")
