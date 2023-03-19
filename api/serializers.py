@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.contrib.auth import get_user_model
 from .models import Foo, TestingRoom, TestingRoomAvailability, ProfessorReservation
 
 
@@ -24,8 +25,11 @@ class TestingRoomAvailabilitySerializer(serializers.HyperlinkedModelSerializer):
         fields = ("id","testing_room_id","start_time", "end_time" ,"date", "is_booked")
         
 class ProfessorReservationSerializer(serializers.HyperlinkedModelSerializer):
-    professor = serializers.CharField(source="professor.username", read_only=True)
-    availability_id = serializers.PrimaryKeyRelatedField(queryset=TestingRoomAvailability.objects.all(),source = "room_aval.id")
+    professor_id = serializers.PrimaryKeyRelatedField(queryset=get_user_model().objects.all(),source = "professor")
+    availability_id = serializers.PrimaryKeyRelatedField(queryset=TestingRoomAvailability.objects.all(),source = "room_aval")
     class Meta:
         model = ProfessorReservation
-        fields = ("id","availability_id", "professor", "approved")
+        fields = ("id","availability_id", "professor_id", "approved")
+        
+    def create(self, validated_data):
+        return ProfessorReservation.objects.create(**validated_data)
