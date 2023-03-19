@@ -147,7 +147,8 @@
         this.calendar.startDate = this.calendar.startDate.addDays(-7);
         this.calendar.update();
       },
-      book(e) {
+      async book(e) {
+        let bookingErr = false;
         // gets target date index
         let dayOfWeek = Number(e.target.value);
         // gets correct date that we are selecting for booking
@@ -168,7 +169,7 @@
             availability_id: eventIdList[i],
             approved: true
           }
-          axios.post(`${baseUrl}/api/professorReservation/`, professorResData, {headers: {'Authorization':`token ${authToken}`}})
+          await axios.post(`${baseUrl}/api/professorReservation/`, professorResData, {headers: {'Authorization':`token ${authToken}`}})
           .then(res => {
             console.log(res);
             // updating calendar event on front end
@@ -177,8 +178,15 @@
             this.calendar.update(calendarEvent);
           })
           .catch(err => {
-            console.log(err);
+            console.log("dates already booked");
+            calendarEvent.data.barColor = "red";
+            calendarEvent.data.text = "booked";
+            this.calendar.update(calendarEvent);
+            bookingErr = true;
           })
+        }
+        if(bookingErr) {
+          alert('dates already booked');
         }
       },
       goBackEvent() {
