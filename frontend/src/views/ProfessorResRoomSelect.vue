@@ -32,7 +32,12 @@ export default {
             .catch((err) => {
                 console.log(err);
             });
-    }
+    },
+    methods: {
+        goBackEvent() {
+            this.$router.go(-1);
+        }
+    },
 }
 </script>
 
@@ -52,6 +57,7 @@ export default {
             { title: 'Settings', img: 'settings-icon.svg', route: '/professor/settings' },
             { title: 'My Account', img: 'profile-icon.svg', route: '/professor/account' }]" />
         <div class="room-page-contents">
+            <button @click="goBackEvent" class="go-back-btn">Go Back</button>
             <!-- need to add rooms that have avlavility -->
             <div class="room-cards">
                 <RoomCard v-for="(room) in this.rooms" cardColor='18ACFF' :roomNum="room.room_number" :bldg="room.bldg"

@@ -12,7 +12,6 @@ export default {
     },
     methods: {
         routeToReservations() {
-            console.log("test");
             this.$router.push(`reservation/select-room`);
         }
     },
