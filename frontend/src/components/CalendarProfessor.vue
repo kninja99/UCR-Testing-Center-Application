@@ -156,14 +156,29 @@
         let eventIdList = this.dateDictionary[dateSelected.value];
         console.log(eventIdList)
         // booking of each event
+        let authToken = window.sessionStorage.getItem('auth');
+        let baseUrl = window.location.href;
+        let index = baseUrl.indexOf('/', 10);
+        baseUrl = baseUrl.slice(0, index);
         for(let i = 0; i < eventIdList.length ; i++) {
           // getting calendar event
           let calendarEvent = this.calendar.events.find(eventIdList[i]);
-          // updating calendar event on front end
-          calendarEvent.data.barColor = "red";
-          calendarEvent.data.text = "booked";
-          this.calendar.update(calendarEvent);
           // now need to make booking in the backend
+          let professorResData = {
+            availability_id: eventIdList[i],
+            approved: true
+          }
+          axios.post(`${baseUrl}/api/professorReservation/`, professorResData, {headers: {'Authorization':`token ${authToken}`}})
+          .then(res => {
+            console.log(res);
+            // updating calendar event on front end
+            calendarEvent.data.barColor = "red";
+            calendarEvent.data.text = "booked";
+            this.calendar.update(calendarEvent);
+          })
+          .catch(err => {
+            console.log(err);
+          })
         }
       },
       goBackEvent() {

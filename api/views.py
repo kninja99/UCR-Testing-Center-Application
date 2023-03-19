@@ -6,6 +6,7 @@ from .serializers import FooSerializer, TestingRoomSerializer, TestingRoomAvaila
 from .models import Foo, TestingRoom, TestingRoomAvailability, ProfessorReservation
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework import status
 
 def index(request):
     return HttpResponse("Hello, world. You're at the api index.")
@@ -47,3 +48,18 @@ class ProfessorReservationSet(viewsets.ModelViewSet):
     queryset = ProfessorReservation.objects.all()
     serializer_class = ProfessorReservationSerializer
     
+    def create(self, request):
+        user = request.user.id
+        data = {
+            'professor_id': user,
+            'availability_id': request.data['availability_id'],
+            'approved': request.data['approved']
+        }
+        
+        serializer = ProfessorReservationSerializer(data=data)
+        
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
