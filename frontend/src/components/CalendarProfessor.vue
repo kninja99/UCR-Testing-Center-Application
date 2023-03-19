@@ -1,5 +1,6 @@
 <template>
     <div class="calendar-container">
+      <button @click="goBackEvent" class="go-back-btn">Go Back</button>
       <div class="calendar-nav-btns">
         <button @click="previousWeek">Previous</button>
         <button @click="advanceWeek">Next</button>
@@ -136,19 +137,11 @@
         this.calendar.startDate = this.calendar.startDate.addDays(-7);
         this.calendar.update();
       },
-      /**
-       * toggleing our add availability popout
-       */
-      togglePopout() {
-        if (this.popOutToggle) {
-          this.popOutToggle = false;
-        }
-        else {
-          this.popOutToggle = true;
-        }
-      },
       book() {
         console.log("BOOKED");
+      },
+      goBackEvent() {
+        this.$router.go(-1);
       }
     },
     mounted() {
