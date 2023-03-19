@@ -35,8 +35,8 @@
 
 <template>
     <div class="status-element">
-        <div class="prof-column">
-            <p>Student: {{studentName}} <br> {{className}}</p>
+        <div class="profColumn">
+            <p>{{studentName}}<br>{{className}}</p>
         </div>
 
         <div class="room-column">
@@ -47,11 +47,10 @@
             <p>{{schedDate}}<br>{{schedTimeFrom}} - {{schedTimeTo}}</p>
         </div>
         <!-- <div class="admin-notif-buttons"> same styling -->
-        <div class="admin-notif-icon">
+        <div class="prof-notif-icon">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <!-- <span class="check-button"><i class="fa fa-check"></i></span> Approved -->
-            <span class="flag-button"><i class="fa fa-flag"></i></span>Student-Flagged
-            <!-- <button class="reject-button"><i class="fa fa-close"></i></button> -->
+            <span class="flag-button"><i class="fa fa-flag"></i></span>
+            <span>Student-Flagged</span>
         </div> 
 
     </div> 

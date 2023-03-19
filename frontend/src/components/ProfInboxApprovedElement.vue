@@ -35,8 +35,8 @@
 
 <template>
     <div class="status-element">
-        <div class="prof-column">
-            <p>Admin: {{adminName}} </p>
+        <div class="profColumn">
+            <p>{{adminName}}</p>
         </div>
 
         <div class="room-column">
@@ -46,11 +46,10 @@
         <div class="sched-column">
             <p>{{schedDate}}<br>{{schedTimeFrom}} - {{schedTimeTo}}</p>
         </div>
-        <div class="admin-notif-buttons"> <!-- same styling -->
+        <div class="prof-notif-icon"> <!-- same styling -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <span class="check-button"><i class="fa fa-check"></i></span> Approved
-            <!-- <button class="mail-button"><i class="fa fa-envelope"></i></button>
-            <button class="reject-button"><i class="fa fa-close"></i></button> -->
+            <span class="check-button"><i class="fa fa-check"></i></span>
+            <span>Approved</span>
         </div> 
 
     </div> 

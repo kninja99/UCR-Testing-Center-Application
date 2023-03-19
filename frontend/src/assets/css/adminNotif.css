@@ -60,6 +60,9 @@
     height: 30px;
     width: 30px;
     margin: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .reject-button{
@@ -86,13 +89,20 @@
 
 .admin-notif-buttons{
     display: flex;
-    vertical-align: middle;
-    justify-content: space-around;
+    /* vertical-align: middle; */
+    justify-content: center;
     align-items: center;
+    /* width: 25%; */
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
-.admin-notif-icon{
+.prof-notif-icon{
     display: flex;
-    align-items: center;
+    /* vertical-align: middle; */
     justify-content: center;
+    align-items: center;
+    width: 25%;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }

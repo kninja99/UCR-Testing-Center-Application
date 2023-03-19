@@ -31,7 +31,7 @@ export default {
         <div class="room-page-contents">
             <AddRoomButton buttonName="Make New Reservation"/>
             <div class = "room-cards">
-                <ProfRoomCard cardColor='18ACFF' roomNum="101" bldg="Winston Chung Hall something" seatNum="30" approval="true" />
+                <ProfRoomCard cardColor='18ACFF' roomNum="101" bldg="Winston Chung" seatNum="30" approval="true" />
                 <ProfRoomCard cardColor='18ACFF' roomNum="232" bldg="Bournes" seatNum="30" approval="false" />
             </div>
         </div>
