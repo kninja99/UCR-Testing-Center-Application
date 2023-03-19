@@ -155,6 +155,16 @@
         // getting all event IDs on target day
         let eventIdList = this.dateDictionary[dateSelected.value];
         console.log(eventIdList)
+        // booking of each event
+        for(let i = 0; i < eventIdList.length ; i++) {
+          // getting calendar event
+          let calendarEvent = this.calendar.events.find(eventIdList[i]);
+          // updating calendar event on front end
+          calendarEvent.data.barColor = "red";
+          calendarEvent.data.text = "booked";
+          this.calendar.update(calendarEvent);
+          // now need to make booking in the backend
+        }
       },
       goBackEvent() {
         this.$router.go(-1);
