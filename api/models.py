@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Foo(models.Model):
   name = models.CharField(max_length=60)
@@ -30,3 +31,12 @@ class TestingRoomAvailability(models.Model):
   # the professors id so we can notify classes 
   class Meta:
     unique_together = ('testing_room','start_time','end_time','date')
+    
+  def __str__(self):
+    return f"{str(self.testing_room)} {str(self.date)} ({str(self.start_time)} - {str(self.end_time)})"
+
+class ProfessorReservation(models.Model):
+  room_aval = models.ForeignKey(TestingRoomAvailability, on_delete=models.CASCADE)
+  professor = models.ForeignKey(User,on_delete=models.CASCADE)
+  approved = models.BooleanField(default=True)
+

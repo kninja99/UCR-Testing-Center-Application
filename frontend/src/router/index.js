@@ -14,8 +14,10 @@ import StudentRoom from '../views/StudentRoom.vue';
 import StudentTestView from '../views/StudentTestView.vue';
 import Professor from '../views/Professor.vue';
 import ProctorTestView from '../views/ProctorTestView.vue';
-import ProfessorRoomView from '../views/ProfessorRoomView.vue';
 import ProfessorInbox from '../views/ProfessorInbox.vue';
+import ProfessorRoomReserve from '../views/ProfessorRoomReserve';
+import ProfessorRoomsView from '../views/ProfessorRoomsView.vue';
+import ProfessorResRoomSelect from '../views/ProfessorResRoomSelect.vue';
 
 Vue.use(VueRouter);
 
@@ -124,9 +126,27 @@ const routes = [
     },
   },
   {
+    path: '/professor/reservation/rooms/:bldg/:room',
+    name: 'professor-room-reserve',
+    component: ProfessorRoomReserve,
+    meta: {
+      needAuth: true,
+      userType: 'professor',
+    },
+  },
+  {
     path: '/professor/rooms',
     name: 'Professor-room',
-    component: ProfessorRoomView,
+    component: ProfessorRoomsView,
+    meta: {
+      needAuth: true,
+      userType: 'professor',
+    },
+  },
+  {
+    path: '/professor/reservation/select-room',
+    name: 'Professor-room',
+    component: ProfessorResRoomSelect,
     meta: {
       needAuth: true,
       userType: 'professor',
