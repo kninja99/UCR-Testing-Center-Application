@@ -36,7 +36,6 @@ class TestingRoomAvailability(models.Model):
     return f"{str(self.testing_room)} {str(self.date)} ({str(self.start_time)} - {str(self.end_time)})"
 
 class ProfessorReservation(models.Model):
-  room_aval = models.ForeignKey(TestingRoomAvailability, on_delete=models.CASCADE)
+  room_aval = models.ForeignKey(TestingRoomAvailability, on_delete=models.CASCADE,unique=True)
   professor = models.ForeignKey(User,on_delete=models.CASCADE)
   approved = models.BooleanField(default=True)
-
