@@ -66,3 +66,13 @@ class ProfessorReservationSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def destroy(self, request, *args, **kwargs):
+        print("DESTROY CALLED")
+        reservation = self.get_object()
+        availability = reservation.room_aval
+        availability.is_booked = False
+        availability.save()
+        reservation.delete()
+        
+        return Response({"message": "reservation deleted"})

@@ -178,7 +178,6 @@
             this.calendar.update(calendarEvent);
           })
           .catch(err => {
-            console.log("dates already booked");
             calendarEvent.data.barColor = "red";
             calendarEvent.data.text = "booked";
             this.calendar.update(calendarEvent);
