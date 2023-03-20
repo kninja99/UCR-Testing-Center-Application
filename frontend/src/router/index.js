@@ -18,6 +18,8 @@ import ProfessorInbox from '../views/ProfessorInbox.vue';
 import ProfessorRoomReserve from '../views/ProfessorRoomReserve';
 import ProfessorRoomsView from '../views/ProfessorRoomsView.vue';
 import ProfessorResRoomSelect from '../views/ProfessorResRoomSelect.vue';
+import StudentInbox from '../views/StudentInbox.vue'
+import ProctorInbox from '../views/ProctorInbox.vue'
 
 Vue.use(VueRouter);
 
@@ -115,6 +117,15 @@ const routes = [
       userType: 'proctor',
     },
   },
+  {
+    path: '/proctor/inbox',
+    name: 'Proctor-Inbox',
+    component: ProctorInbox,
+    meta: {
+      needAuth: true,
+      userType: 'proctor',
+    },
+  },
   // Professor Routes
   {
     path: '/professor',
@@ -184,6 +195,15 @@ const routes = [
     path: '/student/rooms/testView',
     name: 'Student-Rooms-Test-View',
     component: StudentTestView,
+    meta: {
+      needAuth: true,
+      userType: 'student',
+    },
+  },
+  {
+    path: '/student/inbox',
+    name: 'Student-Inbox',
+    component: StudentInbox,
     meta: {
       needAuth: true,
       userType: 'student',

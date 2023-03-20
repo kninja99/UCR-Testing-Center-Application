@@ -15,6 +15,7 @@
 @import url(./studentStatusActions.css);
 @import url(./studentSched.css);
 @import url(./profRoomCard.css);
+@import url(./proctorInboxElement.css);
 
 
 
@@ -84,6 +85,16 @@ button:hover {
     .page-content {
         grid-template-columns: 1fr 3fr;
     }
+    
+    .message p{
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .proctor-inbox-element{
+        width: 100%;
+    }
 }
 
 @media all and (max-width:642px) {
@@ -91,6 +102,15 @@ button:hover {
         grid-template-areas: "header header"
             "card card"
             "card card";
+    }
+    .message p{
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .proctor-inbox-element{
+        width: 100%;
     }
 }
 
@@ -100,6 +120,9 @@ button:hover {
             "header header"
             "card card"
             "card card";
+    }
+    .proctor-inbox-element{
+        width: 100%;
     }
 }
 
@@ -173,6 +196,15 @@ button:hover {
     .student-test-sched-element {
         flex-wrap: wrap;
     }
+    .message p{
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .proctor-inbox-element{
+        width: 100%;
+    }
 }
 
 @media all and (max-height:692px) {
@@ -199,6 +231,9 @@ button:hover {
     .student-test-sched-element {
         flex-wrap: wrap;
     }
+    .proctor-inbox-element{
+        width: 100%;
+    }
 }
 
 .room-cards {
@@ -211,6 +246,15 @@ button:hover {
 @media all and (max-width:1000px) {
     .room-cards {
         justify-content: center;
+    }
+    .message p{
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .proctor-inbox-element{
+        width: 100%;
     }
 }
 
