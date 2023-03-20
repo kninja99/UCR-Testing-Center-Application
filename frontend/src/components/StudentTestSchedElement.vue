@@ -1,5 +1,19 @@
 <script>
+import StudentTestViewVue from '../views/StudentTestView.vue';
     export default {
+        data(){
+            return {
+                show: false,
+                book: "Book",
+            };
+        },
+        methods: {
+            studentBookClick() {
+                this.show = true;
+                this.book = "Booked"
+                alert("Test Booked")
+            },
+        },
         props: {
             day: {
                 type:String,
@@ -52,7 +66,8 @@
             </div> 
         </div>
         <div class="student-book-button-container"> 
-            <p><button class="student-book-button">Book</button></p>
+            <p><button v-on:click="studentBookClick"
+            class="student-book-button">{{book}}</button></p>
         </div>
         
     </div> 
