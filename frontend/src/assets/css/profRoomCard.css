@@ -1,4 +1,4 @@
-.professor-room-card-element{
+.professor-room-card-element {
     min-width: 200px;
     top: 0px;
     margin: 10px 20px;
@@ -6,12 +6,17 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
-.professor-room-card-element-color{
+.professor-room-card-element:hover {
+    cursor: pointer;
+}
+
+.professor-room-card-element-color {
     background-color: #18ACFF;
     min-height: 150px;
 }
 
-.room-card-element-location { /* reusing styling from roomcard */
+.room-card-element-location {
+    /* reusing styling from roomcard */
     background-color: white;
     padding-top: 10px;
     padding-bottom: 10px;
