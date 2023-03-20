@@ -228,11 +228,10 @@
           let professorResData = {
             availability_id: eventIdList[i],
           }
-          await axios.post(`${baseUrl}/api/professorReservation/delReservation/`, professorResData, {headers: {'Authorization':`token ${authToken}`},
-        params: professorResData})
+          await axios.post(`${baseUrl}/api/professorReservation/delReservation/`, professorResData, {headers: {'Authorization':`token ${authToken}`}})
           .then(res => {
             console.log(res);
-            console.log(res)
+            this.calendar.events.remove(calendarEvent);
           })
           .catch(err => {
             console.log(err)
