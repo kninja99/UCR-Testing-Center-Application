@@ -6,13 +6,13 @@
         <button @click="advanceWeek">Next</button>
       </div>
       <div v-if="!this.resView" class="calendar-book-btns">
-        <button :value="0" class = "unbook-btn">Unbook Sunday</button>
-        <button :value="1" class = "unbook-btn">Unbook Monday</button>
-        <button :value="2" class = "unbook-btn">Unbook Tuesday</button>
-        <button :value="3" class = "unbook-btn">Unbook Wednesday</button>
-        <button :value="4" class = "unbook-btn">Unbook Thursday</button>
-        <button :value="5" class = "unbook-btn">Unbook Friday</button>
-        <button :value="6" class = "unbook-btn">Unbook Saturday</button>
+        <button :value="0" @click="unbook" class = "unbook-btn">Unbook Sunday</button>
+        <button :value="1" @click="unbook" class = "unbook-btn">Unbook Monday</button>
+        <button :value="2" @click="unbook" class = "unbook-btn">Unbook Tuesday</button>
+        <button :value="3" @click="unbook" class = "unbook-btn">Unbook Wednesday</button>
+        <button :value="4" @click="unbook" class = "unbook-btn">Unbook Thursday</button>
+        <button :value="5" @click="unbook" class = "unbook-btn">Unbook Friday</button>
+        <button :value="6" @click="unbook" class = "unbook-btn">Unbook Saturday</button>
       </div>
       <div v-if="this.resView" class="calendar-book-btns">
         <button :value="0" @click="book">Book Sunday</button>
@@ -206,6 +206,37 @@
         }
         if(bookingErr) {
           alert('dates already booked');
+        }
+      },
+      async unbook(e) {
+        // gets target date index
+        let dayOfWeek = Number(e.target.value);
+        // gets correct date that we are selecting for booking
+        let dateSelected = this.calendar.startDate.firstDayOfWeek("en-us").addDays(dayOfWeek);
+        // getting all event IDs on target day
+        let eventIdList = this.dateDictionary[dateSelected.value];
+        console.log(eventIdList)
+        // booking of each event
+        let authToken = window.sessionStorage.getItem('auth');
+        let baseUrl = window.location.href;
+        let index = baseUrl.indexOf('/', 10);
+        baseUrl = baseUrl.slice(0, index);
+        for(let i = 0; i < eventIdList.length ; i++) {
+          // getting calendar event
+          let calendarEvent = this.calendar.events.find(eventIdList[i]);
+          // now need to make booking in the backend
+          let professorResData = {
+            availability_id: eventIdList[i],
+          }
+          await axios.post(`${baseUrl}/api/professorReservation/delReservation/`, professorResData, {headers: {'Authorization':`token ${authToken}`},
+        params: professorResData})
+          .then(res => {
+            console.log(res);
+            console.log(res)
+          })
+          .catch(err => {
+            console.log(err)
+          })
         }
       },
       goBackEvent() {

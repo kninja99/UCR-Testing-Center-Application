@@ -98,3 +98,13 @@ class ProfessorReservationSet(viewsets.ModelViewSet):
         reservation.delete()
         
         return Response({"message": "reservation deleted"})
+    @action(methods=['post'], detail=False)
+    def delReservation(self, request):
+        print("deleteing room")
+        availability_id = request.data['availability_id']
+        availability = TestingRoomAvailability.objects.get(id = availability_id)
+        reservation = ProfessorReservation.objects.get(room_aval = availability)
+        availability.is_booked = False
+        availability.save()
+        reservation.delete()
+        return Response({"message": "reservation deleted"})
