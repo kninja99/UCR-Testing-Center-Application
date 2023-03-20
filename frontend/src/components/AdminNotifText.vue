@@ -5,15 +5,23 @@
             AdminNotifButtons
         },
         methods: {
+            close() {
+                this.$destroy();
+                this.$el.parentNode.removeChild(this.$el);
+            },
             checkbutton() {
                 alert("Reservation Accepted")
+                this.profName = this.className = this.roomNum = this.schedTimeFrom = this.schedTimeTo = this. schedDate = null;
+                this.close();
             },
             mailbutton() {
-                alert("Mailing")
+                alert("Sending Email")
             },
             rejectbutton() {
                 alert("Reservation Declined")
-            }
+                this.profName = this.className = this.roomNum = this.schedTimeFrom = this.schedTimeTo = this. schedDate = null;
+                this.close();
+           }
         },
     
         props: {
