@@ -6,13 +6,13 @@
         <button @click="advanceWeek">Next</button>
       </div>
       <div class="calendar-book-btns">
-        <button @click="book">Book Sunday</button>
-        <button @click="book">Book Monday</button>
-        <button @click="book">Book Tuesday</button>
-        <button @click="book">Book Wednesday</button>
-        <button @click="book">Book Thursday</button>
-        <button @click="book">Book Friday</button>
-        <button @click="book">Book Saturday</button>
+        <button :value="0" @click="book">Book Sunday</button>
+        <button :value="1" @click="book">Book Monday</button>
+        <button :value="2" @click="book">Book Tuesday</button>
+        <button :value="3" @click="book">Book Wednesday</button>
+        <button :value="4" @click="book">Book Thursday</button>
+        <button :value="5" @click="book">Book Friday</button>
+        <button :value="6" @click="book">Book Saturday</button>
   
       </div>
       <DayPilotCalendar id="dp" :config="config" ref="calendar"/>
@@ -33,7 +33,8 @@
           eventMoveHandling: "Disabled",
           timeRangeSelectedHandling: "Disabled"
         },
-        roomID: -1
+        roomID: -1,
+        dateDictionary: new Object()
       }
     },
     components: {
@@ -90,13 +91,22 @@
                 text: eventText,
                 barColor: eventBarColor
               }
+              // building our key value for dateDictionary
+              let tLocation = startTime.indexOf("T");
+              let calendarDate = new DayPilot.Date(startTime.slice(0,tLocation));
+              // adding event ids to our array associated with that date
+              if(!this.dateDictionary[calendarDate.value]) {
+                this.dateDictionary[calendarDate.value] = [event.id];
+              }
+              else {
+                this.dateDictionary[calendarDate.value].push(event.id);
+              }
               events.push(event);
             }
           })
           .catch((err) => {
             console.log(err);
           })
-  
         this.calendar.update({ events });
       },
       /**
@@ -137,8 +147,46 @@
         this.calendar.startDate = this.calendar.startDate.addDays(-7);
         this.calendar.update();
       },
-      book() {
-        console.log("BOOKED");
+      async book(e) {
+        let bookingErr = false;
+        // gets target date index
+        let dayOfWeek = Number(e.target.value);
+        // gets correct date that we are selecting for booking
+        let dateSelected = this.calendar.startDate.firstDayOfWeek("en-us").addDays(dayOfWeek);
+        // getting all event IDs on target day
+        let eventIdList = this.dateDictionary[dateSelected.value];
+        console.log(eventIdList)
+        // booking of each event
+        let authToken = window.sessionStorage.getItem('auth');
+        let baseUrl = window.location.href;
+        let index = baseUrl.indexOf('/', 10);
+        baseUrl = baseUrl.slice(0, index);
+        for(let i = 0; i < eventIdList.length ; i++) {
+          // getting calendar event
+          let calendarEvent = this.calendar.events.find(eventIdList[i]);
+          // now need to make booking in the backend
+          let professorResData = {
+            availability_id: eventIdList[i],
+            approved: true
+          }
+          await axios.post(`${baseUrl}/api/professorReservation/`, professorResData, {headers: {'Authorization':`token ${authToken}`}})
+          .then(res => {
+            console.log(res);
+            // updating calendar event on front end
+            calendarEvent.data.barColor = "red";
+            calendarEvent.data.text = "booked";
+            this.calendar.update(calendarEvent);
+          })
+          .catch(err => {
+            calendarEvent.data.barColor = "red";
+            calendarEvent.data.text = "booked";
+            this.calendar.update(calendarEvent);
+            bookingErr = true;
+          })
+        }
+        if(bookingErr) {
+          alert('dates already booked');
+        }
       },
       goBackEvent() {
         this.$router.go(-1);
