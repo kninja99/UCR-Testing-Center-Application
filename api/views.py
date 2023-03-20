@@ -48,6 +48,28 @@ class ProfessorReservationSet(viewsets.ModelViewSet):
     queryset = ProfessorReservation.objects.all()
     serializer_class = ProfessorReservationSerializer
     
+    @action(methods=['get'], detail=False)
+    def myReservedRooms(self,request):
+        room_set = set()
+        room_arr = []
+        user = request.user.id
+        getReservations = ProfessorReservation.objects.filter(professor_id = user)
+        serializer = ProfessorReservationSerializer(getReservations, many=True)
+        for reservation in serializer.data:
+            getAvailability = TestingRoomAvailability.objects.filter(id = reservation['availability_id'])
+            serializer1 = TestingRoomAvailabilitySerializer(getAvailability, many=True)
+            testingRoomId = serializer1.data[0]['testing_room_id']
+            if testingRoomId not in room_set:
+                room_set.add(testingRoomId)
+        print(room_set)
+        roomSerializer = None
+        for i,room in enumerate(room_set):
+            getRoom = TestingRoom.objects.filter(id = room)
+            roomSerializer = TestingRoomSerializer(getRoom,many = True)
+            room_arr.append(roomSerializer.data[0])
+        print(room_arr)
+        return Response(room_arr)
+    
     def create(self, request):
         user = request.user.id
         data = {
@@ -75,4 +97,14 @@ class ProfessorReservationSet(viewsets.ModelViewSet):
         availability.save()
         reservation.delete()
         
+        return Response({"message": "reservation deleted"})
+    @action(methods=['post'], detail=False)
+    def delReservation(self, request):
+        print("deleteing room")
+        availability_id = request.data['availability_id']
+        availability = TestingRoomAvailability.objects.get(id = availability_id)
+        reservation = ProfessorReservation.objects.get(room_aval = availability)
+        availability.is_booked = False
+        availability.save()
+        reservation.delete()
         return Response({"message": "reservation deleted"})

@@ -5,7 +5,16 @@
         <button @click="previousWeek">Previous</button>
         <button @click="advanceWeek">Next</button>
       </div>
-      <div class="calendar-book-btns">
+      <div v-if="!this.resView" class="calendar-book-btns">
+        <button :value="0" @click="unbook" class = "unbook-btn">Unbook Sunday</button>
+        <button :value="1" @click="unbook" class = "unbook-btn">Unbook Monday</button>
+        <button :value="2" @click="unbook" class = "unbook-btn">Unbook Tuesday</button>
+        <button :value="3" @click="unbook" class = "unbook-btn">Unbook Wednesday</button>
+        <button :value="4" @click="unbook" class = "unbook-btn">Unbook Thursday</button>
+        <button :value="5" @click="unbook" class = "unbook-btn">Unbook Friday</button>
+        <button :value="6" @click="unbook" class = "unbook-btn">Unbook Saturday</button>
+      </div>
+      <div v-if="this.resView" class="calendar-book-btns">
         <button :value="0" @click="book">Book Sunday</button>
         <button :value="1" @click="book">Book Monday</button>
         <button :value="2" @click="book">Book Tuesday</button>
@@ -13,7 +22,6 @@
         <button :value="4" @click="book">Book Thursday</button>
         <button :value="5" @click="book">Book Friday</button>
         <button :value="6" @click="book">Book Saturday</button>
-  
       </div>
       <DayPilotCalendar id="dp" :config="config" ref="calendar"/>
     </div>
@@ -25,6 +33,9 @@
   import PopOut from './PopOut.vue'
   export default {
     name: 'Calendar',
+    props: {
+      resView: Boolean
+    },
     data: function () {
       return {
         config: {
@@ -82,6 +93,11 @@
               else {
                 eventText = "Available";
                 eventBarColor = "green";
+              }
+              if(!this.resView && !availability[i].is_booked) {
+                // ignoring avliable events if professor is viewing
+                // their reservation
+                continue;
               }
               // event to be added to events
               let event = {
@@ -147,6 +163,10 @@
         this.calendar.startDate = this.calendar.startDate.addDays(-7);
         this.calendar.update();
       },
+      /**
+       * Booking event that is triggered when a user clicks a day that they want to book
+       * @param  e event target 
+       */
       async book(e) {
         let bookingErr = false;
         // gets target date index
@@ -187,6 +207,42 @@
         if(bookingErr) {
           alert('dates already booked');
         }
+      },
+      async unbook(e) {
+        // gets target date index
+        let dayOfWeek = Number(e.target.value);
+        // gets correct date that we are selecting for booking
+        let dateSelected = this.calendar.startDate.firstDayOfWeek("en-us").addDays(dayOfWeek);
+        // getting all event IDs on target day
+        let eventIdList = this.dateDictionary[dateSelected.value];
+        // booking of each event
+        let authToken = window.sessionStorage.getItem('auth');
+        let baseUrl = window.location.href;
+        let index = baseUrl.indexOf('/', 10);
+        baseUrl = baseUrl.slice(0, index);
+        try {
+          for(let i = 0;i < eventIdList.length ; i++) {
+          // getting calendar event
+          let calendarEvent = this.calendar.events.find(eventIdList[i]);
+          // now need to make booking in the backend
+          let professorResData = {
+            availability_id: eventIdList[i],
+          }
+          await axios.post(`${baseUrl}/api/professorReservation/delReservation/`, professorResData, {headers: {'Authorization':`token ${authToken}`}})
+          .then(res => {
+            console.log(res);
+            this.calendar.events.remove(calendarEvent);
+            delete this.dateDictionary[dateSelected.value];
+          })
+          .catch(err => {
+            console.log(err);
+          })
+        }
+        }
+        catch {
+          alert("Nothing to unbook");
+        }
+        
       },
       goBackEvent() {
         this.$router.go(-1);
