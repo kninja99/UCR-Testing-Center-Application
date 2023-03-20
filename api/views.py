@@ -52,8 +52,7 @@ class ProfessorReservationSet(viewsets.ModelViewSet):
     def myReservedRooms(self,request):
         room_set = set()
         room_arr = []
-        #user = request.user.id
-        user = 2
+        user = request.user.id
         getReservations = ProfessorReservation.objects.filter(professor_id = user)
         serializer = ProfessorReservationSerializer(getReservations, many=True)
         for reservation in serializer.data:

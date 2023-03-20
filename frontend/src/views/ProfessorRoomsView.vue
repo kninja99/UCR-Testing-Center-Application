@@ -25,7 +25,18 @@ export default {
         let index = baseUrl.indexOf('/', 10);
         baseUrl = baseUrl.slice(0, index);
         // get request to get our testing rooms data
-        
+        await axios.get(`${baseUrl}/api/professorReservation/myReservedRooms/`,
+            { headers: { 'Authorization': `token ${authToken}` } })
+            .then((res) => {
+                let data = res.data;
+                data.forEach(element => {
+                    this.rooms.push(element);
+                });
+            })
+            // for bad api request
+            .catch((err) => {
+                console.log(err);
+            });
     }
 }
 </script>
@@ -48,8 +59,8 @@ export default {
         <div class="room-page-contents">
             <AddRoomButton v-on:click.native="routeToReservations" buttonName="Make New Reservation" />
             <div class="room-cards">
-                <ProfRoomCard cardColor='18ACFF' :roomNum="101" bldg="Winston Chung" :seatNum="30" :approval="true" />
-                <ProfRoomCard cardColor='18ACFF' :roomNum="232" bldg="Bournes" :seatNum="30" :approval="false" />
+                <ProfRoomCard v-for="(room) in this.rooms" cardColor='18ACFF' :roomNum="room.room_number" :bldg="room.bldg"
+                    :seatNum="room.capacity" :approval="true"/>
             </div>
         </div>
 
