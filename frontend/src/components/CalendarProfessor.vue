@@ -94,6 +94,11 @@
                 eventText = "Available";
                 eventBarColor = "green";
               }
+              if(!this.resView && !availability[i].is_booked) {
+                // ignoring avliable events if professor is viewing
+                // their reservation
+                continue;
+              }
               // event to be added to events
               let event = {
                 id: availability[i].id,
