@@ -18,6 +18,8 @@
     background-color: var(--Grey);
 }
 
+
+
 .sender-name{
     text-align: left;
     /* padding: 5px; */
@@ -51,10 +53,4 @@
 .received-date{
     text-align: center;
     /* padding: 5px; */
-}
-
-.read-status{
-    text-align: center;
-    /* padding: 5px; */
-    /* width: 150px; */
 }

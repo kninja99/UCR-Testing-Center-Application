@@ -24,8 +24,8 @@ export default {
             { title: 'Settings', img: 'settings-icon.svg', route: '/proctor/settings' },
             { title: 'My Account', img: 'profile-icon.svg', route: '/proctor/account' }]" />
         <div class="student-checkin-container">
-            <ProcInboxElem senderName='Prof Knight' subject='CS152 Test' message='CS 152 test at 2pm is open notes' receivedDate='03/19/2023' receivedTime='@10:32AM' readStatus="Unread"/>
-            <ProcInboxElem senderName='Prof Knight' subject='CS152 Test' message='CS 152 test at 2pm is open notes and open book' receivedDate='03/19/2023' receivedTime='@10:32AM' readStatus="Unread"/>
+            <ProcInboxElem senderName='Prof Knight' subject='CS152 Test' message='CS 152 test at 2pm is open notes' receivedDate='03/19/2023' receivedTime='@10:32AM' />
+            <ProcInboxElem senderName='Prof Knight' subject='CS152 Test' message='CS 152 test at 2pm is open notes and open book' receivedDate='03/19/2023' receivedTime='@10:32AM' />
         </div>
         <CornerStyle />
     </div>
