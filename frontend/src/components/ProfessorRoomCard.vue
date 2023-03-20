@@ -8,12 +8,17 @@ export default {
         approval: Boolean,
         seatNum: Number,
         bldg: String
-    }
+    },
+    methods: {
+        roomClickEvent() {
+            this.$router.push({ path: `rooms/${this.$props.bldg}/${this.$props.roomNum}`});
+        }
+    },
 }   
 </script>
 
 <template>
-    <div class="professor-room-card-element">
+    <div @click="roomClickEvent" class="professor-room-card-element">
         <div class="professor-room-card-element-color">
         </div>
 
