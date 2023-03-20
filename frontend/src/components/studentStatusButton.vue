@@ -21,7 +21,8 @@ export default {
 </script>
 
 <template>
-    <button @click="statusChange" 
+    <div>
+        <button @click="statusChange" 
         class="status-toggle"
         :style="{
         backgroundColor: toggle ? '#1adf00' : '#ff0000'
@@ -29,5 +30,7 @@ export default {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <span class="button-icon"><i class="fa fa-close"></i></span>
     </button>
+    </div>
+    
     
 </template>
