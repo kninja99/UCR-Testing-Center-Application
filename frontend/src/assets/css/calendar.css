@@ -55,6 +55,11 @@
   margin-inline: 8px;
 }
 
+.calendar-book-btns button.unbook-btn {
+  background-color: #f50101;
+  color: #fff;
+}
+
 .dp {
   max-width: min-content;
   display: flex;

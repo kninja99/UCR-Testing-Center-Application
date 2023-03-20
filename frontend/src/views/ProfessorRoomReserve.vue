@@ -37,7 +37,7 @@ export default {
         <NavBtn />
 
         <div class="dp-container">
-            <CalendarProfessor />
+            <CalendarProfessor :resView = "true"/>
         </div>
 
         <CornerStyle />
