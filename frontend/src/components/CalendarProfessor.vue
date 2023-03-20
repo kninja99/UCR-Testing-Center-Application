@@ -215,13 +215,13 @@
         let dateSelected = this.calendar.startDate.firstDayOfWeek("en-us").addDays(dayOfWeek);
         // getting all event IDs on target day
         let eventIdList = this.dateDictionary[dateSelected.value];
-        console.log(eventIdList)
         // booking of each event
         let authToken = window.sessionStorage.getItem('auth');
         let baseUrl = window.location.href;
         let index = baseUrl.indexOf('/', 10);
         baseUrl = baseUrl.slice(0, index);
-        for(let i = 0; i < eventIdList.length ; i++) {
+        try {
+          for(let i = 0;i < eventIdList.length ; i++) {
           // getting calendar event
           let calendarEvent = this.calendar.events.find(eventIdList[i]);
           // now need to make booking in the backend
@@ -232,11 +232,17 @@
           .then(res => {
             console.log(res);
             this.calendar.events.remove(calendarEvent);
+            delete this.dateDictionary[dateSelected.value];
           })
           .catch(err => {
-            console.log(err)
+            console.log(err);
           })
         }
+        }
+        catch {
+          alert("Nothing to unbook");
+        }
+        
       },
       goBackEvent() {
         this.$router.go(-1);
