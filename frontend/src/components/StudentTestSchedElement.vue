@@ -9,9 +9,16 @@ import StudentTestViewVue from '../views/StudentTestView.vue';
         },
         methods: {
             studentBookClick() {
-                this.show = true;
-                this.book = "Booked"
-                alert("Test Booked")
+                if(this.show) {
+                    this.show = false;
+                    this.book = "Book";
+                    alert("Test Unbooked");
+                }
+                else {
+                    this.show = true;
+                    this.book = "Unbook";
+                    alert("Test Booked");
+                }
             },
         },
         props: {
@@ -66,7 +73,9 @@ import StudentTestViewVue from '../views/StudentTestView.vue';
             </div> 
         </div>
         <div class="student-book-button-container"> 
-            <p><button v-on:click="studentBookClick"
+            <p v-if="!this.show"><button v-on:click="studentBookClick"
+            class="student-book-button">{{book}}</button></p>
+            <p v-else><button v-on:click="studentBookClick"
             class="student-book-button">{{book}}</button></p>
         </div>
         
