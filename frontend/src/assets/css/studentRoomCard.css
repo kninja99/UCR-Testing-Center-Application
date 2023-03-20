@@ -1,4 +1,4 @@
-.student-room-card-element{
+.student-room-card-element {
     min-width: 200px;
     top: 0px;
     margin: 10px 20px;
@@ -6,15 +6,20 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
-.student-room-card-element-color{
+.student-room-card-element-color {
     background-color: #18ACFF;
     min-height: 150px;
 }
 
-.room-card-element-text{
+.student-room-card-element-text {
     min-width: 200px;
     min-height: 40px;
     padding: 10px;
     background-color: white;
     text-align: left;
+    line-height: 24px;
+}
+
+.room-card-student {
+    justify-content: flex-start;
 }

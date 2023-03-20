@@ -55,6 +55,11 @@ button {
     border: none;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 button:hover {
     cursor: pointer;
 }
@@ -85,14 +90,15 @@ button:hover {
     .page-content {
         grid-template-columns: 1fr 3fr;
     }
-    
-    .message p{
+
+    .message p {
         width: 100%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    .proctor-inbox-element{
+
+    .proctor-inbox-element {
         width: 100%;
     }
 }
@@ -103,13 +109,15 @@ button:hover {
             "card card"
             "card card";
     }
-    .message p{
+
+    .message p {
         width: 100%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    .proctor-inbox-element{
+
+    .proctor-inbox-element {
         width: 100%;
     }
 }
@@ -121,7 +129,8 @@ button:hover {
             "card card"
             "card card";
     }
-    .proctor-inbox-element{
+
+    .proctor-inbox-element {
         width: 100%;
     }
 }
@@ -196,13 +205,15 @@ button:hover {
     .student-test-sched-element {
         flex-wrap: wrap;
     }
-    .message p{
+
+    .message p {
         width: 100%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    .proctor-inbox-element{
+
+    .proctor-inbox-element {
         width: 100%;
     }
 }
@@ -231,7 +242,8 @@ button:hover {
     .student-test-sched-element {
         flex-wrap: wrap;
     }
-    .proctor-inbox-element{
+
+    .proctor-inbox-element {
         width: 100%;
     }
 }
@@ -247,13 +259,15 @@ button:hover {
     .room-cards {
         justify-content: center;
     }
-    .message p{
+
+    .message p {
         width: 100%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    .proctor-inbox-element{
+
+    .proctor-inbox-element {
         width: 100%;
     }
 }

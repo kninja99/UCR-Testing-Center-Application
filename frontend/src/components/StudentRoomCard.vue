@@ -10,11 +10,10 @@ export default {
 
 <template>
     <router-link :to="route" class="student-room-card-element">
-        <div class="student-room-card-element-color">
-        </div>
+        <div class="student-room-card-element-color"></div>
 
-        <div class="room-card-element-text">
-            {{className}}<br>Prof {{profName}}
+        <div class="student-room-card-element-text">
+            <div class="room-card-student">{{className}} <br> Prof {{profName}} </div>
         </div>
     </router-link>
 </template>
