@@ -21,6 +21,7 @@ import ProfessorResRoomSelect from '../views/ProfessorResRoomSelect.vue';
 import ProfessorReservation from '../views/ProfessorReservation.vue';
 import StudentInbox from '../views/StudentInbox.vue'
 import ProctorInbox from '../views/ProctorInbox.vue'
+import ProfessorBookingList from '../views/ProfListOfStudentBooking.vue'
 
 
 Vue.use(VueRouter);
@@ -160,6 +161,15 @@ const routes = [
     path: '/professor/rooms/:bldg/:room',
     name: 'Professor-res-view',
     component: ProfessorReservation,
+    meta: {
+      needAuth: true,
+      userType: 'professor',
+    },
+  },
+  {
+    path: '/professor/rooms/prof-student-list',
+    name: 'Professor-res-view',
+    component: ProfessorBookingList,
     meta: {
       needAuth: true,
       userType: 'professor',
