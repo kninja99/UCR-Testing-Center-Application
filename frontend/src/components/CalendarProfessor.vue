@@ -1,6 +1,7 @@
 <template>
     <div class="calendar-container">
       <button @click="goBackEvent" class="go-back-btn">Go Back</button>
+      <button @click="goToList" class="prof-student-list-btn">Student List</button>
       <div class="calendar-nav-btns">
         <button @click="previousWeek">Previous</button>
         <button @click="advanceWeek">Next</button>
@@ -246,6 +247,9 @@
       },
       goBackEvent() {
         this.$router.go(-1);
+      },
+      goToList(){
+        this.$router.push({ path: '/professor/rooms/prof-student-list'})
       }
     },
     mounted() {

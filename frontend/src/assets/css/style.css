@@ -16,7 +16,7 @@
 @import url(./studentSched.css);
 @import url(./profRoomCard.css);
 @import url(./proctorInboxElement.css);
-
+@import url(./profStudList.css);
 
 
 :root {
@@ -292,5 +292,21 @@ button:hover {
 }
 
 .go-back-btn:hover {
+    background-color: var(--GoldHover);
+}
+
+.prof-student-list-btn{
+    background-color: var(--UcrGold);
+    font-size: 16px;
+    border-radius: 20px;
+    margin-top: 10px;
+    float: left;
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-weight: 600;
+    color: #292929;
+}
+
+.prof-student-list-btn:hover {
     background-color: var(--GoldHover);
 }
