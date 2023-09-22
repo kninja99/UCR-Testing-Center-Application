@@ -11,8 +11,8 @@ Team members: Kyle Damschen, Gregory Griffith, Eric Chu, Kathleen Dario
 Tools that will be used:
 
 Django
-Vue or React (undecided but both JS frameworks)
-SQL
+Vue
+PostgreSQL
 Javascript
 Python
 
